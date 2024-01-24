@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    int position;
-    // Start is called before the first frame update
     void Start()
     {
-        position = 0;
+        Physics2D.gravity = Vector2.zero;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(position, position, 0);
-        position += 1;
+
     }
 }
