@@ -3,9 +3,11 @@ using UnityEngine;
 public class PlayerTest : MonoBehaviour
 {
     [Header("Dependencies")]
+    
     [SerializeField] private Rigidbody2D rb;
 
     [Header("Parameters")]
+    
     [SerializeField] private float runSpeed = 5;
     [SerializeField] private float runWindup = 0.05f;
     [SerializeField] private float jumpForce = 7.5f;
@@ -14,6 +16,7 @@ public class PlayerTest : MonoBehaviour
     [SerializeField] private float dashForce = 25;
     
     [Header("State")]
+    
     [SerializeField] private float runMomentum = 0;
     [SerializeField] private float facing = 1;
     [SerializeField] private int groundContact = 0;
