@@ -4,13 +4,16 @@ using UnityEngine.Serialization;
 public class FoliageGenerator : MonoBehaviour
 {
     [Header("Dependencies")]
+    
     [SerializeField] private CameraVariable camVar;
     [SerializeField] private GameObject foliagePrefab;
 
     [Header("Parameters")]
+    
     [SerializeField] private float foliageSpacing = 5;
     
     [Header("State")]
+    
     [SerializeField] private int leftBound = 0;
     [SerializeField] private int rightBound = 1;
 

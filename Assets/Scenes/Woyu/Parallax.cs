@@ -3,9 +3,11 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     [Header("Dependencies")]
+    
     [SerializeField] private CameraVariable camVar;
     
     [Header("Parameters")]
+    
     [SerializeField] [Range(-1, 1)] private float depth = 0;
 
     private void Update()

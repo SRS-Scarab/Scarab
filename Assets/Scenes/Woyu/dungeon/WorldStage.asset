@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb735885e6b47a4bb7d8a7609210ae6, type: 3}
+  m_Name: WorldStage
+  m_EditorClassIdentifier: 
+  baseTile: {fileID: 11400000, guid: 83c49b8d93fa1894a8afffd8de3621e5, type: 2}
+  featureProbability: 0.1
+  featureTiles:
+  - {fileID: 11400000, guid: 4ec99179a0e37c04391e7553bb1ff190, type: 2}
+  - {fileID: 11400000, guid: 3acc4c7b68f4ed64e800d5ccb0910b2f, type: 2}
+  - {fileID: 11400000, guid: 7e190f7f770c8ea409c310261c8a660a, type: 2}
+  generationBounds: 20
