@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerHP playerHP;
     void Start()
     {
         Physics2D.gravity = Vector2.zero;
@@ -11,6 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
+        playerHP.damage(1);
     }
 }
