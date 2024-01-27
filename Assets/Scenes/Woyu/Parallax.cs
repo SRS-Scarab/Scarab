@@ -1,10 +1,11 @@
+#nullable enable
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] private CameraVariable camVar;
+    [SerializeField] private CameraVariable? camVar;
     
     [Header("Parameters")]
     
@@ -12,11 +13,11 @@ public class Parallax : MonoBehaviour
 
     private void Update()
     {
-        if (camVar.value != null)
-        {
-            Vector3 position = transform.position;
-            position.x = camVar.value.transform.position.x * depth;
-            transform.position = position;
-        }
+        if (camVar == null) return;
+        var cam = camVar.Provide();
+        if (cam == null) return;
+        var position = transform.position;
+        position.x = cam.transform.position.x * depth;
+        transform.position = position;
     }
 }
