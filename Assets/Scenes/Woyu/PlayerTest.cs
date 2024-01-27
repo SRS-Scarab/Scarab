@@ -1,10 +1,11 @@
+#nullable enable
 using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D? rb;
 
     [Header("Parameters")]
     
@@ -17,69 +18,49 @@ public class PlayerTest : MonoBehaviour
     
     [Header("State")]
     
-    [SerializeField] private float runMomentum = 0;
+    [SerializeField] private float runMomentum;
     [SerializeField] private float facing = 1;
-    [SerializeField] private int groundContact = 0;
-    [SerializeField] private int softContact = 0;
-    [SerializeField] private int dashCharges = 0;
+    [SerializeField] private int groundContact;
+    [SerializeField] private int softContact;
+    [SerializeField] private int dashCharges;
 
     private void Update()
     {
-        if (groundContact > 0)
-        {
-            dashCharges = maxDashes;
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Dash();
-        }
+        if (rb == null) return;
+        if (groundContact > 0) dashCharges = maxDashes;
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
+        if (Input.GetKeyDown(KeyCode.LeftShift)) Dash();
     }
 
     private void FixedUpdate()
     {
+        if (rb == null) return;
         Move(Input.GetAxis("Horizontal"));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            groundContact++;
-        }
+        if (other.gameObject.CompareTag("Ground")) groundContact++;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            groundContact--;
-        }
+        if (other.gameObject.CompareTag("Ground")) groundContact--;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            softContact++;
-        }
+        if (other.gameObject.CompareTag("Ground")) softContact++;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            softContact--;
-        }
+        if (other.gameObject.CompareTag("Ground")) softContact--;
     }
 
     private void Move(float amount)
     {
+        if (rb == null) return;
         if (amount != 0) facing = Mathf.Sign(amount);
         runMomentum = Lerp(rb.velocity.x, amount * runSpeed, (runSpeed / runWindup) * Time.fixedDeltaTime);
         rb.velocity = new Vector2(runMomentum, rb.velocity.y);
@@ -87,18 +68,14 @@ public class PlayerTest : MonoBehaviour
 
     private void Jump()
     {
-        if (groundContact > 0)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        else if (softContact > 0)
-        {
-            rb.AddForce(Vector2.up * (jumpForce * softJumpMultiplier), ForceMode2D.Impulse);
-        }
+        if (rb == null) return;
+        if (groundContact > 0) rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        else if (softContact > 0) rb.AddForce(Vector2.up * (jumpForce * softJumpMultiplier), ForceMode2D.Impulse);
     }
 
     private void Dash()
     {
+        if (rb == null) return;
         if (dashCharges > 0)
         {
             rb.velocity = Vector2.zero;

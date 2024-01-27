@@ -1,12 +1,15 @@
+#nullable enable
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "Generation/Stages/World")]
 public class WorldGeneratorStage : GeneratorStage
 {
-    public TileBase baseTile;
+    public TileBase? baseTile;
     public float featureProbability;
-    public TileBase[] featureTiles;
+    public TileBase[] featureTiles = Array.Empty<TileBase>();
     public int generationBounds;
     
     public override void Generate(Tilemap target)

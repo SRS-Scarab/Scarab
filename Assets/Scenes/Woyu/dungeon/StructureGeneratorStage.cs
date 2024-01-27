@@ -1,13 +1,16 @@
+#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "Generation/Stages/Structure")]
 public class StructureGeneratorStage : GeneratorStage
 {
-    public GeneratedStructureType seedStructure;
-    public GeneratedStructureType[] allowedTypes;
+    public GeneratedStructureType? seedStructure;
+    public GeneratedStructureType[] allowedTypes = Array.Empty<GeneratedStructureType>();
     public int generationBounds;
 
     public override void Generate(Tilemap target)
@@ -35,9 +38,11 @@ public class StructureGeneratorStage : GeneratorStage
         }
     }
 
-    private void GenerateStructure(Tilemap target, GeneratedStructureType type, Vector2Int position, List<GeneratedConnectionMetadata> pending)
+    private void GenerateStructure(Tilemap target, GeneratedStructureType? type, Vector2Int position, List<GeneratedConnectionMetadata> pending)
     {
+        if (type == null) return;
         var from = type.GetPrefabTilemap();
+        if (from == null) return;
         var bounds = from.cellBounds;
         for (var x = bounds.xMin; x <= bounds.xMax; x++)
         {
@@ -57,5 +62,5 @@ public class StructureGeneratorStage : GeneratorStage
         pending.AddRange(type.GetPrefabConnections().Select(x => new GeneratedConnectionMetadata(x.tilePosition + position, x.connectionType)));
     }
 
-    private record GeneratedConnectionMetadata(Vector2Int WorldPosition, GeneratedConnectionType ConnectionType);
+    private record GeneratedConnectionMetadata(Vector2Int WorldPosition, GeneratedConnectionType? ConnectionType);
 }

@@ -1,12 +1,12 @@
+#nullable enable
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class FoliageGenerator : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] private CameraVariable camVar;
-    [SerializeField] private GameObject foliagePrefab;
+    [SerializeField] private CameraVariable? camVar;
+    [SerializeField] private GameObject? foliagePrefab;
 
     [Header("Parameters")]
     
@@ -19,24 +19,23 @@ public class FoliageGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (camVar.value != null)
+        if (camVar == null || foliagePrefab == null) return;
+        var cam = camVar.Provide();
+        if (cam == null) return;
+        var diff = cam.transform.position.x - transform.position.x;
+        var left = Mathf.FloorToInt((diff - (cam.orthographicSize * Screen.width / Screen.height) * 1.5f) / foliageSpacing);
+        var right = Mathf.FloorToInt((diff + (cam.orthographicSize * Screen.width / Screen.height) * 1.5f) / foliageSpacing);
+        while (leftBound >= left)
         {
-            float diff = camVar.value.transform.position.x - transform.position.x;
-            int left = Mathf.FloorToInt((diff - (camVar.value.orthographicSize * Screen.width / Screen.height) * 1.5f) / foliageSpacing);
-            int right = Mathf.FloorToInt((diff + (camVar.value.orthographicSize * Screen.width / Screen.height) * 1.5f) / foliageSpacing);
-            while (leftBound >= left)
-            {
-                GameObject tree = Instantiate(foliagePrefab, transform);
-                tree.transform.localPosition = Vector3.right * (leftBound * foliageSpacing);
-                leftBound--;
-            }
-
-            while (rightBound <= right)
-            {
-                GameObject tree = Instantiate(foliagePrefab, transform);
-                tree.transform.localPosition = Vector3.right * (rightBound * foliageSpacing);
-                rightBound++;
-            }
+            var obj = Instantiate(foliagePrefab, transform);
+            obj.transform.localPosition = Vector3.right * (leftBound * foliageSpacing);
+            leftBound--;
+        }
+        while (rightBound <= right)
+        {
+            var obj = Instantiate(foliagePrefab, transform);
+            obj.transform.localPosition = Vector3.right * (rightBound * foliageSpacing);
+            rightBound++;
         }
     }
 }
