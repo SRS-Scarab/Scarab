@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerHP playerHP;
-    public Rigidbody rb;
+    public Rigidbody2D rb;
+    public float speed;
     void Start()
     {
         Physics2D.gravity = Vector2.zero;
-        rb = GetComponent<Rigidbody>();
-
+        rb = GetComponent<Rigidbody2D>();
+        speed = 5f;
     }
 
     void Update()
@@ -19,14 +20,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateMovement()
     {
-        List<string> buttonNames = new List<string>() { "Left", "Right", "Up", "Down" };
-        if (Input.GetButton("Left"))
-            rb.velocity = Vector3Int.left;
-        else if (Input.GetButton("Right"))
-            rb.velocity = Vector3Int.right;
-        else if (Input.GetButton("Up"))
-            rb.velocity = Vector3Int.up;
-        else if (Input.GetButton("Down"))
-            rb.velocity = Vector3Int.down;
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
     }
 }
