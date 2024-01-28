@@ -27,7 +27,6 @@ public class Interactable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (subsystem == null) return;
-        Debug.Log(subsystem.GetPlayerObject());
         if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
     }
 
