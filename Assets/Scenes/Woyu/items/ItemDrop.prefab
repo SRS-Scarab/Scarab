@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 668418455436904488}
   - component: {fileID: 768689848615256699}
   - component: {fileID: 8847544553440461960}
+  - component: {fileID: -6997652030927571528}
   m_Layer: 0
   m_Name: ItemDrop
   m_TagString: Untagged
@@ -163,3 +164,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: {fileID: 0}
   quantity: 0
+--- !u!114 &-6997652030927571528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462550292980316472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f33074b5a2f6f24b98206e50ce0287d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subsystem: {fileID: 11400000, guid: a4cf64b32a3c6634fbce809668a841e4, type: 2}
+  interactionRange: 1
+  interactionPriority: 0
+  promptText: Pick Up

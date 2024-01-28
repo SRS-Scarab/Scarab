@@ -21,8 +21,7 @@ public class LootTable : ScriptableObject
             {
                 var obj = Instantiate(itemDropPrefab, position, Quaternion.identity);
                 var drop = obj.GetComponent<ItemDrop>();
-                drop.itemType = entry.itemType;
-                drop.quantity = Random.Range(entry.minQuantity, entry.maxQuantity + 1);
+                drop.Initialize(entry.itemType!, Random.Range(entry.minQuantity, entry.maxQuantity + 1));
                 var rb = obj.GetComponent<Rigidbody2D>();
                 rb.AddForce(Random.insideUnitCircle, ForceMode2D.Impulse);
             }
