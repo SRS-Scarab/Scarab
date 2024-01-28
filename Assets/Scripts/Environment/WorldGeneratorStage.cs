@@ -18,7 +18,7 @@ public class WorldGeneratorStage : GeneratorStage
         {
             for (var y = -generationBounds; y <= generationBounds; y++)
             {
-                var generated = Random.Range(0.0f, 1);
+                var generated = Random.Range(0f, 1f);
                 if (generated <= featureProbability)
                 {
                     var feature = featureTiles[Random.Range(0, featureTiles.Length)];
