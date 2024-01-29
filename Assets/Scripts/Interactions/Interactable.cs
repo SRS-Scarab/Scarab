@@ -6,13 +6,13 @@ public class Interactable : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] public InteractionSubsystem? subsystem;
+    [SerializeField] private InteractionSubsystem? subsystem;
 
     [Header("Parameters")]
     
-    [SerializeField] public float interactionRange = 1;
-    [SerializeField] public int interactionPriority;
-    [SerializeField] public string promptText = string.Empty;
+    [SerializeField] private float interactionRange = 1;
+    [SerializeField] private int interactionPriority;
+    [SerializeField] private string promptText = string.Empty;
 
     public event EventHandler? OnInteract;
 
@@ -35,6 +35,12 @@ public class Interactable : MonoBehaviour
         if (subsystem == null) return;
         if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
     }
+
+    public int GetInteractionPriority() => interactionPriority;
+    
+    public string GetPromptText() => promptText;
+
+    public void SetPromptText(string newText) => promptText = newText;
 
     public void Interact()
     {

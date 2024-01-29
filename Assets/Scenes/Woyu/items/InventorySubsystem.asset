@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827f58b52e784b74da5c1a5952eb00a7, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: d18b446f64651ec439c465d757bd9441, type: 3}
+  m_Name: InventorySubsystem
   m_EditorClassIdentifier: 
-  inventory:
-    maxSlots: 27
-    itemStacks:
-    - itemType: {fileID: 11400000, guid: 5c18ab41f92c3c24ba939a2ca5fe4913, type: 2}
-      quantity: 5
+  prevInventory:
+    rid: -2
+  prevIndex: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

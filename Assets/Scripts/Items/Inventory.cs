@@ -18,7 +18,21 @@ public class Inventory
         this.maxSlots = maxSlots;
     }
 
-    public ItemStack GetStack(int index) => itemStacks[index];
+    public int GetMaxSlots() => maxSlots;
+
+    public ItemStack GetStack(int index)
+    {
+        EnsureCount();
+        return itemStacks[index];
+    }
+
+    public bool SetStack(int index, ItemStack stack)
+    {
+        EnsureCount();
+        if (stack.quantity < 0 || (stack.itemType == null && stack.quantity > 0) || (stack.itemType != null && stack.quantity == 0)) return false;
+        itemStacks[index] = stack;
+        return true;
+    }
     
     public int CountItems(ItemType type)
     {
@@ -49,7 +63,7 @@ public class Inventory
             }
         }
         
-        while(itemStacks.Count < maxSlots) itemStacks.Add(new ItemStack());
+        EnsureCount();
         
         for (var i = 0; i < GetBound(OperationType.Add); i++)
         {
@@ -88,8 +102,14 @@ public class Inventory
         return ret;
     }
 
+    private void EnsureCount()
+    {
+        while(itemStacks.Count < maxSlots) itemStacks.Add(new ItemStack());
+    }
+
     private int GetBound(OperationType type)
     {
+        EnsureCount();
         return type == OperationType.Add ? maxSlots : itemStacks.Count;
     }
 

@@ -11,7 +11,7 @@ public class InteractionSubsystem : ScriptableObject
 
     public GameObject? GetPlayerObject() => playerVariable == null ? null : playerVariable.Provide();
 
-    public Interactable? GetInteractable() => availableInteractables.OrderByDescending(e => e.interactionPriority).ThenBy(GetDistanceScore).FirstOrDefault();
+    public Interactable? GetInteractable() => availableInteractables.OrderByDescending(e => e.GetInteractionPriority()).ThenBy(GetDistanceScore).FirstOrDefault();
 
     public void AddInteractable(Interactable interactable) => availableInteractables.Add(interactable);
 

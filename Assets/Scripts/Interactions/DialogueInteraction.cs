@@ -7,12 +7,17 @@ public class DialogueInteraction : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] public DialogueRunner? dialogueRunner;
-    [SerializeField] public Interactable? interactable;
+    [SerializeField] private DialogueRunner? dialogueRunner;
+    [SerializeField] private Interactable? interactable;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (interactable != null) interactable.OnInteract += OnTriggerDialogue;
+    }
+
+    private void OnDisable()
+    {
+        if (interactable != null) interactable.OnInteract -= OnTriggerDialogue;
     }
 
     private void OnTriggerDialogue(object sender, EventArgs args)
