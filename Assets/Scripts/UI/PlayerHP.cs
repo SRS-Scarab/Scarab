@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    private int HP;
+    public int HP;
     private Slider HPBar;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class PlayerHP : MonoBehaviour
     }
     public void damage(int damage)
     {
+        // want to animate this
         HP -= damage;
         if (HP <= 0)
         {
