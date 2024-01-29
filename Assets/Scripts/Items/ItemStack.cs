@@ -18,4 +18,6 @@ public struct ItemStack
         itemType = other.itemType;
         quantity = other.quantity;
     }
+
+    public bool IsValid() => (itemType == null && quantity == 0) || (itemType != null && quantity > 0 && quantity <= itemType.stackSize);
 }

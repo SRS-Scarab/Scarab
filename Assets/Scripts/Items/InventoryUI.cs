@@ -6,13 +6,16 @@ public class InventoryUI : MonoBehaviour
     [Header("Dependencies")]
     
     [SerializeField] private CanvasGroup? group;
+    [SerializeField] private InventoryVariable? equipmentVar;
     [SerializeField] private InventoryVariable? inventoryVar;
     [SerializeField] private InventoryVariable? hotbarVar;
+    [SerializeField] private InventoryGrid? equipmentGrid;
     [SerializeField] private InventoryGrid? inventoryGrid;
     [SerializeField] private InventoryGrid? hotbarGrid;
 
     private void Awake()
     {
+        if (equipmentVar != null && equipmentGrid != null) equipmentGrid.Initialize(equipmentVar.Provide());
         if (inventoryVar != null && inventoryGrid != null) inventoryGrid.Initialize(inventoryVar.Provide());
         if (hotbarVar != null && hotbarGrid != null) hotbarGrid.Initialize(hotbarVar.Provide());
     }

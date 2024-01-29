@@ -3,10 +3,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlotIndicator : MonoBehaviour
 {
     [Header("Dependencies")]
     
+    [SerializeField] private Image? categoryIcon;
     [SerializeField] private Image? icon;
     [SerializeField] private Image? highlight;
     [SerializeField] private Button? button;
@@ -23,14 +24,16 @@ public class InventorySlot : MonoBehaviour
         if (target != null)
         {
             var stack = target.GetStack(index);
+            if (categoryIcon != null)
+            {
+                var filter = target.GetFilter(index);
+                categoryIcon.enabled = stack.itemType == null && filter != null;
+                if (filter != null) categoryIcon.sprite = filter.categoryIcon;
+            }
             if (icon != null)
             {
-                if (stack.itemType == null) icon.color = Color.clear;
-                else
-                {
-                    icon.color = Color.white;
-                    icon.sprite = stack.itemType.icon;
-                }
+                icon.enabled = stack.itemType != null;
+                if (stack.itemType != null) icon.sprite = stack.itemType.icon;
             }
             if (highlight != null && grid != null) highlight.enabled = grid.IsSelected(index);
             if (quantityText != null) quantityText.text = stack.quantity == 0 ? "" : stack.quantity.ToString();

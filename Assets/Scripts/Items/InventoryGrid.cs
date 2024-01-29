@@ -20,7 +20,7 @@ public class InventoryGrid : MonoBehaviour
         {
             while (slots < target.GetMaxSlots())
             {
-                var slot = Instantiate(slotPrefab, transform).GetComponent<InventorySlot>();
+                var slot = Instantiate(slotPrefab, transform).GetComponent<InventorySlotIndicator>();
                 slot.Initialize(this, target, slots);
                 slots++;
             }

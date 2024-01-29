@@ -13,7 +13,112 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   inventory:
-    maxSlots: 27
-    itemStacks:
-    - itemType: {fileID: 11400000, guid: 5c18ab41f92c3c24ba939a2ca5fe4913, type: 2}
-      quantity: 5
+    slots:
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 11400000, guid: 5c18ab41f92c3c24ba939a2ca5fe4913, type: 2}
+        quantity: 5
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 11400000, guid: c420340dfc32d194891e987c079f9e73, type: 2}
+        quantity: 1
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0

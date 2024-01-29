@@ -27,18 +27,27 @@ public class InventorySubsystem : ScriptableObject
             }
             else
             {
-                var stack = prevInventory.GetStack(prevIndex);
-                if (stack.itemType == null)
+                var prevStack = prevInventory.GetStack(prevIndex);
+                if (prevStack.itemType == null)
                 {
                     prevInventory = newInventory;
                     prevIndex = newIndex;
                 }
                 else
                 {
-                    prevInventory.SetStack(prevIndex, newInventory.GetStack(newIndex));
-                    newInventory.SetStack(newIndex, stack);
-                    prevInventory = null;
-                    prevIndex = -1;
+                    var newStack = newInventory.GetStack(newIndex);
+                    if (prevInventory.SetStack(prevIndex, newStack))
+                    {
+                        if (newInventory.SetStack(newIndex, prevStack))
+                        {
+                            prevInventory = null;
+                            prevIndex = -1;
+                        }
+                        else
+                        {
+                            prevInventory.SetStack(prevIndex, prevStack);
+                        }
+                    }
                 }
             }
         }
