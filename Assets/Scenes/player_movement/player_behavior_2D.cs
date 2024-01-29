@@ -23,7 +23,7 @@ public class player_behavior : MonoBehaviour
         //move left or right
         Move_X = Input.GetAxis("Horizontal");
         Move_Y = Input.GetAxis("Vertical");
-        Quaternion rotation = Quaternion.Euler(0f, 0f, -40f);
+        Quaternion rotation = Quaternion.Euler(0f, 0f, -45f);
         Vector2 movement = new Vector2(speed * Move_X , speed * Move_Y).normalized;
         movement = rotation * movement;
         rb.velocity = movement;
