@@ -1,29 +1,28 @@
 #nullable enable
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class InteractionIndicator : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] public RectTransform? rect;
-    [SerializeField] public CameraVariable? camVar;
-    [SerializeField] public TextMeshProUGUI? interactionText;
-    [SerializeField] public Image? arrowImage;
-    [SerializeField] public float alphaTweenDuration = 0.5f;
-    [SerializeField] public RectTransform? arrowRect;
-    [SerializeField] public float minArrowHeight = 30;
-    [SerializeField] public float maxArrowHeight = 60;
-    [SerializeField] public AnimationCurve heightCurve = new();
-    [SerializeField] public float heightPeriod = 0.5f;
+    [SerializeField] private RectTransform? rect;
+    [SerializeField] private CameraVariable? camVar;
+    [SerializeField] private TextMeshProUGUI? interactionText;
+    [SerializeField] private Image? arrowImage;
+    [SerializeField] private float alphaTweenDuration = 0.5f;
+    [SerializeField] private RectTransform? arrowRect;
+    [SerializeField] private float minArrowHeight = 30;
+    [SerializeField] private float maxArrowHeight = 60;
+    [SerializeField] private AnimationCurve heightCurve = new();
+    [SerializeField] private float heightPeriod = 0.5f;
     
     [Header("State")]
     
-    [SerializeField] public Interactable? target;
-    [SerializeField] public float aliveTime;
-    [FormerlySerializedAs("invalid")] [SerializeField] public bool isDisposed;
+    [SerializeField] private Interactable? target;
+    [SerializeField] private float aliveTime;
+    [SerializeField] private bool isDisposed;
 
     private void Awake()
     {
@@ -56,7 +55,7 @@ public class InteractionIndicator : MonoBehaviour
         target = interactable;
         if (interactionText != null)
         {
-            interactionText.text = target.promptText;
+            interactionText.text = target.GetPromptText();
             interactionText.CrossFadeAlpha(1, alphaTweenDuration, false);
         }
         if (arrowImage != null) arrowImage.CrossFadeAlpha(1, alphaTweenDuration, false);

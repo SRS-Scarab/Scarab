@@ -25,13 +25,14 @@ public class ItemDrop : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = itemType.icon;
         if (interactable != null)
         {
-            interactable.promptText = $"{itemType.name} ({quantity})";
+            interactable.SetPromptText($"{itemType.name} ({quantity})");
             interactable.OnInteract += OnPickUp;
         }
     }
 
     private void OnPickUp(object sender, EventArgs args)
     {
+        if (interactable != null) interactable.OnInteract -= OnPickUp;
         // todo add to player inventory
     }
 }

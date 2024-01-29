@@ -12,4 +12,10 @@ public struct ItemStack
         this.itemType = itemType;
         this.quantity = quantity;
     }
+
+    public ItemStack(ItemStack other)
+    {
+        itemType = other.itemType;
+        quantity = other.quantity;
+    }
 }
