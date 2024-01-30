@@ -1,13 +1,13 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
 public class Inventory
 {
-    [SerializeField] private int maxSlots;
-    [SerializeField] private List<ItemStack> itemStacks = new();
+    [SerializeField] private List<ItemSlot> slots = new();
     
     public Inventory()
     {
@@ -15,20 +15,23 @@ public class Inventory
 
     public Inventory(int maxSlots)
     {
-        this.maxSlots = maxSlots;
+        for (var i = 0; i < maxSlots; i++) slots.Add(new ItemSlot());
     }
 
-    public ItemStack GetStack(int index) => itemStacks[index];
-    
-    public int CountItems(ItemType type)
+    public int GetMaxSlots() => slots.Count;
+
+    public ItemCategory? GetFilter(int index) => slots[index].filter;
+
+    public ItemStack GetStack(int index) => slots[index].stack;
+
+    public bool SetStack(int index, ItemStack stack)
     {
-        var ret = 0;
-        for (var i = 0; i < GetBound(OperationType.RemoveOrQuery); i++)
-        {
-            if (itemStacks[i].itemType == type) ret += itemStacks[i].quantity;
-        }
-        return ret;
+        if (!slots[index].CanAccept(stack)) return false;
+        slots[index].stack = stack;
+        return true;
     }
+    
+    public int CountItems(ItemType type) => slots.Where(slot => slot.stack.itemType == type).Sum(slot => slot.stack.quantity);
 
     /// <summary>
     /// 
@@ -38,26 +41,24 @@ public class Inventory
     /// <returns>Quantity that was not able to be added</returns>
     public int AddItems(ItemType type, int quantity)
     {
-        for (var i = 0; i < GetBound(OperationType.Add); i++)
+        foreach (var slot in slots)
         {
-            if (itemStacks[i].itemType == type)
+            if (slot.stack.itemType == type)
             {
-                var added = Mathf.Min(type.stackSize - itemStacks[i].quantity, quantity);
+                var added = Mathf.Min(type.stackSize - slot.stack.quantity, quantity);
                 quantity -= added;
-                itemStacks[i] = new ItemStack(type, itemStacks[i].quantity + added);
+                slot.stack = new ItemStack(type, slot.stack.quantity + added);
                 if (quantity == 0) return 0;
             }
         }
         
-        while(itemStacks.Count < maxSlots) itemStacks.Add(new ItemStack());
-        
-        for (var i = 0; i < GetBound(OperationType.Add); i++)
+        foreach (var slot in slots)
         {
-            if (itemStacks[i].itemType == null)
+            if (slot.stack.itemType == null)
             {
                 var added = Mathf.Min(type.stackSize, quantity);
                 quantity -= added;
-                itemStacks[i] = new ItemStack(type, added);
+                slot.stack = new ItemStack(type, added);
                 if (quantity == 0) return 0;
             }
         }
@@ -74,28 +75,16 @@ public class Inventory
     public int RemoveItems(ItemType type, int quantity)
     {
         var ret = 0;
-        for (var i = 0; i < GetBound(OperationType.RemoveOrQuery); i++)
+        foreach (var slot in slots)
         {
-            if (itemStacks[i].itemType == type)
+            if (slot.stack.itemType == type)
             {
-                var removed = Mathf.Min(itemStacks[i].quantity, quantity - ret);
+                var removed = Mathf.Min(slot.stack.quantity, quantity - ret);
                 ret += removed;
-                if (removed == itemStacks[i].quantity) itemStacks[i] = new ItemStack();
-                else itemStacks[i] = new ItemStack(type, itemStacks[i].quantity - removed);
+                slot.stack = removed == slot.stack.quantity ? new ItemStack() : new ItemStack(type, slot.stack.quantity - removed);
                 if (ret == quantity) return ret;
             }
         }
         return ret;
-    }
-
-    private int GetBound(OperationType type)
-    {
-        return type == OperationType.Add ? maxSlots : itemStacks.Count;
-    }
-
-    private enum OperationType
-    {
-        Add,
-        RemoveOrQuery
     }
 }

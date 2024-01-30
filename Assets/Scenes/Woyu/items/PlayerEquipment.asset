@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827f58b52e784b74da5c1a5952eb00a7, type: 3}
+  m_Name: PlayerEquipment
+  m_EditorClassIdentifier: 
+  inventory:
+    slots:
+    - filter: {fileID: 11400000, guid: 2715af7208f97a44693ff23ef2ff7a07, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: 576733c4002cb1040964133d38acd530, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: 676849e2f5da13c4581d93ab74d0f3c2, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: 577183a338be0aa4f9bbdc742e034a37, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: 6bb03438e8a605e4489b24529ba4a692, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: d8ee72ed8b2e4b745a1733330a5f8741, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: ffb52e76064e7c744b23ccd280dc0817, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 11400000, guid: ffb52e76064e7c744b23ccd280dc0817, type: 2}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0

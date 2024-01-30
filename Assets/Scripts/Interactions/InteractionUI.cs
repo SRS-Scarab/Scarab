@@ -5,13 +5,13 @@ public class InteractionUI : MonoBehaviour
 {
     [Header("Dependencies")]
     
-    [SerializeField] public InteractionSubsystem? subsystem;
-    [SerializeField] public GameObject? indicatorPrefab;
+    [SerializeField] private InteractionSubsystem? subsystem;
+    [SerializeField] private GameObject? indicatorPrefab;
     
     [Header("State")]
     
-    [SerializeField] public Interactable? previous;
-    [SerializeField] public InteractionIndicator? indicator;
+    [SerializeField] private Interactable? previous;
+    [SerializeField] private InteractionIndicator? indicator;
 
     private void Update()
     {

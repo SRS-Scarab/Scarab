@@ -13,5 +13,40 @@ MonoBehaviour:
   m_Name: PlayerHotbar
   m_EditorClassIdentifier: 
   inventory:
-    maxSlots: 9
-    itemStacks: []
+    slots:
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
+    - filter: {fileID: 0}
+      stack:
+        itemType: {fileID: 0}
+        quantity: 0
