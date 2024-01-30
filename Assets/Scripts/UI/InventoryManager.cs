@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") || Input.GetKeyDown("i"))
+        if (Input.GetKeyDown("i"))
         {
             gameObject.SetActive(false);
             hotbar.SetActive(true);
