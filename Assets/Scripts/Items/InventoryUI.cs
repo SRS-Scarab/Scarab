@@ -13,7 +13,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InventoryGrid? inventoryGrid;
     [SerializeField] private InventoryGrid? hotbarGrid;
 
-    private void Awake()
+    private void Start()
     {
         if (equipmentVar != null && equipmentGrid != null) equipmentGrid.Initialize(equipmentVar.Provide());
         if (inventoryVar != null && inventoryGrid != null) inventoryGrid.Initialize(inventoryVar.Provide());
