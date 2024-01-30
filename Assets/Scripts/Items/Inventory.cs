@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class Inventory
 {
-    [SerializeField] private List<ItemSlot> slots = new();
+    [SerializeField] private List<InventorySlot> slots = new();
     
     public Inventory()
     {
@@ -15,7 +15,12 @@ public class Inventory
 
     public Inventory(int maxSlots)
     {
-        for (var i = 0; i < maxSlots; i++) slots.Add(new ItemSlot());
+        for (var i = 0; i < maxSlots; i++) slots.Add(new InventorySlot());
+    }
+
+    public Inventory(Inventory other)
+    {
+        for (var i = 0; i < other.GetMaxSlots(); i++) slots.Add(new InventorySlot(other.GetFilter(i), other.GetStack(i)));
     }
 
     public int GetMaxSlots() => slots.Count;

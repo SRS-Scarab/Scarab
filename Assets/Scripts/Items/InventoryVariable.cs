@@ -5,8 +5,11 @@ using UnityEngine;
 public class InventoryVariable : ScriptableVariable<Inventory>
 {
     [SerializeField] private Inventory inventory = null!;
-    
-    public override Inventory Provide() => inventory;
+    [SerializeReference] private Inventory? runtimeInventory;
 
-    public override void Consume(Inventory value) => inventory = value;
+    public void Initialize() => runtimeInventory = new Inventory(inventory);
+    
+    public override Inventory Provide() => runtimeInventory ??= new Inventory(inventory);
+
+    public override void Consume(Inventory value) => runtimeInventory = value;
 }
