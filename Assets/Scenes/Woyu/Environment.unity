@@ -287,6 +287,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419573886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419573887}
+  - component: {fileID: 419573888}
+  m_Layer: 5
+  m_Name: Stage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &419573887
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419573886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896973499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &419573888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419573886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00603e75d7f88354186f1d71985cf5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorPrefab: {fileID: 3993407094809370391, guid: 27a96e4d725798e458563505d6addb05, type: 3}
+  leftSlot: {x: 0.25, y: 0.5}
+  rightSlot: {x: 0.75, y: 0.5}
+  actors:
+  - {fileID: 11400000, guid: 4d9fd3dd983c82743897610090dd0b5d, type: 2}
+  - {fileID: 11400000, guid: 68b484801a1298640904e56404421d65, type: 2}
+  activeActors: []
 --- !u!1 &715063292
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +384,7 @@ MonoBehaviour:
   iframeDuration: 0.5
   health: 0
   maxHealth: 0
-  strength: 0
+  attack: 0
   defence: 0
   iframeLeft: 0
   processed: []
@@ -665,7 +720,7 @@ MonoBehaviour:
   iframeDuration: 0.5
   health: 0
   maxHealth: 0
-  strength: 0
+  attack: 0
   defence: 0
   iframeLeft: 0
   processed: []
@@ -889,6 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1030301307}
   interactable: {fileID: 837682386}
+  characters: {fileID: 0}
 --- !u!224 &992700071 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 284769113243851887, guid: 3578a56802d2409498db9911298be111, type: 3}
@@ -977,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 3579681405068720530, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: yarnProject
       value: 
-      objectReference: {fileID: 7545569452688597077, guid: 42f1b541a1347491c88208977efaabbc, type: 3}
+      objectReference: {fileID: 7545569452688597077, guid: 2660a464f8f232f4d8ed778f0932e492, type: 3}
     - target: {fileID: 3579681405068720530, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: startAutomatically
       value: 0
@@ -19271,6 +19327,7 @@ RectTransform:
   m_Children:
   - {fileID: 1488613926}
   - {fileID: 992700071}
+  - {fileID: 419573887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

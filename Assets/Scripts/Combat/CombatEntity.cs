@@ -21,7 +21,7 @@ public class CombatEntity : MonoBehaviour
     
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
-    [SerializeField] private float strength;
+    [SerializeField] private float attack;
     [SerializeField] private float defence;
     [SerializeField] private float iframeLeft;
     [SerializeField] private List<AttackInstance> processed = new();
@@ -47,7 +47,7 @@ public class CombatEntity : MonoBehaviour
         {
             processed.Add(instance);
             iframeLeft = iframeDuration;
-            health -= instance.GetAttackInfo().damage * source.strength / defence;
+            health -= instance.GetAttackInfo().damage * source.attack / defence;
             if (rb != null) rb.AddForce((transform.position - instance.transform.position).normalized * instance.GetAttackInfo().knockback, ForceMode2D.Impulse);
         }
     }
@@ -56,7 +56,7 @@ public class CombatEntity : MonoBehaviour
     public void RecalculateStats()
     {
         maxHealth = baseMaxHealth;
-        strength = baseStrength;
+        attack = baseStrength;
         defence = baseDefence;
         
         var target = equipmentSource == null ? equipment : equipmentSource.Provide();
@@ -66,13 +66,13 @@ public class CombatEntity : MonoBehaviour
             if (stack.itemType != null && stack.itemType is EquipmentType type)
             {
                 maxHealth += type.maxHealth;
-                strength += type.strength;
+                attack += type.attack;
                 defence += type.defence;
             }
         }
 
         maxHealth = Mathf.Max(maxHealth, 0);
-        strength = Mathf.Max(strength, 0);
+        attack = Mathf.Max(attack, 0);
         defence = Mathf.Max(defence, 0);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EquipmentType : ItemType
 {
     public float maxHealth;
-    public float strength;
+    public float attack;
     public float defence;
     
     public override void OnItemUse()

@@ -36,7 +36,7 @@ public class InventorySlotIndicator : MonoBehaviour
                 if (stack.itemType != null) icon.sprite = stack.itemType.icon;
             }
             if (highlight != null && grid != null) highlight.enabled = grid.IsSelected(index);
-            if (quantityText != null) quantityText.text = stack.quantity == 0 ? "" : stack.quantity.ToString();
+            if (quantityText != null) quantityText.text = stack.itemType == null || stack.itemType.stackSize == 1 ? "" : stack.quantity.ToString();
         }
     }
 
