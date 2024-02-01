@@ -1,10 +1,13 @@
 #nullable enable
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryUI : MonoBehaviour
 {
     [Header("Dependencies")]
     
+    [SerializeField] private InputSubsystem? inputSubsystem;
+    [SerializeField] private ActionsVariable? actionsVar;
     [SerializeField] private CanvasGroup? group;
     [SerializeField] private InventoryVariable? equipmentVar;
     [SerializeField] private InventoryVariable? inventoryVar;
@@ -12,30 +15,23 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InventoryGrid? equipmentGrid;
     [SerializeField] private InventoryGrid? inventoryGrid;
     [SerializeField] private InventoryGrid? hotbarGrid;
-
+    
     private void Start()
     {
+        if (actionsVar != null) actionsVar.Provide().Gameplay.Inventory.performed += Activate;
         if (equipmentVar != null && equipmentGrid != null) equipmentGrid.Initialize(equipmentVar.Provide());
         if (inventoryVar != null && inventoryGrid != null) inventoryGrid.Initialize(inventoryVar.Provide());
         if (hotbarVar != null && hotbarGrid != null) hotbarGrid.Initialize(hotbarVar.Provide());
     }
-    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) Toggle();
-    }
 
-    public void Toggle()
+    private void Activate(InputAction.CallbackContext context)
     {
-        if (group != null)
+        if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
+        if (actionsVar != null)
         {
-            if(group.alpha == 0) Activate();
-            else Deactivate();
+            actionsVar.Provide().Gameplay.Inventory.performed -= Activate;
+            actionsVar.Provide().UI.Close.performed += Deactivate;
         }
-    }
-
-    public void Activate()
-    {
         if (group != null)
         {
             group.alpha = 1;
@@ -43,9 +39,15 @@ public class InventoryUI : MonoBehaviour
             group.blocksRaycasts = true;
         }
     }
-    
-    public void Deactivate()
+
+    private void Deactivate(InputAction.CallbackContext context)
     {
+        if (inputSubsystem != null) inputSubsystem.PopMap();
+        if (actionsVar != null)
+        {
+            actionsVar.Provide().Gameplay.Inventory.performed += Activate;
+            actionsVar.Provide().UI.Close.performed -= Deactivate;
+        }
         if (group != null)
         {
             group.alpha = 0;

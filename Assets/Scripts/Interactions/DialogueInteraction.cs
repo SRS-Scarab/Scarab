@@ -7,6 +7,7 @@ public class DialogueInteraction : MonoBehaviour
 {
     [Header("Dependencies")]
 
+    [SerializeField] private InputSubsystem? inputSubsystem;
     [SerializeField] private DialogueRunner? dialogueRunner;
     [SerializeField] private Interactable? interactable;
     [SerializeField] private GameObject? characters;
@@ -35,6 +36,7 @@ public class DialogueInteraction : MonoBehaviour
 
     private void OnTriggerDialogue(object sender, EventArgs args)
     {
+        if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
         if (dialogueRunner != null)
         {
             dialogueRunner.StartDialogue(dialogueRunner.startNode);
@@ -44,6 +46,7 @@ public class DialogueInteraction : MonoBehaviour
 
     private void OnDialogueComplete()
     {
+        if (inputSubsystem != null) inputSubsystem.PopMap();
         if (characters != null) characters.SetActive(false);
     }
 }

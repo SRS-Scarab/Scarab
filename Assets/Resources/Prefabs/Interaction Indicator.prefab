@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5337032891599262412}
   - component: {fileID: 1176542504641952246}
   m_Layer: 5
-  m_Name: InteractionIndicator
+  m_Name: Interaction Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe0e43c3e0def041a558fa07d32cb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   rect: {fileID: 5337032891599262412}
   camVar: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
   interactionText: {fileID: 6189852853216243381}
@@ -264,6 +265,7 @@ MonoBehaviour:
   heightPeriod: 0.5
   target: {fileID: 0}
   aliveTime: 0
+  isDisposed: 0
 --- !u!1 &9025508250698135485
 GameObject:
   m_ObjectHideFlags: 0

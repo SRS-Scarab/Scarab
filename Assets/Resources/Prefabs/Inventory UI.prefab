@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a739f5fbaaae5b4793c77a16af2dcc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputSubsystem: {fileID: 11400000, guid: 0d4ec3b5084c9bd45ab6c9a824296704, type: 2}
+  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   group: {fileID: 4803666807082411484}
   equipmentVar: {fileID: 11400000, guid: ec5d0fd5a1bc593468b0559d301d0c1c, type: 2}
   inventoryVar: {fileID: 11400000, guid: 7a16272f2336e52449bd84721d67f919, type: 2}

@@ -1,12 +1,15 @@
 #nullable enable
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InteractionIndicator : MonoBehaviour
 {
     [Header("Dependencies")]
     
+    [SerializeField] private ActionsVariable? actionsVar;
     [SerializeField] private RectTransform? rect;
     [SerializeField] private CameraVariable? camVar;
     [SerializeField] private TextMeshProUGUI? interactionText;
@@ -30,6 +33,11 @@ public class InteractionIndicator : MonoBehaviour
         if (arrowImage != null) arrowImage.CrossFadeAlpha(0, 0, true);
     }
 
+    private void Start()
+    {
+        if (actionsVar != null) actionsVar.Provide().Gameplay.Interact.performed += OnTryInteract;
+    }
+
     private void Update()
     {
         if (rect != null && camVar != null && camVar.Provide() != null && target != null)
@@ -43,10 +51,6 @@ public class InteractionIndicator : MonoBehaviour
             var pos = arrowRect.anchoredPosition;
             pos.y = (maxArrowHeight - minArrowHeight) * heightCurve.Evaluate(aliveTime % 1) + minArrowHeight;
             arrowRect.anchoredPosition = pos;
-        }
-        if (target != null && Input.GetKeyDown(KeyCode.E) && !isDisposed)
-        {
-            target.Interact();
         }
     }
 
@@ -67,5 +71,13 @@ public class InteractionIndicator : MonoBehaviour
         if (interactionText != null) interactionText.CrossFadeAlpha(0, alphaTweenDuration, false);
         if (arrowImage != null) arrowImage.CrossFadeAlpha(0, alphaTweenDuration, false);
         Destroy(gameObject, alphaTweenDuration);
+    }
+
+    private void OnTryInteract(InputAction.CallbackContext context)
+    {
+        if (target != null && !isDisposed)
+        {
+            target.Interact();
+        }
     }
 }
