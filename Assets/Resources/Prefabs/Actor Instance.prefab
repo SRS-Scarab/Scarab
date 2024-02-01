@@ -127,4 +127,6 @@ MonoBehaviour:
   instanceTransform: {fileID: 4391914381205223998}
   spriteTransform: {fileID: 6813680463825098213}
   spriteImage: {fileID: 5646806731044157342}
+  fadeDuration: 0.1
+  fadeAlpha: 0.5
   actor: {fileID: 0}

@@ -2,45 +2,79 @@
 tags:
 ---
 
-<<add-actor Stage scarab>>
-<<right-actor Stage scarab>>
-
-Scarab: Hello. Sorry for intruding. I just wanted to ask, you’re a human, right?
-
 <<add-actor Stage player>>
 <<left-actor Stage player>>
 
+<<add-actor Stage scarab>>
+<<right-actor Stage scarab>>
+
+<<set-primary Stage scarab>>
+
+Scarab: Hello. Sorry for intruding. I just wanted to ask, you’re a human, right?
+
+<<set-primary Stage player>>
+
 You nod.
+
+<<set-primary Stage scarab>>
+<<perform-direction Stage scarab jump>>
 
 Scarab: Right! Yes, I was thinking maybe crocodile, but no scales. I’m getting better at this! I only ask, though, because humans usually use blankets to sleep, right?
 
+<<set-primary Stage player>>
+<<reset-direction Stage scarab>>
+
 You nod again.
+
+<<set-primary Stage scarab>>
 
 Scarab: Right!! But, then where’s yours? Did you lose it?
 
+<<set-primary Stage player>>
+
 You make a so-so gesture.
+
+<<set-primary Stage scarab>>
 
 Scarab: Do you need help finding it, then? I’m quite good at finding things.
 
+<<set-primary Stage player>>
+
 You shake your head.
+
+<<set-primary Stage scarab>>
 
 Scarab: I’m Scarab, by the way. I’m quite pleased to make your acquaintance.
 
+<<set-primary Stage player>>
+
 You shake Scarab’s outstretched little leg. 
+
+<<no-primary Stage>>
 
 The sun begins to rise.
 
+<<set-primary Stage scarab>>
+
 Scarab: Ah, how lucky he is.
 
+<<set-primary Stage player>>
+
 You give Scarab a puzzled look.
+
+<<set-primary Stage scarab>>
 
 Scarab: The great Scarab that pushes the sun! Perhaps he’s not known amongst humans. Everyday, early in the morning, the great Scarab wakes up and pushes the sun across the sky, like so.
 
 Scarab molds some dewey sand into a ball and rolls it, but it breaks apart.
 
+<<perform-direction Stage scarab sad>>
+
 Scarab: Well, he does it better than that. And I would too! If I…
 
 Scarab looks away, ashamed.
+
+<<reset-direction Stage scarab>>
 
 Scarab: Well, I think it’s an incredible job. The sun brings life and joy to so many creatures across the world. And he’s the one who makes it happen! What could be better than that?
 

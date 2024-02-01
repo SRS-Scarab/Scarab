@@ -13,6 +13,7 @@ public class StageDirector : MonoBehaviour
     [SerializeField] private Vector2 leftSlot = new(0.25f, 0.5f);
     [SerializeField] private Vector2 rightSlot = new(0.75f, 0.5f);
     [SerializeField] private StageActor[] actors = Array.Empty<StageActor>();
+    [SerializeField] private StageDirection[] directions = Array.Empty<StageDirection>();
 
     [Header("State")]
     
@@ -71,6 +72,39 @@ public class StageDirector : MonoBehaviour
         }
     }
     
+    [YarnCommand("set-primary")]
+    public void SetPrimary(string actorName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null)
+        {
+            foreach (var actor in activeActors)
+            {
+                if(actor != instance) actor.FadeOut();
+            }
+            instance.FadeIn();
+        }
+    }
+    
+    [YarnCommand("no-primary")]
+    public void NoPrimary()
+    {
+        foreach (var actor in activeActors) actor.FadeOut();
+    }
+    
+    [YarnCommand("all-primary")]
+    public void AllPrimary()
+    {
+        foreach (var actor in activeActors) actor.FadeIn();
+    }
+    
+    [YarnCommand("set-inactive")]
+    public void SetInactive(string actorName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null) instance.FadeOut();
+    }
+    
     [YarnCommand("reposition-actor")]
     public void Reposition(string actorName, float x, float y)
     {
@@ -83,6 +117,38 @@ public class StageDirector : MonoBehaviour
     {
         var instance = GetActorInstance(actorName);
         if (instance != null) instance.SetOrientation(isFacingLeft);
+    }
+    
+    [YarnCommand("set-expression")]
+    public void SetExpression(string actorName, string expressionName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null) instance.SetExpression(expressionName);
+    }
+    
+    [YarnCommand("reset-expression")]
+    public void ResetExpression(string actorName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null) instance.ResetExpression();
+    }
+    
+    [YarnCommand("perform-direction")]
+    public void PerformDirection(string actorName, string directionName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null)
+        {
+            var direction = directions.FirstOrDefault(e => e.directionName == directionName);
+            if (direction != null) instance.PerformDirection(direction);
+        }
+    }
+    
+    [YarnCommand("reset-direction")]
+    public void ResetDirection(string actorName)
+    {
+        var instance = GetActorInstance(actorName);
+        if (instance != null) instance.ResetDirection();
     }
 
     private StageActorInstance? GetActorInstance(string actorName)
