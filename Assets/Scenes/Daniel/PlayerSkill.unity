@@ -890,7 +890,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: befd339feafd44e0da5f249a6478d2f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -948,11 +948,11 @@ MonoBehaviour:
     knockback: 3
     persist: 0.2
     hitboxes: {fileID: 1725533694722989724, guid: 180b79d4d95ed974da3ff27da8504dc2, type: 3}
-  fireAttack:
-    damage: 10
-    knockback: 3
-    persist: 0.5
-    hitboxes: {fileID: 2683413961460908680, guid: 080cad7676c344d398ef950d452ab48e, type: 3}
+  specialAttack:
+    damage: 0
+    knockback: 0
+    persist: 0
+    hitboxes: {fileID: 0}
   cooldown: 0.5
   skillCooldown: 0
   isFacingLeft: 0
@@ -1100,7 +1100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6580b48e4f09440eb9705ef14d5ad726, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
