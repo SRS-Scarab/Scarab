@@ -341,6 +341,9 @@ MonoBehaviour:
   actors:
   - {fileID: 11400000, guid: 4d9fd3dd983c82743897610090dd0b5d, type: 2}
   - {fileID: 11400000, guid: 68b484801a1298640904e56404421d65, type: 2}
+  directions:
+  - {fileID: 11400000, guid: 0116c0321e2ee0f4ea173712dd02c009, type: 2}
+  - {fileID: 11400000, guid: 069f86e4224470e4ea04ceb8179960c3, type: 2}
   activeActors: []
 --- !u!1 &715063292
 GameObject:
@@ -644,7 +647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
-  playerHP: {fileID: 0}
   rb: {fileID: 730233302}
   speed: 5
 --- !u!212 &730233305
@@ -740,14 +742,22 @@ MonoBehaviour:
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   entity: {fileID: 730233306}
   rb: {fileID: 730233302}
+  attackArea: {fileID: 0}
   basicAttack:
     damage: 10
     knockback: 3
     persist: 0.2
     hitboxes: {fileID: 1725533694722989724, guid: 180b79d4d95ed974da3ff27da8504dc2, type: 3}
+  specialAttack:
+    damage: 0
+    knockback: 0
+    persist: 0
+    hitboxes: {fileID: 0}
   cooldown: 0.5
+  skillCooldown: 0
   isFacingLeft: 0
   cooldownLeft: 0
+  skillCooldownLeft: 0
 --- !u!1 &804166063
 GameObject:
   m_ObjectHideFlags: 0
