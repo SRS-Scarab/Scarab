@@ -5,24 +5,33 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Dependencies")]
-    
+
     [SerializeField] private ActionsVariable? actionsVar;
+
     [SerializeField] private CombatEntity? entity;
     [SerializeField] private Rigidbody2D? rb;
-    
+    [SerializeField] private Rigidbody2D? attackArea;
+
     [Header("Parameters")]
-    
+
     [SerializeField] private AttackInfo basicAttack;
+    [SerializeField] private AttackInfo fireAttack;
     [SerializeField] private float cooldown;
-    
+    [SerializeField] private float skillCooldown;
+
     [Header("State")]
-    
+
     [SerializeField] private bool isFacingLeft;
     [SerializeField] private float cooldownLeft;
+    [SerializeField] private float skillCooldownLeft;
 
     private void Start()
     {
-        if (actionsVar != null) actionsVar.Provide().Gameplay.Attack.performed += OnTryAttack;
+        if (actionsVar != null)
+        {
+            actionsVar.Provide().Gameplay.Attack.performed += OnTryAttack;
+            actionsVar.Provide().Gameplay.Special.performed += OnTrySpecial;
+        }
     }
 
     private void Update()
@@ -35,8 +44,23 @@ public class PlayerCombat : MonoBehaviour
     {
         if (cooldownLeft <= 0)
         {
-            if (entity != null) basicAttack.Instantiate(entity, transform.position, isFacingLeft ? 180 : 0);
+            if (entity != null && attackArea != null)
+            {
+                basicAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
+            }
             cooldownLeft = cooldown;
+        }
+    }
+
+    private void OnTrySpecial(InputAction.CallbackContext context)
+    {
+        if (skillCooldownLeft <= 0)
+        {
+            if (entity != null && attackArea != null)
+            {
+                fireAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
+            }
+            skillCooldownLeft = skillCooldown;
         }
     }
 }

@@ -62,6 +62,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Special"",
+                    ""type"": ""Button"",
+                    ""id"": ""1007ceae-8bfe-4454-a0d9-4a18071d2504"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,11 +209,22 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bcbbeb67-8f92-4b6c-aead-e3a61ef9e6e7"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59042774-837d-424e-9feb-242db36aa287"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Special"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -287,6 +307,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_Special = m_Gameplay.FindAction("Special", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -357,6 +378,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Inventory;
     private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_Special;
     public struct GameplayActions
     {
         private @Actions m_Wrapper;
@@ -365,6 +387,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @Special => m_Wrapper.m_Gameplay_Special;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -386,6 +409,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Special.started += instance.OnSpecial;
+            @Special.performed += instance.OnSpecial;
+            @Special.canceled += instance.OnSpecial;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -402,6 +428,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Special.started -= instance.OnSpecial;
+            @Special.performed -= instance.OnSpecial;
+            @Special.canceled -= instance.OnSpecial;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -487,6 +516,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSpecial(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
