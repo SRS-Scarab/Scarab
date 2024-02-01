@@ -15,7 +15,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Parameters")]
 
     [SerializeField] private AttackInfo basicAttack;
-    [SerializeField] private AttackInfo fireAttack;
+    [SerializeField] private AttackInfo specialAttack;
     [SerializeField] private float cooldown;
     [SerializeField] private float skillCooldown;
 
@@ -37,6 +37,7 @@ public class PlayerCombat : MonoBehaviour
     private void Update()
     {
         cooldownLeft -= Time.deltaTime;
+        skillCooldownLeft -= Time.deltaTime;
         if (rb != null && rb.velocity.x != 0) isFacingLeft = rb.velocity.x < 0; // todo change to interface directly with movement script later
     }
 
@@ -58,7 +59,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (entity != null && attackArea != null)
             {
-                fireAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
+                specialAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
             }
             skillCooldownLeft = skillCooldown;
         }

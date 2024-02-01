@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -822658402986325181}
   - component: {fileID: 6330527666886913625}
   m_Layer: 0
-  m_Name: Fire Attack
+  m_Name: Special Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
