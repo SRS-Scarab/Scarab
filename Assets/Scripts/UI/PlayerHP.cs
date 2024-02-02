@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    public int HP;
+    public float HP;
     private Slider HPBar;
     // Start is called before the first frame update
     void Start()
@@ -20,20 +20,20 @@ public class PlayerHP : MonoBehaviour
         HPBar.value = HP / 100f;
     }
 
-    public int getHP()
+    public float getHP()
     {
         return HP;
     }
-    public void damage(int damage)
+    public void damage(float damage)
     {
         // want to animate this
         HP -= damage;
         if (HP <= 0)
         {
-            // player death
+            Application.Quit();
         }
     }
-    public void heal(int heal)
+    public void heal(float heal)
     {
         HP += heal;
         if (HP > 100)
