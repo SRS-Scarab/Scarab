@@ -13,9 +13,11 @@ public struct AttackInfo
 
     public void Instantiate(CombatEntity source, Vector3 position, float rotation)
     {
-        var obj = Object.Instantiate(hitboxes, position, Quaternion.Euler(new Vector3(0, 0, rotation)));
+        var obj = Object.Instantiate(hitboxes, source.transform);
         if (obj != null)
         {
+            obj.transform.position = position;
+            obj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotation));
             var instance = obj.GetComponent<AttackInstance>();
             if (instance != null) instance.Initialize(source, this);
         }
