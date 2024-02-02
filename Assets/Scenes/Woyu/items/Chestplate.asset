@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38fef0bddcd28e498c85bc339256e83, type: 3}
   m_Name: Chestplate
   m_EditorClassIdentifier: 
-  categoryIcon: {fileID: 21300000, guid: 8769b8e1602014f09b0522d44e1b9fae, type: 3}
+  categoryIcon: {fileID: 21300000, guid: b3a4da62dd76f42dc9f91edfe87ea2f7, type: 3}
