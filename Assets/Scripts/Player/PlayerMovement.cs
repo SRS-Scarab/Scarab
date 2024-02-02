@@ -22,14 +22,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateMovement()
     {
-        float xdir = moveAction.ReadValue<Vector2>().x;
-        float ydir = moveAction.ReadValue<Vector2>().y;
-        rb.velocity = new Vector2(xdir, ydir).normalized * speed;
-        // only rotate if moving
-        if (xdir != 0 || ydir != 0)
-        {
-            float rot_z = Mathf.Atan2(ydir, xdir) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
-        }
+        rb.velocity = moveAction.ReadValue<Vector2>().normalized * speed;
     }
 }

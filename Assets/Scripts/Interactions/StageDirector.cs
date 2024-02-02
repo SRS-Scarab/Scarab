@@ -10,8 +10,8 @@ public class StageDirector : MonoBehaviour
     [Header("Dependencies")]
     
     [SerializeField] private GameObject? actorPrefab;
-    [SerializeField] private Vector2 leftSlot = new(0.25f, 0.5f);
-    [SerializeField] private Vector2 rightSlot = new(0.75f, 0.5f);
+    [SerializeField] private Vector2 leftPosition = new(0.25f, 0.5f);
+    [SerializeField] private Vector2 rightPosition = new(0.75f, 0.5f);
     [SerializeField] private StageActor[] actors = Array.Empty<StageActor>();
     [SerializeField] private StageDirection[] directions = Array.Empty<StageDirection>();
 
@@ -56,7 +56,7 @@ public class StageDirector : MonoBehaviour
         var instance = GetActorInstance(actorName);
         if (instance != null)
         {
-            instance.SetPosition(leftSlot);
+            instance.SetPosition(leftPosition);
             instance.SetOrientation(false);
         }
     }
@@ -67,7 +67,7 @@ public class StageDirector : MonoBehaviour
         var instance = GetActorInstance(actorName);
         if (instance != null)
         {
-            instance.SetPosition(rightSlot);
+            instance.SetPosition(rightPosition);
             instance.SetOrientation(true);
         }
     }

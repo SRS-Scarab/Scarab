@@ -10,18 +10,13 @@ public class DialogueInteraction : MonoBehaviour
     [SerializeField] private InputSubsystem? inputSubsystem;
     [SerializeField] private DialogueRunner? dialogueRunner;
     [SerializeField] private Interactable? interactable;
-    [SerializeField] private GameObject? characters;
-    public void Start()
-    {
-        if (characters != null) characters.SetActive(false);
-    }
-
+    
     private void OnEnable()
     {
         if (interactable != null)
         {
             interactable.OnInteract += OnTriggerDialogue;
-            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
         }
     }
 
@@ -30,23 +25,18 @@ public class DialogueInteraction : MonoBehaviour
         if (interactable != null)
         {
             interactable.OnInteract -= OnTriggerDialogue;
-            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
+            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
         }
     }
 
     private void OnTriggerDialogue(object sender, EventArgs args)
     {
         if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
-        if (dialogueRunner != null)
-        {
-            dialogueRunner.StartDialogue(dialogueRunner.startNode);
-            if (characters != null) characters.SetActive(true);
-        }
+        if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
     }
 
-    private void OnDialogueComplete()
+    private void OnCompleteDialogue()
     {
         if (inputSubsystem != null) inputSubsystem.PopMap();
-        if (characters != null) characters.SetActive(false);
     }
 }

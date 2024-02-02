@@ -7,10 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Dependencies")]
 
     [SerializeField] private ActionsVariable? actionsVar;
-
     [SerializeField] private CombatEntity? entity;
-    [SerializeField] private Rigidbody2D? rb;
-    [SerializeField] private Rigidbody2D? attackArea;
 
     [Header("Parameters")]
 
@@ -21,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("State")]
 
-    [SerializeField] private bool isFacingLeft;
+    [SerializeField] private float rotation;
     [SerializeField] private float cooldownLeft;
     [SerializeField] private float skillCooldownLeft;
 
@@ -38,17 +35,20 @@ public class PlayerCombat : MonoBehaviour
     {
         cooldownLeft -= Time.deltaTime;
         skillCooldownLeft -= Time.deltaTime;
-        if (rb != null && rb.velocity.x != 0) isFacingLeft = rb.velocity.x < 0; // todo change to interface directly with movement script later
+
+        if (actionsVar != null)
+        {
+            var input = actionsVar.Provide().Gameplay.Move.ReadValue<Vector2>();
+            input.y *= -1;
+            if (input != Vector2.zero) rotation = Vector2.SignedAngle(input, Vector2.right);
+        }
     }
 
     private void OnTryAttack(InputAction.CallbackContext context)
     {
         if (cooldownLeft <= 0)
         {
-            if (entity != null && attackArea != null)
-            {
-                basicAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
-            }
+            if (entity != null) basicAttack.Instantiate(entity, transform.position, rotation);
             cooldownLeft = cooldown;
         }
     }
@@ -57,10 +57,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (skillCooldownLeft <= 0)
         {
-            if (entity != null && attackArea != null)
-            {
-                specialAttack.Instantiate(entity, new Vector3(attackArea.position.x, attackArea.position.y, 0), attackArea.rotation);
-            }
+            if (entity != null) specialAttack.Instantiate(entity, transform.position, rotation);
             skillCooldownLeft = skillCooldown;
         }
     }
