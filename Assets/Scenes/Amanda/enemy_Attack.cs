@@ -5,12 +5,11 @@ using UnityEngine;
 public class enemy_Attack : MonoBehaviour
 {
     public float speed = 3f;
-    public float attackDamage = 10f;
+    public CombatEntity entity;
+    public AttackInfo attackInfo;
     public float attackSpeed = 1f;
     private float canAttack;
     private Transform target;
-    [SerializeField] private float knockback = 5f;
-    [SerializeField] private PlayerHP playerHP;
 
     private void Update()
     {
@@ -24,21 +23,18 @@ public class enemy_Attack : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             if (attackSpeed <= canAttack)
             {
-                playerHP.damage(attackDamage);
-                Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
-                // don't know why this doesn't work properly with impulse
-                if (rb != null) rb.AddForce((other.transform.position - transform.position).normalized * knockback * 100, ForceMode2D.Force);
+                attackInfo.Instantiate(entity, transform.position, Vector2.Angle(Vector2.right, target.position - transform.position));
                 canAttack = 0f;
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             target = other.transform;
         }
@@ -46,7 +42,7 @@ public class enemy_Attack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             target = null;
         }

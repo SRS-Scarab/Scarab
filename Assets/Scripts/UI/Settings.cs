@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
+    public InputSubsystem inputSubsystem;
+    public ActionsVariable actions;
     public GameObject settings;
     private Button settingsButton;
     private bool active;
@@ -15,19 +18,29 @@ public class Settings : MonoBehaviour
         active = false;
         settings.SetActive(active);
         settingsButton.onClick.AddListener(openSettings);
+        actions.Provide().Gameplay.Menu.performed += openSettingsCallback;
     }
 
-    // Update is called once per frame
-    void Update()
+    void openSettingsCallback(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            openSettings();
-        }
+        openSettings();
     }
+
     void openSettings()
     {
         active = !active;
+        if (active)
+        {
+            inputSubsystem.PushMap(nameof(Actions.UI));
+            actions.Provide().Gameplay.Menu.performed -= openSettingsCallback;
+            actions.Provide().UI.CloseMenu.performed += openSettingsCallback;
+        }
+        else
+        {
+            inputSubsystem.PopMap();
+            actions.Provide().Gameplay.Menu.performed += openSettingsCallback;
+            actions.Provide().UI.CloseMenu.performed -= openSettingsCallback;
+        }
         settings.SetActive(active);
     }
 }

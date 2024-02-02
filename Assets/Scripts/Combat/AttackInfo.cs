@@ -11,9 +11,9 @@ public struct AttackInfo
     public float persist;
     public GameObject? hitboxes;
 
-    public void Instantiate(CombatEntity source, Vector3 position, float rotation)
+    public void Instantiate(CombatEntity source, Vector3 position, float rotation, bool isBound = true)
     {
-        var obj = Object.Instantiate(hitboxes, source.transform);
+        var obj = Object.Instantiate(hitboxes, isBound ? source.transform : null);
         if (obj != null)
         {
             obj.transform.position = position;

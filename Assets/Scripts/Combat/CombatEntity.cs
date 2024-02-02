@@ -40,6 +40,14 @@ public class CombatEntity : MonoBehaviour
         if (health <= 0) Destroy(gameObject);
     }
 
+    public float GetHealth() => health;
+
+    public float GetMaxHealth() => maxHealth;
+
+    public float GetAttack() => attack;
+
+    public float GetDefence() => defence;
+
     public void ProcessAttack(AttackInstance instance)
     {
         var source = instance.GetSource();

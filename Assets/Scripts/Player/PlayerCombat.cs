@@ -39,8 +39,7 @@ public class PlayerCombat : MonoBehaviour
         if (actionsVar != null)
         {
             var input = actionsVar.Provide().Gameplay.Move.ReadValue<Vector2>();
-            input.y *= -1;
-            if (input != Vector2.zero) rotation = Vector2.SignedAngle(input, Vector2.right);
+            if (input != Vector2.zero) rotation = Vector2.SignedAngle(Vector2.right, input);
         }
     }
 

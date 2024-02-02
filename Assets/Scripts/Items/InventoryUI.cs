@@ -30,7 +30,7 @@ public class InventoryUI : MonoBehaviour
         if (actionsVar != null)
         {
             actionsVar.Provide().Gameplay.Inventory.performed -= Activate;
-            actionsVar.Provide().UI.Close.performed += Deactivate;
+            actionsVar.Provide().UI.CloseInventory.performed += Deactivate; // only register here as pressing escape in other ui screens can cause unintended mapping changes
         }
         if (group != null)
         {
@@ -46,7 +46,7 @@ public class InventoryUI : MonoBehaviour
         if (actionsVar != null)
         {
             actionsVar.Provide().Gameplay.Inventory.performed += Activate;
-            actionsVar.Provide().UI.Close.performed -= Deactivate;
+            actionsVar.Provide().UI.CloseInventory.performed -= Deactivate;
         }
         if (group != null)
         {

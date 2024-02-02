@@ -71,6 +71,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""98e771f0-ac78-47de-ae62-a2859d5644d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -219,23 +228,23 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""80a9f255-9e16-41ac-bfa9-3116bdc2fb4e"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""59042774-837d-424e-9feb-242db36aa287"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Special"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e87232d6-bbd2-4cc5-9dda-523d73ed08a0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -264,9 +273,18 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Close"",
+                    ""name"": ""CloseInventory"",
                     ""type"": ""Button"",
                     ""id"": ""c7521c62-2a36-4c5f-a40b-7445d8743e2b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""b15316f5-a316-474b-b9b7-ed5684008535"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -277,11 +295,22 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f1557e67-e11f-49b7-9cb6-f1c64735c52d"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9f81721-5144-43c7-9186-d114acd16e2c"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Close"",
+                    ""action"": ""CloseInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -306,6 +335,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Point"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""293c2dbb-7074-4263-a38f-98884eef860e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -319,11 +359,13 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Special = m_Gameplay.FindAction("Special", throwIfNotFound: true);
+        m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_LeftClick = m_UI.FindAction("LeftClick", throwIfNotFound: true);
-        m_UI_Close = m_UI.FindAction("Close", throwIfNotFound: true);
+        m_UI_CloseInventory = m_UI.FindAction("CloseInventory", throwIfNotFound: true);
+        m_UI_CloseMenu = m_UI.FindAction("CloseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -390,6 +432,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Inventory;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Special;
+    private readonly InputAction m_Gameplay_Menu;
     public struct GameplayActions
     {
         private @Actions m_Wrapper;
@@ -399,6 +442,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Special => m_Wrapper.m_Gameplay_Special;
+        public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -423,6 +467,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Special.started += instance.OnSpecial;
             @Special.performed += instance.OnSpecial;
             @Special.canceled += instance.OnSpecial;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -442,6 +489,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Special.started -= instance.OnSpecial;
             @Special.performed -= instance.OnSpecial;
             @Special.canceled -= instance.OnSpecial;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -465,14 +515,16 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_LeftClick;
-    private readonly InputAction m_UI_Close;
+    private readonly InputAction m_UI_CloseInventory;
+    private readonly InputAction m_UI_CloseMenu;
     public struct UIActions
     {
         private @Actions m_Wrapper;
         public UIActions(@Actions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @LeftClick => m_Wrapper.m_UI_LeftClick;
-        public InputAction @Close => m_Wrapper.m_UI_Close;
+        public InputAction @CloseInventory => m_Wrapper.m_UI_CloseInventory;
+        public InputAction @CloseMenu => m_Wrapper.m_UI_CloseMenu;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -488,9 +540,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @LeftClick.started += instance.OnLeftClick;
             @LeftClick.performed += instance.OnLeftClick;
             @LeftClick.canceled += instance.OnLeftClick;
-            @Close.started += instance.OnClose;
-            @Close.performed += instance.OnClose;
-            @Close.canceled += instance.OnClose;
+            @CloseInventory.started += instance.OnCloseInventory;
+            @CloseInventory.performed += instance.OnCloseInventory;
+            @CloseInventory.canceled += instance.OnCloseInventory;
+            @CloseMenu.started += instance.OnCloseMenu;
+            @CloseMenu.performed += instance.OnCloseMenu;
+            @CloseMenu.canceled += instance.OnCloseMenu;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -501,9 +556,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @LeftClick.started -= instance.OnLeftClick;
             @LeftClick.performed -= instance.OnLeftClick;
             @LeftClick.canceled -= instance.OnLeftClick;
-            @Close.started -= instance.OnClose;
-            @Close.performed -= instance.OnClose;
-            @Close.canceled -= instance.OnClose;
+            @CloseInventory.started -= instance.OnCloseInventory;
+            @CloseInventory.performed -= instance.OnCloseInventory;
+            @CloseInventory.canceled -= instance.OnCloseInventory;
+            @CloseMenu.started -= instance.OnCloseMenu;
+            @CloseMenu.performed -= instance.OnCloseMenu;
+            @CloseMenu.canceled -= instance.OnCloseMenu;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -528,11 +586,13 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSpecial(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnPoint(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);
-        void OnClose(InputAction.CallbackContext context);
+        void OnCloseInventory(InputAction.CallbackContext context);
+        void OnCloseMenu(InputAction.CallbackContext context);
     }
 }
