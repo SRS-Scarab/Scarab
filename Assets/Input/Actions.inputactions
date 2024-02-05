@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Map",
+                    "type": "Button",
+                    "id": "ed38d997-4f81-45cc-9a08-214573366bc5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -225,6 +234,17 @@
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17132d08-3055-411b-b75f-31a1bce307a3",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Map",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -263,6 +283,15 @@
                     "name": "CloseMenu",
                     "type": "Button",
                     "id": "b15316f5-a316-474b-b9b7-ed5684008535",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseMap",
+                    "type": "Button",
+                    "id": "519db6b2-3a5d-49ae-9220-13cb180284e8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,6 +351,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "CloseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a15d591-2a11-49a7-bb75-4c92b8308077",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cbbf7c4-b837-4635-a923-d949b8b75381",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

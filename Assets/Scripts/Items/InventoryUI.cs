@@ -22,6 +22,12 @@ public class InventoryUI : MonoBehaviour
         if (equipmentVar != null && equipmentGrid != null) equipmentGrid.Initialize(equipmentVar.Provide());
         if (inventoryVar != null && inventoryGrid != null) inventoryGrid.Initialize(inventoryVar.Provide());
         if (hotbarVar != null && hotbarGrid != null) hotbarGrid.Initialize(hotbarVar.Provide());
+        if (group != null)
+        {
+            group.alpha = 0;
+            group.interactable = false;
+            group.blocksRaycasts = false;
+        }
     }
 
     private void Activate(InputAction.CallbackContext context)
