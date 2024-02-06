@@ -318,6 +318,24 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ZoomIn"",
+                    ""type"": ""Button"",
+                    ""id"": ""21fe2427-2515-408a-a978-01d7aa00cffe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ZoomOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""af0190e1-fd61-4630-906f-105bf566edb9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -397,6 +415,28 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""CloseMap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb670e6a-217d-4cfb-9e5a-5d331dc8d6fa"",
+                    ""path"": ""<Keyboard>/equals"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da9d70a-c6e6-45a8-aca6-1f148f302d0d"",
+                    ""path"": ""<Keyboard>/minus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -419,6 +459,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_UI_CloseInventory = m_UI.FindAction("CloseInventory", throwIfNotFound: true);
         m_UI_CloseMenu = m_UI.FindAction("CloseMenu", throwIfNotFound: true);
         m_UI_CloseMap = m_UI.FindAction("CloseMap", throwIfNotFound: true);
+        m_UI_ZoomIn = m_UI.FindAction("ZoomIn", throwIfNotFound: true);
+        m_UI_ZoomOut = m_UI.FindAction("ZoomOut", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -579,6 +621,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CloseInventory;
     private readonly InputAction m_UI_CloseMenu;
     private readonly InputAction m_UI_CloseMap;
+    private readonly InputAction m_UI_ZoomIn;
+    private readonly InputAction m_UI_ZoomOut;
     public struct UIActions
     {
         private @Actions m_Wrapper;
@@ -588,6 +632,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @CloseInventory => m_Wrapper.m_UI_CloseInventory;
         public InputAction @CloseMenu => m_Wrapper.m_UI_CloseMenu;
         public InputAction @CloseMap => m_Wrapper.m_UI_CloseMap;
+        public InputAction @ZoomIn => m_Wrapper.m_UI_ZoomIn;
+        public InputAction @ZoomOut => m_Wrapper.m_UI_ZoomOut;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -612,6 +658,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @CloseMap.started += instance.OnCloseMap;
             @CloseMap.performed += instance.OnCloseMap;
             @CloseMap.canceled += instance.OnCloseMap;
+            @ZoomIn.started += instance.OnZoomIn;
+            @ZoomIn.performed += instance.OnZoomIn;
+            @ZoomIn.canceled += instance.OnZoomIn;
+            @ZoomOut.started += instance.OnZoomOut;
+            @ZoomOut.performed += instance.OnZoomOut;
+            @ZoomOut.canceled += instance.OnZoomOut;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -631,6 +683,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @CloseMap.started -= instance.OnCloseMap;
             @CloseMap.performed -= instance.OnCloseMap;
             @CloseMap.canceled -= instance.OnCloseMap;
+            @ZoomIn.started -= instance.OnZoomIn;
+            @ZoomIn.performed -= instance.OnZoomIn;
+            @ZoomIn.canceled -= instance.OnZoomIn;
+            @ZoomOut.started -= instance.OnZoomOut;
+            @ZoomOut.performed -= instance.OnZoomOut;
+            @ZoomOut.canceled -= instance.OnZoomOut;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -665,5 +723,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnCloseInventory(InputAction.CallbackContext context);
         void OnCloseMenu(InputAction.CallbackContext context);
         void OnCloseMap(InputAction.CallbackContext context);
+        void OnZoomIn(InputAction.CallbackContext context);
+        void OnZoomOut(InputAction.CallbackContext context);
     }
 }
