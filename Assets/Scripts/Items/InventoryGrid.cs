@@ -8,10 +8,19 @@ public class InventoryGrid : MonoBehaviour
     [SerializeField] private InventorySubsystem? subsystem;
     [SerializeField] private GameObject? slotPrefab;
     
+    [Header("Parameters")]
+    
+    [SerializeReference] private InventoryVariable? targetOverride;
+    
     [Header("State")]
     
-    [SerializeField] private Inventory? target;
+    [SerializeReference] private Inventory? target;
     [SerializeField] private int slots;
+
+    private void Start()
+    {
+        if (targetOverride != null) Initialize(targetOverride.Provide());
+    }
 
     private void Update()
     {

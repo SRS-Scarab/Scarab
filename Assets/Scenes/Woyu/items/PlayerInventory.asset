@@ -24,12 +24,12 @@ MonoBehaviour:
         quantity: 1
     - filter: {fileID: 0}
       stack:
-        itemType: {fileID: 0}
-        quantity: 0
+        itemType: {fileID: 11400000, guid: 6e51ce46cfd38e6458619e0f624188d5, type: 2}
+        quantity: 1
     - filter: {fileID: 0}
       stack:
-        itemType: {fileID: 0}
-        quantity: 0
+        itemType: {fileID: 11400000, guid: 5c18ab41f92c3c24ba939a2ca5fe4913, type: 2}
+        quantity: 5
     - filter: {fileID: 0}
       stack:
         itemType: {fileID: 0}

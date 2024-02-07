@@ -60,7 +60,13 @@ public class CombatEntity : MonoBehaviour
         }
     }
 
-    // todo call this everytime equipment changes
+    public void ProcessHeal(float hp, float mana)
+    {
+        health = Mathf.Clamp(health + hp, 0, maxHealth);
+        // todo add mana later
+    }
+
+    // todo call this everytime equipment changes instead of per frame
     public void RecalculateStats()
     {
         maxHealth = baseMaxHealth;

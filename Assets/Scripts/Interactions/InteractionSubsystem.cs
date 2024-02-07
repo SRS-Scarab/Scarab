@@ -17,5 +17,5 @@ public class InteractionSubsystem : ScriptableObject
 
     public void RemoveInteractable(Interactable interactable) => availableInteractables.Remove(interactable);
 
-    private float GetDistanceScore(Interactable interactable) => playerVariable == null ? 0 : (playerVariable.Provide().transform.position - interactable.transform.position).sqrMagnitude;
+    private float GetDistanceScore(Interactable interactable) => playerVariable == null || playerVariable.Provide() == null ? 0 : (playerVariable.Provide().transform.position - interactable.transform.position).sqrMagnitude;
 }

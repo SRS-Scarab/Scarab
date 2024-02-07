@@ -26208,15 +26208,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c121c8791aac01149a53bd1e175e64be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputSubsystem: {fileID: 11400000, guid: 0d4ec3b5084c9bd45ab6c9a824296704, type: 2}
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
+  hotbarSubsystem: {fileID: 11400000, guid: 89624fb80c366034a8707901b16072f7, type: 2}
+  hotbarInventory: {fileID: 11400000, guid: 7a0ffd064b813cc45a26ab5037e6c711, type: 2}
+  camVar: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
   entity: {fileID: 1337236896}
   basicAttack:
     damage: 10
-    knockback: 3
+    knockback: 2
     persist: 0.2
-    hitboxes: {fileID: 1725533694722989724, guid: 180b79d4d95ed974da3ff27da8504dc2, type: 3}
+    hitboxes: {fileID: 1725533694722989724, guid: cf7ad10777cf82b4ab03d3204dc134b6, type: 3}
   specialAttack:
-    damage: 25
+    damage: 50
     knockback: 5
     persist: 0.2
     hitboxes: {fileID: 2683413961460908680, guid: 080cad7676c344d398ef950d452ab48e, type: 3}

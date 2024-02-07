@@ -12,8 +12,7 @@ public class ItemType : ScriptableObject
     public float weight;
     public int stackSize;
 
-    // todo add reference to calling inventory/player
-    public virtual void OnItemUse()
+    public virtual void OnItemUse(CombatEntity playerEntity, Inventory inventory, int index)
     {
     }
 }

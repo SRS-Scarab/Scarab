@@ -8,7 +8,7 @@ public class EquipmentType : ItemType
     public float attack;
     public float defence;
     
-    public override void OnItemUse()
+    public override void OnItemUse(CombatEntity playerEntity, Inventory inventory, int index)
     {
         // todo swap currently active equipment in corresponding slot with this item
     }

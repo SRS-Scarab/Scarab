@@ -55,7 +55,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Action"",
                     ""type"": ""Button"",
                     ""id"": ""cfa64e87-57bc-4d75-863e-19b6254dfd55"",
                     ""expectedControlType"": ""Button"",
@@ -231,7 +231,18 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b66e3fa4-fe1e-44d3-a3e0-6532bd2d8fb6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -448,7 +459,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
-        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_Action = m_Gameplay.FindAction("Action", throwIfNotFound: true);
         m_Gameplay_Special = m_Gameplay.FindAction("Special", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Map = m_Gameplay.FindAction("Map", throwIfNotFound: true);
@@ -525,7 +536,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Inventory;
-    private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_Action;
     private readonly InputAction m_Gameplay_Special;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Map;
@@ -536,7 +547,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
-        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @Action => m_Wrapper.m_Gameplay_Action;
         public InputAction @Special => m_Wrapper.m_Gameplay_Special;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Map => m_Wrapper.m_Gameplay_Map;
@@ -558,9 +569,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
+            @Action.started += instance.OnAction;
+            @Action.performed += instance.OnAction;
+            @Action.canceled += instance.OnAction;
             @Special.started += instance.OnSpecial;
             @Special.performed += instance.OnSpecial;
             @Special.canceled += instance.OnSpecial;
@@ -583,9 +594,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
+            @Action.started -= instance.OnAction;
+            @Action.performed -= instance.OnAction;
+            @Action.canceled -= instance.OnAction;
             @Special.started -= instance.OnSpecial;
             @Special.performed -= instance.OnSpecial;
             @Special.canceled -= instance.OnSpecial;
@@ -711,7 +722,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
         void OnSpecial(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);

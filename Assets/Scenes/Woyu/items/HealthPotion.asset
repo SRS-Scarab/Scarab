@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28efab8aac6eb244e9d8b49e84a477ee, type: 3}
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
+  category: {fileID: 0}
   icon: {fileID: 21300000, guid: a5f1806055a3c4ed58d188aed14016de, type: 3}
   itemName: Health Potion
   description: Restores some health

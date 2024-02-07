@@ -16,7 +16,7 @@ public class InventorySlotIndicator : MonoBehaviour
     [Header("State")]
     
     [SerializeField] private InventoryGrid? grid;
-    [SerializeField] private Inventory? target;
+    [SerializeReference] private Inventory? target;
     [SerializeField] private int index;
 
     private void Update()

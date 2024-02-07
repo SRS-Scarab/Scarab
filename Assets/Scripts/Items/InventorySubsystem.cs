@@ -1,55 +1,76 @@
 #nullable enable
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Subsystems/Inventory")]
 public class InventorySubsystem : ScriptableObject
 {
-    [SerializeReference] private Inventory? prevInventory;
-    [SerializeField] private int prevIndex = -1;
-
-    public Inventory? GetSelectedInventory() => prevInventory;
-
-    public int GetSelectedIndex() => prevIndex;
+    [SerializeField] private OnSelectionBehavior behavior;
     
+    [NonSerialized] private Inventory? _curInventory;
+    [NonSerialized] private int _curIndex = -1;
+    
+    public Inventory? GetSelectedInventory() => _curInventory;
+
+    public int GetSelectedIndex() => _curIndex;
+
     public void OnSlotSelected(Inventory newInventory, int newIndex)
     {
-        if (prevInventory == newInventory && prevIndex == newIndex)
+        if (behavior == OnSelectionBehavior.Select) Select(newInventory, newIndex);
+        else Swap(newInventory, newIndex);
+    }
+
+    private void Select(Inventory newInventory, int newIndex)
+    {
+        _curInventory = newInventory;
+        _curIndex = newIndex;
+    }
+    
+    private void Swap(Inventory newInventory, int newIndex)
+    {
+        if (_curInventory == newInventory && _curIndex == newIndex)
         {
-            prevInventory = null;
-            prevIndex = -1;
+            _curInventory = null;
+            _curIndex = -1;
         }
         else
         {
-            if (prevInventory == null)
+            if (_curInventory == null)
             {
-                prevInventory = newInventory;
-                prevIndex = newIndex;
+                _curInventory = newInventory;
+                _curIndex = newIndex;
             }
             else
             {
-                var prevStack = prevInventory.GetStack(prevIndex);
+                var prevStack = _curInventory.GetStack(_curIndex);
                 if (prevStack.itemType == null)
                 {
-                    prevInventory = newInventory;
-                    prevIndex = newIndex;
+                    _curInventory = newInventory;
+                    _curIndex = newIndex;
                 }
                 else
                 {
                     var newStack = newInventory.GetStack(newIndex);
-                    if (prevInventory.SetStack(prevIndex, newStack))
+                    if (_curInventory.SetStack(_curIndex, newStack))
                     {
                         if (newInventory.SetStack(newIndex, prevStack))
                         {
-                            prevInventory = null;
-                            prevIndex = -1;
+                            _curInventory = null;
+                            _curIndex = -1;
                         }
                         else
                         {
-                            prevInventory.SetStack(prevIndex, prevStack);
+                            _curInventory.SetStack(_curIndex, prevStack);
                         }
                     }
                 }
             }
         }
+    }
+
+    private enum OnSelectionBehavior
+    {
+        Select,
+        Swap
     }
 }

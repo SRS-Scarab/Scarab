@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Subsystems/Input")]
 public class InputSubsystem : ScriptableObject
@@ -11,7 +13,14 @@ public class InputSubsystem : ScriptableObject
     [NonSerialized] private readonly Stack<string> _stack = new();
     [NonSerialized] private readonly List<ActionMapMetadata> _metadata = new();
     [NonSerialized] private bool _isMetadataInitialized;
+    [NonSerialized] private bool _isMouseOverInterface;
 
+    public bool GetMouseStatus() => _isMouseOverInterface;
+
+    public bool IsConsumedByInterface(InputAction.CallbackContext context) => context.control.device == Pointer.current && _isMouseOverInterface;
+    
+    public void PollMouseStatus() => _isMouseOverInterface = EventSystem.current.IsPointerOverGameObject();
+    
     public void PushMap(string mapName)
     {
         TryInitializeMetadata();
