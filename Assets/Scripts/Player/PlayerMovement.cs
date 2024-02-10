@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public ActionsVariable actionsVar;
     public Rigidbody2D rb;
     public float speed;
+    public float sprintSpeed;
 
     private InputAction moveAction;
     void Start()
@@ -18,10 +19,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        UpdateMovement();
+        UpdateMovement(speed);
+
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            Sprint();
+        }
     }
-    private void UpdateMovement()
+    private void UpdateMovement(float speed)
     {
         rb.velocity = moveAction.ReadValue<Vector2>().normalized * speed;
+    }
+
+    private void Sprint() 
+    {
+        UpdateMovement(sprintSpeed);
     }
 }
