@@ -8,6 +8,8 @@ public class CombatEntity : MonoBehaviour
     
     [SerializeField] private Rigidbody2D? rb;
     [SerializeField] private InventoryVariable? equipmentSource;
+    [SerializeField] private CombatEntityVariable? playerEntityVar;
+    [SerializeField] private MoralitySubsystem? moralitySubsystem;
     
     [Header("Parameters")]
     
@@ -37,7 +39,6 @@ public class CombatEntity : MonoBehaviour
         processed.RemoveAll(e => e == null);
         iframeLeft -= Time.deltaTime;
         RecalculateStats(); // todo remove this later
-        if (health <= 0) Destroy(gameObject);
     }
 
     public float GetHealth() => health;
@@ -57,6 +58,18 @@ public class CombatEntity : MonoBehaviour
             iframeLeft = iframeDuration;
             health -= instance.GetAttackInfo().damage * source.attack / defence;
             if (rb != null) rb.AddForce((transform.position - instance.transform.position).normalized * instance.GetAttackInfo().knockback, ForceMode2D.Impulse);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                if (playerEntityVar != null && moralitySubsystem != null)
+                {
+                    if (source == playerEntityVar.Provide())
+                    {
+                        // you killed someone!
+                        moralitySubsystem.ChangeMorality(-10);
+                    }
+                }
+            }
         }
     }
 
