@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,30 +9,35 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float sprintSpeed;
 
-    private InputAction moveAction;
+    [SerializeField] private bool isSprinting;
+    private InputAction _moveAction;
+    
     void Start()
     {
-        Physics2D.gravity = Vector2.zero;
         rb = GetComponent<Rigidbody2D>();
-        speed = 5f;
-        moveAction = actionsVar.Provide().Gameplay.Move;
+        rb.gravityScale = 0;
+        _moveAction = actionsVar.Provide().Gameplay.Move;
+        actionsVar.Provide().Gameplay.Sprint.performed += OnBeginSprint;
+        actionsVar.Provide().Gameplay.Sprint.canceled += OnEndSprint;
     }
 
     void Update()
     {
-        UpdateMovement(speed);
-
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            Sprint();
-        }
+        UpdateMovement(isSprinting ? sprintSpeed : speed);
     }
-    private void UpdateMovement(float speed)
+    
+    private void UpdateMovement(float inSpeed)
     {
-        rb.velocity = moveAction.ReadValue<Vector2>().normalized * speed;
+        rb.velocity = _moveAction.ReadValue<Vector2>().normalized * inSpeed;
     }
 
-    private void Sprint() 
+    private void OnBeginSprint(InputAction.CallbackContext context)
     {
-        UpdateMovement(sprintSpeed);
+        isSprinting = true;
+    }
+
+    private void OnEndSprint(InputAction.CallbackContext context)
+    {
+        isSprinting = false;
     }
 }
