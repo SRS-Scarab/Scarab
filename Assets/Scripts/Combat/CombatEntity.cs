@@ -1,6 +1,7 @@
 #nullable enable
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CombatEntity : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class CombatEntity : MonoBehaviour
     
     [SerializeField] private Inventory equipment = new();
     [SerializeField] private float baseMaxHealth;
-    [SerializeField] private float baseStrength;
+    [SerializeField] private float baseAttack;
     [SerializeField] private float baseDefence;
     [SerializeField] private float iframeDuration;
+    [SerializeField] private float moralAlignment;
+    [SerializeField] private bool useMoralityBonus;
     
     [Header("State")]
     
@@ -66,7 +69,7 @@ public class CombatEntity : MonoBehaviour
                     if (source == playerEntityVar.Provide())
                     {
                         // you killed someone!
-                        moralitySubsystem.ChangeMorality(-10);
+                        moralitySubsystem.ChangeMorality(-moralAlignment);
                     }
                 }
             }
@@ -83,7 +86,7 @@ public class CombatEntity : MonoBehaviour
     public void RecalculateStats()
     {
         maxHealth = baseMaxHealth;
-        attack = baseStrength;
+        attack = baseAttack;
         defence = baseDefence;
         
         var target = equipmentSource == null ? equipment : equipmentSource.Provide();
@@ -96,6 +99,12 @@ public class CombatEntity : MonoBehaviour
                 attack += type.attack;
                 defence += type.defence;
             }
+        }
+
+        if (useMoralityBonus && moralitySubsystem != null)
+        {
+            attack += moralitySubsystem.GetBonusAttack();
+            defence += moralitySubsystem.GetBonusDefence();
         }
 
         maxHealth = Mathf.Max(maxHealth, 0);

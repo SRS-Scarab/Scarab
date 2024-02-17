@@ -1,13 +1,16 @@
 #nullable enable
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class MapUI : MonoBehaviour
 {
     [Header("Dependencies")]
     
+    [SerializeField] private MapColors? mapColors;
     [SerializeField] private InputSubsystem? inputSubsystem;
     [SerializeField] private ActionsVariable? actionsVar;
     [SerializeField] private GameObjectVariable? playerVar;
@@ -54,14 +57,30 @@ public class MapUI : MonoBehaviour
                 for (var y = 0; y < _texture.height; y++)
                 {
                     var tilePos = new Vector3Int(pos.x + x - centerX, pos.y + y - centerY, 0);
-                    var tile = tilemap.GetTile<MapTile>(tilePos);
-                    if (tile == null) _texture.SetPixel(x, y, Color.clear);
-                    else
+                    var tile = tilemap.GetTile<TileBase>(tilePos);
+                    _texture.SetPixel(x, y, Color.clear);
+                    if (tile != null)
                     {
-                        var color = tile.GetMapColor();
-                        var dist = new Vector2(centerX - x, centerY - y).magnitude;
-                        if (fade) color.a = Mathf.Clamp(1 - 2 * dist / GetTextureLength(), 0, 1);
-                        _texture.SetPixel(x, y, color);
+                        if (tile is MapTile mapTile)
+                        {
+                            var color = mapTile.GetMapColor();
+                            var dist = new Vector2(centerX - x, centerY - y).magnitude;
+                            if (fade) color.a = Mathf.Clamp(1 - 2 * dist / GetTextureLength(), 0, 1);
+                            _texture.SetPixel(x, y, color);
+                        }
+                        else
+                        {
+                            var data = new TileData();
+                            tile.GetTileData(tilePos, tilemap, ref data);
+                            if (mapColors != null && mapColors.entries.Any(e => e.sprite == data.sprite))
+                            {
+                                var entry = mapColors.entries.First(e => e.sprite == data.sprite);
+                                var color = entry.color;
+                                var dist = new Vector2(centerX - x, centerY - y).magnitude;
+                                if (fade) color.a = Mathf.Clamp(1 - 2 * dist / GetTextureLength(), 0, 1);
+                                _texture.SetPixel(x, y, color);
+                            }
+                        }
                     }
                 }
             }

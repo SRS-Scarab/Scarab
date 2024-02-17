@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ec24fc1fbb0e34eae439236fe63f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapColors: {fileID: 11400000, guid: 2c49fad889960e44e93300331580a43f, type: 2}
   inputSubsystem: {fileID: 11400000, guid: 0d4ec3b5084c9bd45ab6c9a824296704, type: 2}
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   playerVar: {fileID: 11400000, guid: 60ecc7979036d9c46ad5d2317f9e2152, type: 2}

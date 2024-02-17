@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodThreshold: 100
   badThreshold: -100
+  maxBonusAttack: 100
+  maxBonusDefence: 100
