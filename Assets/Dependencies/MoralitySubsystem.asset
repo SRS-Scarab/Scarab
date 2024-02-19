@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodThreshold: 100
   badThreshold: -100
+  maxMorality: 150
+  minMorality: -150
   maxBonusAttack: 100
   maxBonusDefence: 100

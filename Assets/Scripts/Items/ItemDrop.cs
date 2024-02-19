@@ -7,6 +7,9 @@ public class ItemDrop : MonoBehaviour
     [Header("Dependencies")]
     
     [SerializeField] public Interactable? interactable;
+    [SerializeField] public SpriteRenderer? sprite;
+    [SerializeField] public InventoryVariable? hotbarVar;
+    [SerializeField] public InventoryVariable? inventoryVar;
     
     [Header("State")]
     
@@ -15,14 +18,18 @@ public class ItemDrop : MonoBehaviour
 
     private void Update()
     {
-        if(itemType == null) Destroy(gameObject);
+        if (itemType == null || quantity == 0)
+        {
+            if (interactable != null) interactable.OnInteract -= OnPickUp;
+            Destroy(gameObject);
+        }
     }
 
     public void Initialize(ItemType item, int amount)
     {
         itemType = item;
         quantity = amount;
-        GetComponent<SpriteRenderer>().sprite = itemType.icon;
+        if (sprite != null) sprite.sprite = itemType.icon;
         if (interactable != null)
         {
             interactable.SetPromptText($"{itemType.name} ({quantity})");
@@ -32,7 +39,12 @@ public class ItemDrop : MonoBehaviour
 
     private void OnPickUp(object sender, EventArgs args)
     {
-        if (interactable != null) interactable.OnInteract -= OnPickUp;
-        // todo add to player inventory
+        if (hotbarVar != null) quantity = hotbarVar.Provide().AddItems(itemType!, quantity);
+        if (inventoryVar != null) quantity = inventoryVar.Provide().AddItems(itemType!, quantity);
+        if (quantity == 0)
+        {
+            if (interactable != null) interactable.OnInteract -= OnPickUp;
+            Destroy(gameObject);
+        }
     }
 }

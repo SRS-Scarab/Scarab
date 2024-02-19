@@ -7,15 +7,17 @@ public class MoralitySubsystem : ScriptableObject
 {
     [SerializeField] private float goodThreshold;
     [SerializeField] private float badThreshold;
+    [SerializeField] private float maxMorality;
+    [SerializeField] private float minMorality;
     [SerializeField] private float maxBonusAttack;
     [SerializeField] private float maxBonusDefence;
     [NonSerialized] private float _morality;
 
     public float GetMorality() => _morality;
 
-    public void SetMorality(float value) => _morality = value;
+    public void SetMorality(float value) => _morality = Mathf.Clamp(value, minMorality, maxMorality);
 
-    public void ChangeMorality(float delta) => _morality += delta;
+    public void ChangeMorality(float delta) => SetMorality(_morality + delta);
 
     public EndingType GetEndingType()
     {

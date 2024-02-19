@@ -21,6 +21,7 @@ public class CombatEntity : MonoBehaviour
     [SerializeField] private float iframeDuration;
     [SerializeField] private float moralAlignment;
     [SerializeField] private bool useMoralityBonus;
+    [SerializeField] private LootTable? lootTable;
     
     [Header("State")]
     
@@ -66,12 +67,9 @@ public class CombatEntity : MonoBehaviour
                 Destroy(gameObject);
                 if (playerEntityVar != null && moralitySubsystem != null)
                 {
-                    if (source == playerEntityVar.Provide())
-                    {
-                        // you killed someone!
-                        moralitySubsystem.ChangeMorality(-moralAlignment);
-                    }
+                    if (source == playerEntityVar.Provide()) moralitySubsystem.ChangeMorality(-moralAlignment);
                 }
+                if (lootTable != null) lootTable.OnLootDrop(transform.position);
             }
         }
     }
