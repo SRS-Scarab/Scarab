@@ -4,9 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/Equipment")]
 public class EquipmentType : ItemType
 {
-    public float maxHealth;
-    public float attack;
-    public float defence;
+    public CombatStatsModifier modifier;
     
     public override void OnItemUse(CombatEntity playerEntity, Inventory inventory, int index)
     {

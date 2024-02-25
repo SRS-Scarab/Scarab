@@ -19,6 +19,4 @@ MonoBehaviour:
   value: 30
   weight: 3
   stackSize: 1
-  maxHealth: 0
-  attack: 0
-  defence: 10
+  modifier: {fileID: 11400000, guid: fc1ee10e0b0332f4a96416e06a8b35a1, type: 2}

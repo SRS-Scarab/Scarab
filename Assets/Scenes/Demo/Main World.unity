@@ -212,22 +212,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 90831047}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &90831047
@@ -746,22 +745,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 524274105}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &524274105
@@ -26127,22 +26125,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 958059708}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &958059708
@@ -26312,22 +26309,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 975154250}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &975154250
@@ -26572,22 +26568,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1103438003}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &1103438003
@@ -26971,22 +26966,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1161228038}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &1161228038
@@ -27536,22 +27530,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1337236899}
-  equipmentSource: {fileID: 11400000, guid: ec5d0fd5a1bc593468b0559d301d0c1c, type: 2}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 100
+    attack: 10
+    defence: 10
+  modifiers:
+  - {fileID: 11400000, guid: 5cf8a5fdbeda3c045a534fdb445fe9b7, type: 2}
+  - {fileID: 11400000, guid: cf010b8b950390648951c88ead6ca1bc, type: 2}
   iframeDuration: 0.5
   moralAlignment: 0
-  useMoralityBonus: 1
   lootTable: {fileID: 0}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!114 &1337236897
@@ -27766,22 +27761,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1357642886}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &1357642886
@@ -28236,22 +28230,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1526299400}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &1526299400
@@ -29633,22 +29626,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2084937709}
-  equipmentSource: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
-  equipment:
-    slots: []
-  baseMaxHealth: 100
-  baseAttack: 10
-  baseDefence: 10
+  baseStats:
+    maxHealth: 50
+    attack: 10
+    defence: 10
+  modifiers: []
   iframeDuration: 0.5
   moralAlignment: 10
-  useMoralityBonus: 0
   lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
-  maxHealth: 0
-  attack: 0
-  defence: 0
+  stats:
+    maxHealth: 0
+    attack: 0
+    defence: 0
   iframeLeft: 0
   processed: []
 --- !u!50 &2084937709
