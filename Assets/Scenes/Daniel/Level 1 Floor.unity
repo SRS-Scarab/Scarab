@@ -24825,7 +24825,7 @@ MonoBehaviour:
   iframeDuration: 0.5
   moralAlignment: 0
   useMoralityBonus: 0
-  lootTable: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: b87ace8ff11b9eb4cbe0b5878bf90ee0, type: 2}
   health: 0
   maxHealth: 0
   attack: 0
@@ -25437,7 +25437,7 @@ MonoBehaviour:
   equipment:
     slots: []
   baseMaxHealth: 100
-  baseAttack: 0
+  baseAttack: 20
   baseDefence: 10
   iframeDuration: 0.5
   moralAlignment: 0
