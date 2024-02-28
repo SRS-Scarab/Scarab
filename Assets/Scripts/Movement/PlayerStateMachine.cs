@@ -66,7 +66,10 @@ public class PlayerStateMachine : MovementStateMachine
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        SetState(new JumpState(this));
+        if (IsGrounded)
+        {
+            SetState(new JumpState(this));
+        }
     }
 
     private class WalkState : MovementState<PlayerStateMachine>
