@@ -1,4 +1,5 @@
 #nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,17 +7,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Modifiers/Aggregate")]
 public class AggregateModifier : CombatStatsModifier
 {
-    [SerializeField] private List<CombatStatsModifier> modifiers = new();
+    [NonSerialized] private readonly List<CombatStatsModifier> _modifiers = new();
 
-    public void Clear() => modifiers.Clear();
+    public void Clear() => _modifiers.Clear();
 
-    public void Add(CombatStatsModifier modifier) => modifiers.Add(modifier);
+    public void Add(CombatStatsModifier modifier) => _modifiers.Add(modifier);
 
-    public void Remove(CombatStatsModifier modifier) => modifiers.Remove(modifier);
+    public void Remove(CombatStatsModifier modifier) => _modifiers.Remove(modifier);
     
     public override CombatStats Modify(CombatStats stats)
     {
-        modifiers.Sort(new Comparer());
-        return modifiers.Aggregate(stats, (cur, modifier) => modifier.Modify(cur));
+        _modifiers.Sort(new Comparer());
+        return _modifiers.Aggregate(stats, (cur, modifier) => modifier.Modify(cur));
     }
 }

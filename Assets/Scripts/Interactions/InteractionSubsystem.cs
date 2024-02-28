@@ -9,13 +9,29 @@ public class InteractionSubsystem : ScriptableObject
     [SerializeField] private GameObjectVariable? playerVariable;
     [SerializeField] private List<Interactable> availableInteractables = new();
 
-    public GameObject? GetPlayerObject() => playerVariable == null ? null : playerVariable.Provide();
+    public GameObject? GetPlayerObject()
+    {
+        return playerVariable == null ? null : playerVariable.Provide();
+    }
 
-    public Interactable? GetInteractable() => availableInteractables.OrderByDescending(e => e.GetInteractionPriority()).ThenBy(GetDistanceScore).FirstOrDefault();
+    public Interactable? GetInteractable()
+    {
+        return availableInteractables.OrderByDescending(e => e.GetInteractionPriority()).ThenBy(GetDistanceScore).FirstOrDefault();
+    }
 
-    public void AddInteractable(Interactable interactable) => availableInteractables.Add(interactable);
+    public void AddInteractable(Interactable interactable)
+    {
+        availableInteractables.Add(interactable);
+    }
 
-    public void RemoveInteractable(Interactable interactable) => availableInteractables.Remove(interactable);
+    public void RemoveInteractable(Interactable interactable)
+    {
+        availableInteractables.Remove(interactable);
+    }
 
-    private float GetDistanceScore(Interactable interactable) => playerVariable == null || playerVariable.Provide() == null ? 0 : (playerVariable.Provide()!.transform.position - interactable.transform.position).sqrMagnitude;
+    private float GetDistanceScore(Interactable interactable)
+    {
+        if (playerVariable == null || playerVariable.Provide() == null) return 0;
+        return (playerVariable.Provide()!.transform.position - interactable.transform.position).sqrMagnitude;
+    }
 }
