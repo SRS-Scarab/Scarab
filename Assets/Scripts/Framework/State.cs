@@ -13,15 +13,15 @@ public abstract class State
         this.stateMachine = stateMachine;
     }
 
-    public virtual void Enter()
+    public virtual void OnEnter()
     {
     }
 
-    public virtual void Exit()
+    public virtual void OnExit()
     {
     }
 
-    public abstract State Tick();
+    public abstract void OnTick();
 }
 
 [Serializable]

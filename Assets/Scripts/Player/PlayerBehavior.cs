@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : StateMachine
+public class PlayerBehavior : StateMachine
 {
     private Actions Actions => actionsVar.Provide();
     
@@ -72,16 +72,16 @@ public class PlayerMovement : StateMachine
         }
     }
 
-    private class WalkState : State<PlayerMovement>
+    private class WalkState : State<PlayerBehavior>
     {
         private readonly InputAction _moveAction;
         
-        public WalkState(PlayerMovement stateMachine) : base(stateMachine)
+        public WalkState(PlayerBehavior stateMachine) : base(stateMachine)
         {
             _moveAction = StateMachine.Actions.Gameplay.Move;
         }
         
-        public override State Tick()
+        public override void OnTick()
         {
             var velocity = StateMachine.rigidbody.velocity;
             var input = _moveAction.ReadValue<Vector2>().normalized * StateMachine.walkSpeed;
@@ -91,23 +91,21 @@ public class PlayerMovement : StateMachine
 
             if (StateMachine.isSprinting)
             {
-                return new SprintState(StateMachine);
+                StateMachine.Current = new SprintState(StateMachine);
             }
-
-            return this;
         }
     }
     
-    private class SprintState : State<PlayerMovement>
+    private class SprintState : State<PlayerBehavior>
     {
         private readonly InputAction _moveAction;
         
-        public SprintState(PlayerMovement stateMachine) : base(stateMachine)
+        public SprintState(PlayerBehavior stateMachine) : base(stateMachine)
         {
             _moveAction = StateMachine.Actions.Gameplay.Move;
         }
         
-        public override State Tick()
+        public override void OnTick()
         {
             var velocity = StateMachine.rigidbody.velocity;
             var input = _moveAction.ReadValue<Vector2>().normalized * StateMachine.sprintSpeed;
@@ -117,55 +115,49 @@ public class PlayerMovement : StateMachine
             
             if (!StateMachine.isSprinting)
             {
-                return new WalkState(StateMachine);
+                StateMachine.Current = new WalkState(StateMachine);
             }
-
-            return this;
         }
     }
     
-    private class JumpState : State<PlayerMovement>
+    private class JumpState : State<PlayerBehavior>
     {
-        public JumpState(PlayerMovement stateMachine) : base(stateMachine)
+        public JumpState(PlayerBehavior stateMachine) : base(stateMachine)
         {
             StateMachine.rigidbody.AddForce(Vector3.up * StateMachine.jumpForce, ForceMode.Impulse);
         }
         
-        public override State Tick()
+        public override void OnTick()
         {
             if (StateMachine.rigidbody.velocity.y < 0)
             {
-                return new FallState(StateMachine);
+                StateMachine.Current = new FallState(StateMachine);
             }
-
-            return this;
         }
     }
     
-    private class FallState : State<PlayerMovement>
+    private class FallState : State<PlayerBehavior>
     {
-        public FallState(PlayerMovement stateMachine) : base(stateMachine)
+        public FallState(PlayerBehavior stateMachine) : base(stateMachine)
         {
         }
         
-        public override State Tick()
+        public override void OnTick()
         {
             if (StateMachine.IsGrounded)
             {
-                return StateMachine.isSprinting ? new SprintState(StateMachine) : new WalkState(StateMachine);
+                StateMachine.Current = StateMachine.isSprinting ? new SprintState(StateMachine) : new WalkState(StateMachine);
             }
-
-            return this;
         }
     }
     
-    private class DashState : State<PlayerMovement>
+    private class DashState : State<PlayerBehavior>
     {
-        public DashState(PlayerMovement stateMachine) : base(stateMachine)
+        public DashState(PlayerBehavior stateMachine) : base(stateMachine)
         {
         }
         
-        public override State Tick()
+        public override void OnTick()
         {
             var groundSpeed = StateMachine.rigidbody.velocity;
             groundSpeed.y = 0;
@@ -173,13 +165,12 @@ public class PlayerMovement : StateMachine
             {
                 if (StateMachine.IsGrounded)
                 {
-                    return StateMachine.isSprinting ? new SprintState(StateMachine) : new WalkState(StateMachine);
+                    StateMachine.Current = StateMachine.isSprinting ? new SprintState(StateMachine) : new WalkState(StateMachine);
+                    return;
                 }
 
-                return new FallState(StateMachine);
+                StateMachine.Current = new FallState(StateMachine);
             }
-
-            return this;
         }
     }
 }

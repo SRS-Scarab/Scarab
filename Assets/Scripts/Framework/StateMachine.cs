@@ -8,9 +8,9 @@ public abstract class StateMachine : MonoBehaviour
         get => current;
         set
         {
-            current.Exit();
+            current.OnExit();
             current = value;
-            current.Enter();
+            current.OnEnter();
         }
     }
     
@@ -19,12 +19,12 @@ public abstract class StateMachine : MonoBehaviour
     protected virtual void Start()
     {
         current = GetInitialState();
-        current.Enter();
+        current.OnEnter();
     }
 
     protected virtual void Update()
     {
-        current = current.Tick();
+        current.OnTick();
     }
 
     protected abstract State GetInitialState();
