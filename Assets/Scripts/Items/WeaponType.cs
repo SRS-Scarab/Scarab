@@ -15,7 +15,7 @@ public class WeaponType : ItemType
             var mousePos = camVar.Provide()!.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             var playerPos = playerEntity.transform.position;
             var angle = Vector2.SignedAngle(Vector2.right, mousePos - playerPos);
-            weaponAttack.Instantiate(playerEntity, playerPos, angle);
+            weaponAttack.Attack(playerEntity, playerPos, angle);
         }
     }
 }

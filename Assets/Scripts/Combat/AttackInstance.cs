@@ -1,5 +1,4 @@
 #nullable enable
-using System;
 using UnityEngine;
 
 public class AttackInstance : MonoBehaviour
@@ -7,12 +6,6 @@ public class AttackInstance : MonoBehaviour
     [Header("Dependencies")]
     
     [SerializeField] private SpriteRenderer? sprite;
-    [SerializeField] private Transform? maskTransform;
-    
-    [Header("Parameters")]
-    
-    [SerializeField] private float startAngle;
-    [SerializeField] private float endAngle;
     
     [Header("State")]
     
@@ -42,12 +35,6 @@ public class AttackInstance : MonoBehaviour
                 var color = sprite.color;
                 color.a = 1 - time / info.persist;
                 sprite.color = color;
-            }
-            if (maskTransform != null)
-            {
-                var angle = maskTransform.localEulerAngles;
-                angle.z = time >= info.persist / 2 ? endAngle : time / (info.persist / 2) * (endAngle - startAngle) + startAngle;
-                maskTransform.localEulerAngles = angle;
             }
         }
     }

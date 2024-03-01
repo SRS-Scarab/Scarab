@@ -42,7 +42,7 @@ public class EnemyBehavior : StateMachine
     private bool IsPlayerWithinRange(float range)
     {
         var playerEntity = playerVar.Provide();
-        Assert.IsNotNull(playerEntity);
+        if (playerEntity == null) return false;
         return (transform.position - playerEntity!.transform.position).sqrMagnitude <= range * range;
     }
     
@@ -91,7 +91,7 @@ public class EnemyBehavior : StateMachine
             
             var curPos = StateMachine.transform.position;
             var playerEntity = StateMachine.playerVar.Provide();
-            Assert.IsNotNull(playerEntity);
+            if (playerEntity == null) return;
             var playerPos = playerEntity!.transform.position;
             var step = StateMachine.walkSpeed * Time.deltaTime;
             StateMachine.transform.position = Vector2.MoveTowards(curPos, playerPos, step);
@@ -111,9 +111,9 @@ public class EnemyBehavior : StateMachine
         public override void OnEnter()
         {
             var playerEntity = StateMachine.playerVar.Provide();
-            Assert.IsNotNull(playerEntity);
-            var rotation = Vector2.Angle(Vector2.right, playerEntity!.transform.position - StateMachine.transform.position);
-            StateMachine.attackInfo.Instantiate(StateMachine.entity, StateMachine.entity.transform.position, rotation);
+            if (playerEntity == null) return;
+            var rotation = Vector2.SignedAngle(Vector2.right, playerEntity!.transform.position - StateMachine.transform.position);
+            StateMachine.attackInfo.Attack(StateMachine.entity, StateMachine.entity.transform.position, rotation);
             followThroughRemaining = StateMachine.attackFollowThrough;
         }
 
