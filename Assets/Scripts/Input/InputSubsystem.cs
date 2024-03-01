@@ -15,7 +15,7 @@ public class InputSubsystem : ScriptableObject
     [NonSerialized] private bool _isMetadataInitialized;
     [NonSerialized] private bool _isMouseOverInterface;
 
-    public bool GetMouseStatus() => _isMouseOverInterface;
+    public bool IsConsumedByInterface() => _isMouseOverInterface;
 
     public bool IsConsumedByInterface(InputAction.CallbackContext context) => context.control.device == Pointer.current && _isMouseOverInterface;
     

@@ -27,7 +27,7 @@ public class enemy_Attack : MonoBehaviour
         {
             if (attackSpeed <= canAttack)
             {
-                attackInfo.Instantiate(entity, transform.position, Vector2.Angle(Vector2.right, target.position - transform.position));
+                attackInfo.Attack(entity, transform.position, Vector2.Angle(Vector2.right, target.position - transform.position));
                 canAttack = 0f;
             }
         }
