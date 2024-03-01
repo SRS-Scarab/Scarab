@@ -4,47 +4,68 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [Header("Dependencies")]
-    
-    [SerializeField] private InteractionSubsystem? subsystem;
+  [Header("Dependencies")]
 
-    [Header("Parameters")]
-    
-    [SerializeField] private float interactionRange = 1;
-    [SerializeField] private int interactionPriority;
-    [SerializeField] private string promptText = string.Empty;
+  [SerializeField] private InteractionSubsystem? subsystem;
 
-    public event EventHandler? OnInteract;
+  [Header("Parameters")]
 
-    private void Awake()
+  [SerializeField] private float interactionRange = 1;
+  [SerializeField] private int interactionPriority;
+  [SerializeField] private string promptText = string.Empty;
+
+  public event EventHandler? OnInteract;
+
+  private void Awake()
+  {
+    var trigger = GetComponent<CircleCollider2D>();
+    if (trigger == null)
     {
-        var trigger = GetComponent<CircleCollider2D>();
-        if (trigger == null) trigger = gameObject.AddComponent<CircleCollider2D>();
-        trigger.radius = interactionRange;
-        trigger.isTrigger = true;
+      if (!GetComponent<Collider>())
+      {
+        trigger = gameObject.AddComponent<CircleCollider2D>();
+      }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    if (trigger != null)
     {
-        if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
+      trigger.radius = interactionRange;
+      trigger.isTrigger = true;
     }
+  }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
-    }
+  private void OnTriggerEnter(Collider other)
+  {
+    if (subsystem == null) return;
+    if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
+  }
 
-    public int GetInteractionPriority() => interactionPriority;
-    
-    public string GetPromptText() => promptText;
+  private void OnTriggerExit(Collider other)
+  {
+    if (subsystem == null) return;
+    if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
+  }
 
-    public void SetPromptText(string newText) => promptText = newText;
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (subsystem == null) return;
+    if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
+  }
 
-    public void Interact()
-    {
-        if (subsystem != null) subsystem.RemoveInteractable(this);
-        OnInteract?.Invoke(this, EventArgs.Empty);
-    }
+  private void OnTriggerExit2D(Collider2D other)
+  {
+    if (subsystem == null) return;
+    if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
+  }
+
+  public int GetInteractionPriority() => interactionPriority;
+
+  public string GetPromptText() => promptText;
+
+  public void SetPromptText(string newText) => promptText = newText;
+
+  public void Interact()
+  {
+    if (subsystem != null) subsystem.RemoveInteractable(this);
+    OnInteract?.Invoke(this, EventArgs.Empty);
+  }
 }
