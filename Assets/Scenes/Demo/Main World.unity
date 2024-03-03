@@ -25146,6 +25146,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6079802429711199880, guid: 29ed771ccfe8846df9e863583fa4e86e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2af336d18e676245bd5ef41e19fdd66, type: 3}
     - target: {fileID: 6159734613905054557, guid: 29ed771ccfe8846df9e863583fa4e86e, type: 3}
       propertyPath: m_Follow
       value: 
