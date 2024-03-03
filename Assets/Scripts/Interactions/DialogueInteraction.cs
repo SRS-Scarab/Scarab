@@ -5,38 +5,42 @@ using Yarn.Unity;
 
 public class DialogueInteraction : MonoBehaviour
 {
-    [Header("Dependencies")]
+  [Header("Dependencies")]
 
-    [SerializeField] private InputSubsystem? inputSubsystem;
-    [SerializeField] private DialogueRunner? dialogueRunner;
-    [SerializeField] private Interactable? interactable;
-    
-    private void OnEnable()
-    {
-        if (interactable != null)
-        {
-            interactable.OnInteract += OnTriggerDialogue;
-            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
-        }
-    }
+  [SerializeField] private InputSubsystem? inputSubsystem;
+  [SerializeField] private GameObject Hotbar;
 
-    private void OnDisable()
-    {
-        if (interactable != null)
-        {
-            interactable.OnInteract -= OnTriggerDialogue;
-            if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
-        }
-    }
+  [SerializeField] private DialogueRunner? dialogueRunner;
+  [SerializeField] private Interactable? interactable;
 
-    private void OnTriggerDialogue(object sender, EventArgs args)
+  private void OnEnable()
+  {
+    if (interactable != null)
     {
-        if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
-        if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
+      interactable.OnInteract += OnTriggerDialogue;
+      if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
     }
+  }
 
-    private void OnCompleteDialogue()
+  private void OnDisable()
+  {
+    if (interactable != null)
     {
-        if (inputSubsystem != null) inputSubsystem.PopMap();
+      interactable.OnInteract -= OnTriggerDialogue;
+      if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
     }
+  }
+
+  private void OnTriggerDialogue(object sender, EventArgs args)
+  {
+    if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
+    if (Hotbar != null) Hotbar.SetActive(false);
+    if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
+  }
+
+  private void OnCompleteDialogue()
+  {
+    if (inputSubsystem != null) inputSubsystem.PopMap();
+    if (Hotbar != null) Hotbar.SetActive(true);
+  }
 }
