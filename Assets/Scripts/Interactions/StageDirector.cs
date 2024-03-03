@@ -10,8 +10,8 @@ public class StageDirector : MonoBehaviour
     [Header("Dependencies")]
     
     [SerializeField] private GameObject? actorPrefab;
-    [SerializeField] private Vector2 leftPosition = new(0.25f, 0.5f);
-    [SerializeField] private Vector2 rightPosition = new(0.75f, 0.5f);
+    [SerializeField] private Vector2 leftPosition = new(0.2f, 0.4f);
+    [SerializeField] private Vector2 rightPosition = new(0.9f, 0.55f);
     [SerializeField] private StageActor[] actors = Array.Empty<StageActor>();
     [SerializeField] private StageDirection[] directions = Array.Empty<StageDirection>();
 
