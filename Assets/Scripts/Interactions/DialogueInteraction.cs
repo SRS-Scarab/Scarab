@@ -8,7 +8,7 @@ public class DialogueInteraction : MonoBehaviour
   [Header("Dependencies")]
 
   [SerializeField] private InputSubsystem? inputSubsystem;
-  [SerializeField] private GameObject Hotbar;
+  [SerializeField] private GameObject? Hotbar;
 
   [SerializeField] private DialogueRunner? dialogueRunner;
   [SerializeField] private Interactable? interactable;

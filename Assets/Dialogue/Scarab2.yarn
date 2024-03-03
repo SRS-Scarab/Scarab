@@ -14,7 +14,7 @@ Scarab: OH! Sorry for intruding! I hope I did not wake you. You are a human, rig
 
 <<set-primary Stage player>>
 
-You: You nod.
+Nomad: You nod.
 
 <<set-primary Stage scarab>>
 <<perform-direction Stage scarab jump>>
@@ -23,7 +23,7 @@ Scarab: Right! Yes, I was thinking maybe a crocodile, but no scales. I am gettin
 <<set-primary Stage player>>
 <<reset-direction Stage scarab>>
 
-You: You nod again.
+Nomad: You nod again.
 
 <<set-primary Stage scarab>>
 
@@ -31,7 +31,7 @@ Scarab: Right!! But, then where’s yours? Did you lose it?
 
 <<set-primary Stage player>>
 
-You: You make a so-so gesture.
+Nomad: You make a so-so gesture.
 
 <<set-primary Stage scarab>>
 
@@ -39,7 +39,7 @@ Scarab: Do you need help finding it, then? I’m quite good at finding things.
 
 <<set-primary Stage player>>
 
-You: You shake your head.
+Nomad: You shake your head.
 
 <<set-primary Stage scarab>>
 
@@ -47,7 +47,7 @@ Scarab: I’m Scarab, by the way. I’m quite pleased to make your acquaintance.
 
 <<set-primary Stage player>>
 
-You: You shake Scarab’s outstretched little leg. 
+Nomad: You shake Scarab’s outstretched little leg. 
 
 <<no-primary Stage>>
 
@@ -59,7 +59,7 @@ Scarab: Ah, how lucky he is.
 
 <<set-primary Stage player>>
 
-You: You give Scarab a puzzled look.
+Nomad: You give Scarab a puzzled look.
 
 <<set-primary Stage scarab>>
 
@@ -77,7 +77,7 @@ Scarab looks away, ashamed.
 
 Scarab: Well, I think it’s an incredible feat. The sun brings life and joy to so many creatures across the world. And he’s the one who makes it happen! What could be better than that?
 
-You: Slowly, you help him create a ball out of wet sand. The bug perks up in delight. Scarab poses next to it, ready to start. The sun continues to rise, and as it does Scarab deliberately pushes the ball, very slowly.
+Nomad: Slowly, you help him create a ball out of wet sand. The bug perks up in delight. Scarab poses next to it, ready to start. The sun continues to rise, and as it does Scarab deliberately pushes the ball, very slowly.
 
 You and Scarab: !
 
