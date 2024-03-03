@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Upgrades",
+                    "type": "Button",
+                    "id": "b0642091-9174-417f-8ad0-3138ca53bf76",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -316,6 +325,17 @@
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "222d8565-c7e9-4ad3-94c7-5a8e15e0d65d",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Upgrades",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -381,6 +401,15 @@
                     "name": "ZoomOut",
                     "type": "Button",
                     "id": "af0190e1-fd61-4630-906f-105bf566edb9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseUpgrades",
+                    "type": "Button",
+                    "id": "3c604aeb-3ada-4c5d-a506-458d3059c7db",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -484,6 +513,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ZoomOut",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd65edae-4df1-4ad0-b1a7-4b30eb3fedf8",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseUpgrades",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "189ae275-1652-4282-b113-c67e46ac0e88",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseUpgrades",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

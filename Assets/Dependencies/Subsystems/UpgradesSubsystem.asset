@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8457bcdaa9c954582626aacbee2480, type: 3}
   m_Name: UpgradesSubsystem
   m_EditorClassIdentifier: 
-  availableUpgrades: []
+  availableUpgrades:
+  - name: Bonus Attack
+    icon: {fileID: 0}
+    description: +10 attack
+    cost: 25
+    modifier: {fileID: 11400000, guid: e5dc25278511e3d4cbecceecb3406638, type: 2}
+  - name: Bonus Defence
+    icon: {fileID: 0}
+    description: +10 defence
+    cost: 25
+    modifier: {fileID: 11400000, guid: c452a262013b01d4682f95a220abbe8d, type: 2}
+  - name: Bonus Max Health
+    icon: {fileID: 0}
+    description: +50 max health
+    cost: 35
+    modifier: {fileID: 11400000, guid: 56bda8ad003a02746b700db8c2b8c8c6, type: 2}
+  - name: Bonus Stats
+    icon: {fileID: 0}
+    description: +25% to all stats
+    cost: 100
+    modifier: {fileID: 11400000, guid: 7a069b01114aab94ca0d0c50103deb89, type: 2}

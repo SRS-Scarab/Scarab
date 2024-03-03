@@ -116,6 +116,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Upgrades"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0642091-9174-417f-8ad0-3138ca53bf76"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -338,6 +347,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""222d8565-c7e9-4ad3-94c7-5a8e15e0d65d"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Upgrades"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -403,6 +423,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""name"": ""ZoomOut"",
                     ""type"": ""Button"",
                     ""id"": ""af0190e1-fd61-4630-906f-105bf566edb9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseUpgrades"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c604aeb-3ada-4c5d-a506-458d3059c7db"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -508,6 +537,28 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ZoomOut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd65edae-4df1-4ad0-b1a7-4b30eb3fedf8"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseUpgrades"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""189ae275-1652-4282-b113-c67e46ac0e88"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseUpgrades"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -526,6 +577,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Special = m_Gameplay.FindAction("Special", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Map = m_Gameplay.FindAction("Map", throwIfNotFound: true);
+        m_Gameplay_Upgrades = m_Gameplay.FindAction("Upgrades", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -535,6 +587,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_UI_CloseMap = m_UI.FindAction("CloseMap", throwIfNotFound: true);
         m_UI_ZoomIn = m_UI.FindAction("ZoomIn", throwIfNotFound: true);
         m_UI_ZoomOut = m_UI.FindAction("ZoomOut", throwIfNotFound: true);
+        m_UI_CloseUpgrades = m_UI.FindAction("CloseUpgrades", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -606,6 +659,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Special;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Map;
+    private readonly InputAction m_Gameplay_Upgrades;
     public struct GameplayActions
     {
         private @Actions m_Wrapper;
@@ -620,6 +674,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Special => m_Wrapper.m_Gameplay_Special;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Map => m_Wrapper.m_Gameplay_Map;
+        public InputAction @Upgrades => m_Wrapper.m_Gameplay_Upgrades;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -659,6 +714,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Map.started += instance.OnMap;
             @Map.performed += instance.OnMap;
             @Map.canceled += instance.OnMap;
+            @Upgrades.started += instance.OnUpgrades;
+            @Upgrades.performed += instance.OnUpgrades;
+            @Upgrades.canceled += instance.OnUpgrades;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -693,6 +751,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Map.started -= instance.OnMap;
             @Map.performed -= instance.OnMap;
             @Map.canceled -= instance.OnMap;
+            @Upgrades.started -= instance.OnUpgrades;
+            @Upgrades.performed -= instance.OnUpgrades;
+            @Upgrades.canceled -= instance.OnUpgrades;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -721,6 +782,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CloseMap;
     private readonly InputAction m_UI_ZoomIn;
     private readonly InputAction m_UI_ZoomOut;
+    private readonly InputAction m_UI_CloseUpgrades;
     public struct UIActions
     {
         private @Actions m_Wrapper;
@@ -732,6 +794,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @CloseMap => m_Wrapper.m_UI_CloseMap;
         public InputAction @ZoomIn => m_Wrapper.m_UI_ZoomIn;
         public InputAction @ZoomOut => m_Wrapper.m_UI_ZoomOut;
+        public InputAction @CloseUpgrades => m_Wrapper.m_UI_CloseUpgrades;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -762,6 +825,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @ZoomOut.started += instance.OnZoomOut;
             @ZoomOut.performed += instance.OnZoomOut;
             @ZoomOut.canceled += instance.OnZoomOut;
+            @CloseUpgrades.started += instance.OnCloseUpgrades;
+            @CloseUpgrades.performed += instance.OnCloseUpgrades;
+            @CloseUpgrades.canceled += instance.OnCloseUpgrades;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -787,6 +853,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @ZoomOut.started -= instance.OnZoomOut;
             @ZoomOut.performed -= instance.OnZoomOut;
             @ZoomOut.canceled -= instance.OnZoomOut;
+            @CloseUpgrades.started -= instance.OnCloseUpgrades;
+            @CloseUpgrades.performed -= instance.OnCloseUpgrades;
+            @CloseUpgrades.canceled -= instance.OnCloseUpgrades;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -816,6 +885,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnSpecial(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
+        void OnUpgrades(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -826,5 +896,6 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnCloseMap(InputAction.CallbackContext context);
         void OnZoomIn(InputAction.CallbackContext context);
         void OnZoomOut(InputAction.CallbackContext context);
+        void OnCloseUpgrades(InputAction.CallbackContext context);
     }
 }

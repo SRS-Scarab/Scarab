@@ -135,8 +135,13 @@ MonoBehaviour:
   quantityText: {fileID: 3023731748979059803}
   grid: {fileID: 0}
   target:
-    slots: []
+    rid: -2
   index: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &3586042469336990496
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +297,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -10, y: 0}
-  m_SizeDelta: {x: 80, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &2038477625926198989
 CanvasRenderer:

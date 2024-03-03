@@ -46,6 +46,8 @@ public class Inventory
     /// <returns>Quantity that was not able to be added</returns>
     public int AddItems(ItemType type, int quantity)
     {
+        if (quantity <= 0) return 0;
+        
         foreach (var slot in slots)
         {
             if (slot.stack.itemType == type)
@@ -79,6 +81,8 @@ public class Inventory
     /// <returns>Quantity that was successfully removed</returns>
     public int RemoveItems(ItemType type, int quantity)
     {
+        if (quantity <= 0) return 0;
+        
         var ret = 0;
         foreach (var slot in slots)
         {
