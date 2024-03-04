@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 3993407094809370391, guid: 27a96e4d725798e458563505d6addb05, type: 3}
-  leftPosition: {x: 0.25, y: 0.5}
-  rightPosition: {x: 0.75, y: 0.5}
+  leftPosition: {x: 0.17, y: 0.4}
+  rightPosition: {x: 0.83, y: 0.4}
   actors:
   - {fileID: 11400000, guid: 4d9fd3dd983c82743897610090dd0b5d, type: 2}
   - {fileID: 11400000, guid: 68b484801a1298640904e56404421d65, type: 2}
