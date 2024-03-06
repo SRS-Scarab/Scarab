@@ -64,6 +64,9 @@ public class PlayerBehavior2D : StateMachine
     [SerializeField]
     private Vector2 moveDirection = Vector2.right;
     
+    [SerializeField]
+    private float selectedIndex;
+    
     protected override void Start()
     {
         base.Start();
@@ -72,7 +75,17 @@ public class PlayerBehavior2D : StateMachine
 
         AssertDependencies();
         
-        hotbarSubsystem.OnSlotSelected(hotbarInventory.Provide(), 0);
+        hotbarSubsystem.OnSlotSelected(hotbarInventory.Provide(), (int)selectedIndex);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        var num = hotbarInventory.Provide().GetMaxSlots();
+        var delta = actionsVar.Provide().Gameplay.HotbarScroll.ReadValue<float>() / 10;
+        selectedIndex = (selectedIndex + delta + num) % num;
+        hotbarSubsystem.OnSlotSelected(hotbarInventory.Provide(), (int)selectedIndex);
     }
 
     protected override State GetInitialState()
