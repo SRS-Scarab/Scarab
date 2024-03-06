@@ -125,6 +125,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotbarScroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""b459aefe-278c-4a8a-a3e1-a28192460ae3"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -358,6 +367,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Upgrades"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ede9c05-dd5d-4435-be84-b98a55bbf4d7"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HotbarScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -578,6 +598,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Map = m_Gameplay.FindAction("Map", throwIfNotFound: true);
         m_Gameplay_Upgrades = m_Gameplay.FindAction("Upgrades", throwIfNotFound: true);
+        m_Gameplay_HotbarScroll = m_Gameplay.FindAction("HotbarScroll", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -660,6 +681,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Map;
     private readonly InputAction m_Gameplay_Upgrades;
+    private readonly InputAction m_Gameplay_HotbarScroll;
     public struct GameplayActions
     {
         private @Actions m_Wrapper;
@@ -675,6 +697,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Map => m_Wrapper.m_Gameplay_Map;
         public InputAction @Upgrades => m_Wrapper.m_Gameplay_Upgrades;
+        public InputAction @HotbarScroll => m_Wrapper.m_Gameplay_HotbarScroll;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -717,6 +740,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Upgrades.started += instance.OnUpgrades;
             @Upgrades.performed += instance.OnUpgrades;
             @Upgrades.canceled += instance.OnUpgrades;
+            @HotbarScroll.started += instance.OnHotbarScroll;
+            @HotbarScroll.performed += instance.OnHotbarScroll;
+            @HotbarScroll.canceled += instance.OnHotbarScroll;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -754,6 +780,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Upgrades.started -= instance.OnUpgrades;
             @Upgrades.performed -= instance.OnUpgrades;
             @Upgrades.canceled -= instance.OnUpgrades;
+            @HotbarScroll.started -= instance.OnHotbarScroll;
+            @HotbarScroll.performed -= instance.OnHotbarScroll;
+            @HotbarScroll.canceled -= instance.OnHotbarScroll;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -886,6 +915,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
         void OnUpgrades(InputAction.CallbackContext context);
+        void OnHotbarScroll(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
