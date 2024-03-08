@@ -109,14 +109,16 @@ public class PlayerBehavior2D : StateMachine
                 var mousePos = cam!.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 var playerPos = entity.transform.position;
                 var angle = Vector2.SignedAngle(Vector2.right, mousePos - playerPos);
-                basicAttack.Attack(entity, playerPos, angle);
+                if (basicAttack.TryAttack(entity, playerPos, angle))
+                {
+                    actionCooldownRemaining = actionCooldown;
+                }
             }
             else
             {
                 stack.itemType.OnItemUse(entity, hotbar, hotbarSubsystem.GetSelectedIndex());
+                actionCooldownRemaining = actionCooldown;
             }
-            
-            actionCooldownRemaining = actionCooldown;
         }
     }
 
@@ -130,9 +132,10 @@ public class PlayerBehavior2D : StateMachine
             var mousePos = cam!.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             var playerPos = entity.transform.position;
             var angle = Vector2.SignedAngle(Vector2.right, mousePos - playerPos);
-            specialAttack.Attack(entity, playerPos, angle);
-            
-            specialCooldownRemaining = specialCooldown;
+            if (specialAttack.TryAttack(entity, playerPos, angle))
+            {
+                specialCooldownRemaining = specialCooldown;
+            }
         }
     }
     

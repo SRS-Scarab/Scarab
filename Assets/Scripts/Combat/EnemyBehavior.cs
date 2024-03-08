@@ -113,8 +113,10 @@ public class EnemyBehavior : StateMachine
             var playerEntity = StateMachine.playerVar.Provide();
             if (playerEntity == null) return;
             var rotation = Vector2.SignedAngle(Vector2.right, playerEntity!.transform.position - StateMachine.transform.position);
-            StateMachine.attackInfo.Attack(StateMachine.entity, StateMachine.entity.transform.position, rotation);
-            followThroughRemaining = StateMachine.attackFollowThrough;
+            if (StateMachine.attackInfo.TryAttack(StateMachine.entity, StateMachine.entity.transform.position, rotation))
+            {
+                followThroughRemaining = StateMachine.attackFollowThrough;
+            }
         }
 
         public override void OnTick()

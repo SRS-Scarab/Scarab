@@ -211,8 +211,10 @@ public class MinibossBehavior : StateMachine
         {
             var playerEntity = StateMachine.playerVar.Provide();
             if (playerEntity == null) return;
-            attackInfo.Attack(StateMachine.entity, playerEntity!);
-            followThroughRemaining = StateMachine.attackFollowThrough;
+            if (attackInfo.TryAttack(StateMachine.entity, playerEntity))
+            {
+                followThroughRemaining = StateMachine.attackFollowThrough;
+            }
         }
 
         public override void OnTick()

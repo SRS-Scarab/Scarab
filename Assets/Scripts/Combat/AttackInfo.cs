@@ -7,6 +7,7 @@ using Object = UnityEngine.Object;
 [Serializable]
 public struct AttackInfo
 {
+    public float manaCost;
     public float damage;
     public float knockback;
     public float persist;
@@ -15,8 +16,9 @@ public struct AttackInfo
     public float indicate;
     public GameObject? indicator;
 
-    public void Attack(CombatEntity source, Vector3 position, float rotation)
+    public bool TryAttack(CombatEntity source, Vector3 position, float rotation)
     {
+        if (!source.DeductMana(manaCost)) return false;
         if (indicator != null)
         {
             var obj = Object.Instantiate(indicator, isFree ? null : source.transform);
@@ -25,6 +27,7 @@ public struct AttackInfo
             Object.Destroy(obj, indicate);
         }
         source.StartCoroutine(Instantiate(source, position, rotation));
+        return true;
     }
 
     private IEnumerator Instantiate(CombatEntity source, Vector3 position, float rotation)

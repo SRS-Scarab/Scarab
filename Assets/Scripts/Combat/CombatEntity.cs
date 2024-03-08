@@ -22,6 +22,7 @@ public class CombatEntity : MonoBehaviour
     [Header("State")]
     
     [SerializeField] private float health;
+    [SerializeField] private float mana;
     [SerializeField] private CombatStats stats;
     [SerializeField] private float iframeLeft;
     [SerializeField] private List<AttackInstance> processed = new();
@@ -30,6 +31,7 @@ public class CombatEntity : MonoBehaviour
     {
         RecalculateStats();
         health = stats.maxHealth;
+        mana = stats.maxMana;
     }
 
     private void Update()
@@ -37,11 +39,23 @@ public class CombatEntity : MonoBehaviour
         processed.RemoveAll(e => e == null);
         iframeLeft -= Time.deltaTime;
         RecalculateStats(); // todo remove this later
+        mana = Mathf.Clamp(mana + stats.manaRegen * Time.deltaTime, 0, stats.maxMana);
     }
 
     public float GetHealth() => health;
 
     public float GetMaxHealth() => stats.maxHealth;
+
+    public float GetMana() => mana;
+
+    public float GetMaxMana() => stats.maxMana;
+
+    public bool DeductMana(float amount)
+    {
+        if (mana < amount) return false;
+        mana -= amount;
+        return true;
+    }
 
     public float GetAttack() => stats.attack;
 
