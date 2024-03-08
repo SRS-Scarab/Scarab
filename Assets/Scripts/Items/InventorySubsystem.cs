@@ -51,16 +51,29 @@ public class InventorySubsystem : ScriptableObject
                 else
                 {
                     var newStack = newInventory.GetStack(newIndex);
-                    if (_curInventory.SetStack(_curIndex, newStack))
+                    if (prevStack.itemType == newStack.itemType)
                     {
-                        if (newInventory.SetStack(newIndex, prevStack))
+                        var added = Mathf.Min(newStack.itemType.stackSize - newStack.quantity, prevStack.quantity);
+                        newStack.quantity += added;
+                        newInventory.SetStack(newIndex, newStack);
+                        prevStack.quantity -= added;
+                        _curInventory.SetStack(_curIndex, prevStack.quantity == 0 ? new ItemStack() : prevStack);
+                        _curInventory = null;
+                        _curIndex = -1;
+                    }
+                    else
+                    {
+                        if (_curInventory.SetStack(_curIndex, newStack))
                         {
-                            _curInventory = null;
-                            _curIndex = -1;
-                        }
-                        else
-                        {
-                            _curInventory.SetStack(_curIndex, prevStack);
+                            if (newInventory.SetStack(newIndex, prevStack))
+                            {
+                                _curInventory = null;
+                                _curIndex = -1;
+                            }
+                            else
+                            {
+                                _curInventory.SetStack(_curIndex, prevStack);
+                            }
                         }
                     }
                 }
