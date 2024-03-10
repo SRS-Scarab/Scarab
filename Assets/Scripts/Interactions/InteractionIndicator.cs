@@ -16,8 +16,8 @@ public class InteractionIndicator : MonoBehaviour
     [SerializeField] private Image? arrowImage;
     [SerializeField] private float alphaTweenDuration = 0.5f;
     [SerializeField] private RectTransform? arrowRect;
-    [SerializeField] private float minArrowHeight = 30;
-    [SerializeField] private float maxArrowHeight = 60;
+    [SerializeField] private float minArrowHeight = 40;
+    [SerializeField] private float maxArrowHeight = 70;
     [SerializeField] private AnimationCurve heightCurve = new();
     [SerializeField] private float heightPeriod = 0.5f;
     
