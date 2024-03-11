@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fa1e6196575a2547a162d95e3d76e7d, type: 3}
-  m_Name: LeatherCapModifier
+  m_Name: ChainChestplateModifier
   m_EditorClassIdentifier: 
   priority: 0
   maxHealth: 0
+  maxMana: 0
+  manaRegen: 0
   attack: 0
-  defence: 10
+  defence: 20

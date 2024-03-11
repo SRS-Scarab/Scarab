@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ff7f615e3606d44fbba422edbc783d3, type: 3}
-  m_Name: LeatherCap
+  m_Name: ChainChestplate
   m_EditorClassIdentifier: 
-  category: {fileID: 11400000, guid: 2715af7208f97a44693ff23ef2ff7a07, type: 2}
-  icon: {fileID: 21300000, guid: 373b2985ce5bf2d4e9087e510d761960, type: 3}
-  itemName: Leather Cap
-  description: Hat made out of leather
-  value: 30
+  category: {fileID: 11400000, guid: 576733c4002cb1040964133d38acd530, type: 2}
+  icon: {fileID: 21300000, guid: 17b879c4f5bc04a829faf6b114f49a0a, type: 3}
+  itemName: Chainmail Chestplate
+  description: Chestplate made out of chainmail
+  value: 20
   weight: 3
   stackSize: 1
-  modifier: {fileID: 11400000, guid: fc1ee10e0b0332f4a96416e06a8b35a1, type: 2}
+  modifier: {fileID: 11400000, guid: b5d5ac04c1e3e46b09a3d537ec5051f4, type: 2}

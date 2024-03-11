@@ -32,12 +32,12 @@ MonoBehaviour:
         quantity: 5
     - filter: {fileID: 0}
       stack:
-        itemType: {fileID: 0}
-        quantity: 0
+        itemType: {fileID: 11400000, guid: 934a1a30ce4f04d5984b75b6c462bda8, type: 2}
+        quantity: 1
     - filter: {fileID: 0}
       stack:
-        itemType: {fileID: 0}
-        quantity: 0
+        itemType: {fileID: 11400000, guid: d59286e820c5140bcae832c41382af12, type: 2}
+        quantity: 1
     - filter: {fileID: 0}
       stack:
         itemType: {fileID: 0}

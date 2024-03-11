@@ -38,7 +38,7 @@ MonoBehaviour:
       stack:
         itemType: {fileID: 0}
         quantity: 0
-    - filter: {fileID: 11400000, guid: ffb52e76064e7c744b23ccd280dc0817, type: 2}
+    - filter: {fileID: 11400000, guid: 483c94267cd8045e2bb96dc8faf8182a, type: 2}
       stack:
         itemType: {fileID: 0}
         quantity: 0
