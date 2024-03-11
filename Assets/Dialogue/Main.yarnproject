@@ -2,7 +2,7 @@
   "projectFileVersion": 2,
   "sourceFiles": [
     "Prologue.yarn",
-    "Scarab2.yarn"
+    "Scarab2.yarn",
   ],
   "excludeFiles": [
     "**/*~/*"

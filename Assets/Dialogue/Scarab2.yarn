@@ -27,7 +27,7 @@ Nomad: You nod again.
 
 <<set-primary Stage scarab>>
 
-Scarab: Right!! But, then where’s yours? Did you lose it?
+Scarab: Right!! But, then where's yours? Did you lose it?
 
 <<set-primary Stage player>>
 
@@ -35,7 +35,7 @@ Nomad: You make a so-so gesture.
 
 <<set-primary Stage scarab>>
 
-Scarab: Do you need help finding it, then? I’m quite good at finding things.
+Scarab: Do you need help finding it, then? I'm quite good at finding things.
 
 <<set-primary Stage player>>
 
@@ -43,11 +43,11 @@ Nomad: You shake your head.
 
 <<set-primary Stage scarab>>
 
-Scarab: I’m Scarab, by the way. I’m quite pleased to make your acquaintance.
+Scarab: I'm Scarab, by the way. I'm quite pleased to make your acquaintance.
 
 <<set-primary Stage player>>
 
-Nomad: You shake Scarab’s outstretched little leg. 
+Nomad: You shake Scarab's outstretched little leg. 
 
 <<no-primary Stage>>
 
@@ -63,7 +63,7 @@ Nomad: You give Scarab a puzzled look.
 
 <<set-primary Stage scarab>>
 
-Scarab: The great Scarab that pushes the sun! Perhaps he’s not known amongst humans. Everyday, early in the morning, the great Scarab wakes up and pushes the sun across the sky, like so.
+Scarab: The great Scarab that pushes the sun! Perhaps he's not known amongst humans. Everyday, early in the morning, the great Scarab wakes up and pushes the sun across the sky, like so.
 
 Scarab molds some dewey sand into a ball and rolls it, but it breaks apart.
 
@@ -75,13 +75,321 @@ Scarab looks away, ashamed.
 
 <<reset-direction Stage scarab>>
 
-Scarab: Well, I think it’s an incredible feat. The sun brings life and joy to so many creatures across the world. And he’s the one who makes it happen! What could be better than that?
+Scarab: Well, I think it's an incredible feat. The sun brings life and joy to so many creatures across the world. And he's the one who makes it happen! What could be better than that?
 
 Nomad: Slowly, you help him create a ball out of wet sand. The bug perks up in delight. Scarab poses next to it, ready to start. The sun continues to rise, and as it does Scarab deliberately pushes the ball, very slowly.
+
+// ===
+// title: actII
+// ---
 
 You and Scarab: !
 
 <<remove-actor Stage scarab>>
 <<remove-actor Stage player>>
+
+<<add-actor Stage player>>
+<<left-actor Stage player>>
+
+<<add-actor Stage scarab>>
+<<leftish-actor Stage scarab>>
+
+<<add-actor Stage qamaar>>
+<<right-actor qamaar>>
+
+<<add-actor Stage anubis>>
+<<rightish-actor Stage anubis>>
+
+<<no-primary Stage>>
+
+You and Scarab stumble back.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Anubis! Halt! 
+
+Qamaar: Good boy... or girl? Whatever you are!
+
+<<no-primary Stage>>
+
+Anubis halts.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Hm, what do we have here?! Looks like two trespassers to me! What should we do with them?
+
+<<set-primary Stage anubis>>
+
+Anubis: *Soft growl*
+
+<<set-primary Stage scarab>>
+
+Scarab: Please, let us explain!
+
+<<no-primary Stage>>
+
+Qamaar observes Nomad from a distance.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: (under her breath) That arm- odd. They must be from-
+
+Qamaar: Hey you! Yeah, you with the arm. That's a nice piece of metal you got there. Wanna tell me how you got it?
+
+<<set-primary Stage player>>
+
+Nomad: ...
+
+<<set-primary Stage qamaar>>
+
+Qamaar: I mean... that's alright though, I'm a little different myself!
+
+Qamaar: But that's not important right now... wanna tell me how you got here?
+
+<<set-primary Stage player>>
+
+Nomad: ?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Don't talk much, do ya? Well you better say something, otherwise you and your companion will end up my dog's lunch!
+
+<<set-primary Stage player>>
+
+Nomad: !
+
+<<set-primary Stage scarab>>
+
+Scarab: WAIT! We mean no harm!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: HA HA HA! Just pulling your leg!.... He doesn't like metal in his food.
+
+<<set-primary Stage player>>
+
+Nomad: ...
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Oh! How rude of me! Let me introduce myself! I'm Qamaar, shaman and spiritual protector of these lands. I maintain the mystic equilibrium here. Welcome to my humble domain.
+
+<<set-primary Stage scarab>>
+
+Scarab: Uh- I am Scarab, and this is my friend!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: You two make quite an intriguing duo, don't you? How'd you get here anyway?
+
+<<set-primary Stage scarab>>
+
+Scarab: Well... I was just practicing my daily ritual by the hieroglyphics, and found this human lying unconscious.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Hm, I see. Human, you got anything to say?
+
+<<set-primary Stage player>>
+
+Nomad: ?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: How strange. Then again, a lot of strange things happen here.
+
+<<set-primary Stage scarab>>
+
+Scarab: Yeah but... we want to lift the sun back into the sky and restore the world! Would you happen to know how?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: The sun you say? You want to move the sun?
+
+<<set-primary Stage scarab>>
+
+Scarab: Y-Yes! Can you help us?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: *Sigh* There once lived a man who fancied himself a sun-mover, much like you with your own magical powers. 
+
+Qamaar: I'm talking to you, METAL ARM! 
+
+<<set-primary Stage scarab>>
+
+Scarab: Wait- How'd you know they have powers?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: I know a magic user when I see one. And a fervent one, at that.
+
+Qamaar: Anywho, this wielder dared to shift the sun, defying its celestial harmony. Disrespecting its sovereignty.
+
+Qamaar: Not only did he destroy it, but he unleashed vast collateral consequences upon all that surrounds it, and well... you know the rest- 
+
+Qamaar: I can't let anything like that happen again.
+
+<<set-primary Stage scarab>>
+
+Scarab: But we want to restore the balance!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Whatever remnants of life you thought you had left will cease to exist! Need I explain more?!
+
+<<set-primary Stage scarab>>
+
+Scarab: We can not allow the darkness to persist! We must help them! We must not idly sit here and watch their world suffer! 
+
+<<set-primary Stage qamaar>>
+
+Qamaar: SILENCE! Naïve little bug aren't you?!
+
+<<set-primary Stage scarab>>
+<<perform-direction scarab sad>>
+
+Scarab: Naïve? Maybe... but I want to try!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: *Sigh* My apologies. I just see him in you two.
+
+<<set-primary Stage scarab>>
+
+Scarab: Who?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: ... Doesn't matter. Look, don't do it. Not if you want to salvage what you have left.
+
+<<set-primary Stage scarab>>
+
+Scarab: There is not much left to salvage. Up is all we can go from here.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: *Sigh* Follow me. 
+
+<<no-primary Stage>>
+
+The trio makes their way towards a wall adorned with inscriptions and ancient paintings. Egyptian-style depictions of a scarab beetle raising the sun into the sky.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: You're familiar with the fall of the sun, but do you know of he who once pushed it?
+
+<<set-primary Stage player>>
+
+Nomad: ?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Khepri, god of the rising sun, gracefully lifted its radiance into the sky with each day beginning anew. He was revered in our inner circle, and his renown extended even to our society—a respected figure, admired by all. 
+
+Qamaar: Symbolizing peace, hope, and resurrection, his departure has left the world bereft of these virtues. May he find eternal rest.
+
+Qamaar: He was a dear friend of mine. If there was anybody that loved Khepri more than society, it was himself. Oh, how annoying he was. I miss the fool... and his hubris.
+
+Qamaar: Nonetheless, no being has been able to restore the sun ever since then. And those who try-
+
+<<set-primary Stage scarab>>
+
+Scarab: Yes, but... I believe I can do it! WE can do it! You said yourself the human was strong, did you not? They can help us! 
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Do you realize what you're getting yourself into? And now you're pulling this poor human into your mess!
+
+<<set-primary Stage scarab>>
+
+Scarab: Yes, but our mess is their mess. Their world is hurting! What do you say, friend? Want to restore humanity?!
+
+<<no-primary Stage>>
+
+Nomad agrees to join Scarab.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Well then... I can't stop you, can I?
+
+Qamaar: If you must persist, you ought to understand how things operate here. Don't be fooled, trouble awaits. Evil is ever-rampant in these lands.
+
+Qamaar: One last thing... we must search the temple to retrieve a relic that'll aid you in your journey.
+
+Qamaar: Come now, we must hurry.
+
+<<no-primary Stage>>
+
+The trio make their way through the ruins, following Qamaar. She finds a pillar with a sword's outline etched into it. She places her glowing hand on the pillar, then signals for Nomad to come over.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Over here, human. Place your hand right here.
+
+<<no-primary Stage>>
+
+Nomad places their hand next to Qamaar's in the same spot. A blue sword is magically extracted from the stone. As they retrieve the sword, Qamaar turns to Nomad and tests them.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: You think you can move the sun?! Let's see if you can handle me. Follow my command!
+
+<<no-primary Stage>>
+
+Nomad wins.
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Not bad, mortal. I knew you had the spark.
+
+<<set-primary Stage scarab>>
+
+Scarab: That was amazing!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Don't get too carried away, there's more where that came from - and not as friendly.
+
+<<set-primary Stage scarab>>
+
+Scarab: Where shall we go to lift the sun?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: Travel to the far reaches of this land until you find the towering twin gates. There, you shall weigh your heart on the scale. Should it prove lighter than a feather, you shall proceed. Should it weigh heavier, you shall not.
+
+Qamaar: Trekking across this terrain is no easy feat. Head to the bazaar north of here and you'll find a caravaner who can guide you to your next stop. 
+
+<<set-primary Stage scarab>>
+
+Scarab: You are not coming? Why not guide us?
+
+<<set-primary Stage qamaar>>
+
+Qamaar: I'm afraid I can't join you. I'm shackled to this temple for eternity and can't leave.
+
+<<set-primary Stage scarab>>
+
+Scarab: How come?!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: That's a tale for another time. That caravaneer you'll meet... he's a complicated one. Thoughtful, yet... complicated. Seek to grasp his nature.
+
+Qamaar: Oh, and tell him Qamaar says hi.
+
+<<set-primary Stage scarab>>
+
+Scarab: Will do. Thank you, Qamaar!
+
+<<set-primary Stage qamaar>>
+
+Qamaar: So long, peculiar ones. I wish you well on your journey and bid you success on your venture. May your realm be renewed, may sunlight pierce the gloomiest of days, and may humanity thrive once more!
+
+<<remove-actor Stage scarab>>
+<<remove-actor Stage player>>
+<<remove-actor Stage qamaar>>
+<<remove-actor Stage anubis>>
 
 ===
