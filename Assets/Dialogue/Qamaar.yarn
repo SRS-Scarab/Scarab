@@ -1,92 +1,7 @@
-﻿title: Start
+﻿title: Qamaar
 tags:
+position: 127,-44
 ---
-
-<<add-actor Stage player>>
-<<left-actor Stage player>>
-
-<<add-actor Stage scarab>>
-<<right-actor Stage scarab>>
-
-<<set-primary Stage scarab>>
-
-Scarab: OH! Sorry for intruding! I hope I did not wake you. You are a human, right?
-
-<<set-primary Stage player>>
-
-Nomad: You nod.
-
-<<set-primary Stage scarab>>
-<<perform-direction Stage scarab jump>>
-
-Scarab: Right! Yes, I was thinking maybe a crocodile, but no scales. I am getting better at this! I only ask because humans usually use blankets to sleep, right?
-<<set-primary Stage player>>
-<<reset-direction Stage scarab>>
-
-Nomad: You nod again.
-
-<<set-primary Stage scarab>>
-
-Scarab: Right!! But, then where's yours? Did you lose it?
-
-<<set-primary Stage player>>
-
-Nomad: You make a so-so gesture.
-
-<<set-primary Stage scarab>>
-
-Scarab: Do you need help finding it, then? I'm quite good at finding things.
-
-<<set-primary Stage player>>
-
-Nomad: You shake your head.
-
-<<set-primary Stage scarab>>
-
-Scarab: I'm Scarab, by the way. I'm quite pleased to make your acquaintance.
-
-<<set-primary Stage player>>
-
-Nomad: You shake Scarab's outstretched little leg. 
-
-<<no-primary Stage>>
-
-The sun begins to rise.
-
-<<set-primary Stage scarab>>
-
-Scarab: Ah, how lucky he is.
-
-<<set-primary Stage player>>
-
-Nomad: You give Scarab a puzzled look.
-
-<<set-primary Stage scarab>>
-
-Scarab: The great Scarab that pushes the sun! Perhaps he's not known amongst humans. Everyday, early in the morning, the great Scarab wakes up and pushes the sun across the sky, like so.
-
-Scarab molds some dewey sand into a ball and rolls it, but it breaks apart.
-
-<<perform-direction Stage scarab sad>>
-
-Scarab: Well, he does it better than that. And I would too! If I…
-
-Scarab looks away, ashamed.
-
-<<reset-direction Stage scarab>>
-
-Scarab: Well, I think it's an incredible feat. The sun brings life and joy to so many creatures across the world. And he's the one who makes it happen! What could be better than that?
-
-Nomad: Slowly, you help him create a ball out of wet sand. The bug perks up in delight. Scarab poses next to it, ready to start. The sun continues to rise, and as it does Scarab deliberately pushes the ball, very slowly.
-
-// ===
-// title: actII
-// ---
-
-You and Scarab: !
-
-<<remove-actor Stage scarab>>
-<<remove-actor Stage player>>
 
 <<add-actor Stage player>>
 <<left-actor Stage player>>
@@ -94,8 +9,10 @@ You and Scarab: !
 <<add-actor Stage scarab>>
 <<leftish-actor Stage scarab>>
 
+You and Scarab: !
+
 <<add-actor Stage qamaar>>
-<<right-actor qamaar>>
+<<right-actor Stage qamaar>>
 
 <<add-actor Stage anubis>>
 <<rightish-actor Stage anubis>>

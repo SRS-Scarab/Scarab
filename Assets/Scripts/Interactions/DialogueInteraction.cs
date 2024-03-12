@@ -12,6 +12,10 @@ public class DialogueInteraction : MonoBehaviour
 
   [SerializeField] private DialogueRunner? dialogueRunner;
   [SerializeField] private Interactable? interactable;
+  [SerializeField] private GameObject? qamaar;
+  [SerializeField] private GameObject? anubis;
+  [SerializeField] private AudioSource music;
+  [SerializeField] private AudioClip newMusic;
 
   private void OnEnable()
   {
@@ -19,6 +23,7 @@ public class DialogueInteraction : MonoBehaviour
     {
       interactable.OnInteract += OnTriggerDialogue;
       if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
+      if (dialogueRunner != null) dialogueRunner.onNodeStart.AddListener(onNodeStart);
     }
   }
 
@@ -28,6 +33,7 @@ public class DialogueInteraction : MonoBehaviour
     {
       interactable.OnInteract -= OnTriggerDialogue;
       if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
+      if (dialogueRunner != null) dialogueRunner.onNodeStart.RemoveListener(onNodeStart);
     }
   }
 
@@ -42,5 +48,17 @@ public class DialogueInteraction : MonoBehaviour
   {
     if (inputSubsystem != null) inputSubsystem.PopMap();
     if (Hotbar != null) Hotbar.SetActive(true);
+  }
+
+  private void onNodeStart(string nodeName)
+  {
+    if (nodeName == "Qamaar" && qamaar != null && anubis != null)
+    {
+      music.Pause();
+      qamaar.SetActive(true);
+      anubis.SetActive(true);
+      music.clip = newMusic;
+      music.Play();
+    }
   }
 }
