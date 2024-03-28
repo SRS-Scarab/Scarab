@@ -456,6 +456,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdvanceDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""8dcbc6e2-b0b5-4805-b5dc-51cd83d2c74c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -579,6 +588,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""CloseUpgrades"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1588733f-6e44-45ea-822f-994fa2c82c28"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -609,6 +629,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_UI_ZoomIn = m_UI.FindAction("ZoomIn", throwIfNotFound: true);
         m_UI_ZoomOut = m_UI.FindAction("ZoomOut", throwIfNotFound: true);
         m_UI_CloseUpgrades = m_UI.FindAction("CloseUpgrades", throwIfNotFound: true);
+        m_UI_AdvanceDialogue = m_UI.FindAction("AdvanceDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -812,6 +833,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ZoomIn;
     private readonly InputAction m_UI_ZoomOut;
     private readonly InputAction m_UI_CloseUpgrades;
+    private readonly InputAction m_UI_AdvanceDialogue;
     public struct UIActions
     {
         private @Actions m_Wrapper;
@@ -824,6 +846,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @ZoomIn => m_Wrapper.m_UI_ZoomIn;
         public InputAction @ZoomOut => m_Wrapper.m_UI_ZoomOut;
         public InputAction @CloseUpgrades => m_Wrapper.m_UI_CloseUpgrades;
+        public InputAction @AdvanceDialogue => m_Wrapper.m_UI_AdvanceDialogue;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -857,6 +880,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @CloseUpgrades.started += instance.OnCloseUpgrades;
             @CloseUpgrades.performed += instance.OnCloseUpgrades;
             @CloseUpgrades.canceled += instance.OnCloseUpgrades;
+            @AdvanceDialogue.started += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -885,6 +911,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @CloseUpgrades.started -= instance.OnCloseUpgrades;
             @CloseUpgrades.performed -= instance.OnCloseUpgrades;
             @CloseUpgrades.canceled -= instance.OnCloseUpgrades;
+            @AdvanceDialogue.started -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled -= instance.OnAdvanceDialogue;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -927,5 +956,6 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnZoomIn(InputAction.CallbackContext context);
         void OnZoomOut(InputAction.CallbackContext context);
         void OnCloseUpgrades(InputAction.CallbackContext context);
+        void OnAdvanceDialogue(InputAction.CallbackContext context);
     }
 }

@@ -39,8 +39,11 @@ public class DialogueInteraction : MonoBehaviour
 
   private void OnTriggerDialogue(object sender, EventArgs args)
   {
+    // set input system to UI so that player cannot perform other actions
     if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
+    // remove hotbar
     if (Hotbar != null) Hotbar.SetActive(false);
+    // start dialogue at start node
     if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
   }
 

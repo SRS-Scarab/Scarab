@@ -72,6 +72,7 @@ public class StageDirector : MonoBehaviour
         {
             instance.SetPosition(rightPosition);
             instance.SetOrientation(true);
+            if(actorName == "qamaar") instance.SetOrientation(false);
         }
     }
 
