@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1acb80cfbc09843dc82609c30b9ede57
+guid: 67fe4bcff22d62347a929b1ee755ca68
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Indie Flower
+  - Amatic SC
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
