@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Pathfinding;
 
 public class EnemyBehavior : StateMachine
 {
@@ -25,11 +26,15 @@ public class EnemyBehavior : StateMachine
     
     [SerializeField]
     private float attackFollowThrough = 1.5f;
+    private AIPath aipath;
+    private AIDestinationSetter aiDestinationSetter;
     
     protected override void Start()
     {
         base.Start();
         entity = GetComponent<CombatEntity>();
+        aiDestinationSetter = GetComponent<AIDestinationSetter>();
+        aipath = GetComponent<AIPath>();
 
         AssertDependencies();
     }
@@ -92,9 +97,8 @@ public class EnemyBehavior : StateMachine
             var curPos = StateMachine.transform.position;
             var playerEntity = StateMachine.playerVar.Provide();
             if (playerEntity == null) return;
-            var playerPos = playerEntity!.transform.position;
-            var step = StateMachine.walkSpeed * Time.deltaTime;
-            StateMachine.transform.position = Vector2.MoveTowards(curPos, playerPos, step);
+            StateMachine.aiDestinationSetter.target = playerEntity.transform;
+            StateMachine.aipath.maxSpeed = StateMachine.walkSpeed;
         }
     }
 

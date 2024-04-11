@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class WalkIntoViewAndFollow : MonoBehaviour
 {
@@ -12,11 +13,15 @@ public class WalkIntoViewAndFollow : MonoBehaviour
   private float remainingTime;
   [SerializeField] private GameObject target;
   [SerializeField] private float distance;
+  private AIDestinationSetter destinationSetter;
+  private AIPath aipath;
 
   void Start()
   {
     remainingTime = timeToMove;
     gameObject.SetActive(false);
+    destinationSetter = GetComponent<AIDestinationSetter>();
+    aipath = GetComponent<AIPath>();
   }
   public void FixedUpdate()
   {
@@ -28,16 +33,8 @@ public class WalkIntoViewAndFollow : MonoBehaviour
     }
     else
     {
-      Vector3 difference = (target.transform.position - transform.position);
-      Vector2 diff2D = new Vector2(difference.x, difference.y);
-      if (diff2D.magnitude >= distance)
-      {
-        rb.velocity = diff2D.normalized * speed;
-      }
-      else
-      {
-        rb.velocity = new Vector2(0, 0);
-      }
+      destinationSetter.target = target.transform;
+      aipath.maxSpeed = speed;
     }
   }
 }
