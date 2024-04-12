@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Cinemachine;
 
 public class CombatEntity : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class CombatEntity : MonoBehaviour
     [SerializeField] private Rigidbody2D? rb;
     [SerializeField] private CombatEntityVariable? playerEntityVar;
     [SerializeField] private MoralitySubsystem? moralitySubsystem;
-    
+    [SerializeField] private CameraVariable? mainCamera;
+
     [Header("Parameters")]
     
     [SerializeField] private CombatStats baseStats;
@@ -72,6 +74,12 @@ public class CombatEntity : MonoBehaviour
             if (rb != null) rb.AddForce((transform.position - instance.transform.position).normalized * instance.GetAttackInfo().knockback, ForceMode2D.Impulse);
             if (health <= 0)
             {
+                // if player dies, respawn them
+                if (playerEntityVar != null && this == playerEntityVar.Provide()){
+                    // TODO: get respawn position from save data
+                    GameObject newObj = Instantiate(gameObject, new Vector3(0,0,0), Quaternion.identity);
+                    if(mainCamera != null) mainCamera.Provide().transform.GetChild(0).GetComponent<CinemachineVirtualCamera>().Follow = newObj.transform;
+                }
                 Destroy(gameObject);
                 if (playerEntityVar != null && moralitySubsystem != null)
                 {
