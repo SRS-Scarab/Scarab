@@ -34,19 +34,3 @@ MonoBehaviour:
       stack:
         itemType: {fileID: 0}
         quantity: 0
-    - filter: {fileID: 0}
-      stack:
-        itemType: {fileID: 0}
-        quantity: 0
-    - filter: {fileID: 0}
-      stack:
-        itemType: {fileID: 0}
-        quantity: 0
-    - filter: {fileID: 0}
-      stack:
-        itemType: {fileID: 0}
-        quantity: 0
-    - filter: {fileID: 0}
-      stack:
-        itemType: {fileID: 0}
-        quantity: 0
