@@ -11,6 +11,7 @@ public class WalkIntoViewAndFollow : MonoBehaviour
   [SerializeField] private float speed;
   [SerializeField] private float timeToMove;
   private float remainingTime;
+  [SerializeField] private GameObject initTarget;
   [SerializeField] private GameObject target;
   [SerializeField] private float distance;
   private AIDestinationSetter destinationSetter;
@@ -22,19 +23,18 @@ public class WalkIntoViewAndFollow : MonoBehaviour
     gameObject.SetActive(false);
     destinationSetter = GetComponent<AIDestinationSetter>();
     aipath = GetComponent<AIPath>();
+    aipath.maxSpeed = speed;
+    destinationSetter.target = initTarget.transform;
   }
   public void FixedUpdate()
   {
     if (remainingTime > 0)
     {
-      rb = GetComponent<Rigidbody2D>();
-      rb.velocity = new Vector2(xDir, yDir).normalized * speed;
       remainingTime -= Time.deltaTime;
     }
     else
     {
       destinationSetter.target = target.transform;
-      aipath.maxSpeed = speed;
     }
   }
 }

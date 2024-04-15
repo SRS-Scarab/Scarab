@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneChange : MonoBehaviour
 {
     private Button exitButton;
-    // Start is called before the first frame update
+    
     void Start()
     {
         exitButton = GetComponent<Button>();
