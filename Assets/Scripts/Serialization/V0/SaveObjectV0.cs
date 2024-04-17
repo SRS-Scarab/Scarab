@@ -13,6 +13,7 @@ public class SaveObjectV0 : SaveObjectBase
     [JsonProperty("fragments")]
     public List<SaveFragmentBase> Fragments { get; } = new();
 
+    [JsonConstructor]
     public SaveObjectV0(BaseObjectProviderBase baseObject)
     {
         BaseObject = baseObject;

@@ -11,6 +11,7 @@ public class AuthoredObjectProviderV0 : BaseObjectProviderBase
     [JsonProperty("id")]
     public string Id { get; }
 
+    [JsonConstructor]
     public AuthoredObjectProviderV0(string id)
     {
         Id = id;

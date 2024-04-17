@@ -7,11 +7,16 @@ using Newtonsoft.Json;
 [JsonObject(MemberSerialization.OptIn)]
 public class SaveDataV0 : SaveDataBase
 {
+    [JsonProperty("name")]
+    public string Name { get; }
+    
     [JsonProperty("objects")]
     public List<SaveObjectBase> Objects { get; } = new();
 
-    public SaveDataV0(string name = "") : base(name)
+    [JsonConstructor]
+    public SaveDataV0(string name)
     {
+        Name = name;
     }
 
     public override SaveDataBase GetLatest()

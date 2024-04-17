@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Newtonsoft.Json;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 [Serializable]
@@ -14,6 +15,12 @@ public class PrefabInstanceProviderV0 : BaseObjectProviderBase
     public PrefabInstanceProviderV0(SaveablePrefab prefab)
     {
         PrefabId = prefab.id;
+    }
+
+    [JsonConstructor]
+    private PrefabInstanceProviderV0(string prefabId)
+    {
+        PrefabId = prefabId;
     }
     
     public override SaveableObject GetBaseObject(SaveablePrefabList prefabList)

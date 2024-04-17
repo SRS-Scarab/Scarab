@@ -9,6 +9,7 @@ public abstract class SaveFragmentBase
     [JsonProperty("id")]
     public string Id { get; }
     
+    [JsonConstructor]
     protected SaveFragmentBase(string id)
     {
         Id = id;

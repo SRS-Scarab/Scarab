@@ -19,4 +19,9 @@ public static class SaveUtility
             obj.LoadToBase(prefabList);
         }
     }
+
+    public static void Clear()
+    {
+        Object.FindObjectsOfType<SaveablePrefabInstance>().ToList().ForEach(e => Object.Destroy(e.gameObject));
+    }
 }
