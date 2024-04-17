@@ -8,7 +8,9 @@ public class DialogueInteraction : MonoBehaviour
   [Header("Dependencies")]
 
   [SerializeField] private InputSubsystem? inputSubsystem;
-  [SerializeField] private GameObject? Hotbar;
+  [SerializeField] private GameObject? Sidebar;
+  [SerializeField] private GameObject? Healthbar;
+  [SerializeField] private GameObject? Manabar;
 
   [SerializeField] private DialogueRunner? dialogueRunner;
   [SerializeField] private Interactable? interactable;
@@ -41,8 +43,12 @@ public class DialogueInteraction : MonoBehaviour
   {
     // set input system to UI so that player cannot perform other actions
     if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
-    // remove hotbar
-    if (Hotbar != null) Hotbar.SetActive(false);
+    // remove sidebar
+    if (Sidebar != null) Sidebar.SetActive(false);
+    // remove healthbar
+    if (Healthbar != null) Healthbar.SetActive(false);
+    // remove manabar
+    if (Manabar != null) Manabar.SetActive(false);
     // start dialogue at start node
     if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
   }
@@ -50,7 +56,9 @@ public class DialogueInteraction : MonoBehaviour
   private void OnCompleteDialogue()
   {
     if (inputSubsystem != null) inputSubsystem.PopMap();
-    if (Hotbar != null) Hotbar.SetActive(true);
+    if (Sidebar != null) Sidebar.SetActive(true);
+    if (Healthbar != null) Healthbar.SetActive(true);
+    if (Manabar != null) Manabar.SetActive(true);
   }
 
   private void onNodeStart(string nodeName)
