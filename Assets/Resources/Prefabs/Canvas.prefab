@@ -617,14 +617,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7983909245860435085, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000019073486
-      objectReference: {fileID: 0}
-    - target: {fileID: 7983909245860435085, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000005722046
-      objectReference: {fileID: 0}
     - target: {fileID: 8142070504809314735, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
       propertyPath: m_Name
       value: Upgrades UI

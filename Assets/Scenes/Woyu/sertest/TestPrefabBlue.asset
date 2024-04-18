@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0ed44b870745844b3b8e27f9ec01ef, type: 3}
+  m_Name: TestPrefabBlue
+  m_EditorClassIdentifier: 
+  id: aaac97dd-bdeb-4aa2-80d9-78e00e825d26
+  prefab: {fileID: 2739332625061849231, guid: a659e350dab7e1d44a0cc9d245df3bc8, type: 3}
