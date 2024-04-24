@@ -1,7 +1,7 @@
 #nullable enable
 using UnityEngine;
 
-public class SavablePosition : MonoBehaviour, IFragmentSaveable
+public class SaveablePosition : MonoBehaviour, IFragmentSaveable
 {
     private const string ID = "position";
 
@@ -13,7 +13,7 @@ public class SavablePosition : MonoBehaviour, IFragmentSaveable
     public SaveFragmentBase Save()
     {
         var position = transform.position;
-        return new PositionFragmentV0(position.x, position.y, position.z, ID);
+        return new PositionFragmentV0(position.x, position.y, position.z, GetId());
     }
 
     public void Load(SaveFragmentBase fragment)

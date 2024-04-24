@@ -4,8 +4,10 @@ using System.Linq;
 using UnityEngine;
 using Cinemachine;
 
-public class CombatEntity : MonoBehaviour
+public class CombatEntity : MonoBehaviour, IFragmentSaveable
 {
+    private const string ID = "combat-entity";
+    
     [Header("Dependencies")]
     
     [SerializeField] private Rigidbody2D? rb;
@@ -101,5 +103,22 @@ public class CombatEntity : MonoBehaviour
     {
         modifiers.Sort(new CombatStatsModifier.Comparer());
         stats = modifiers.Aggregate(baseStats, (cur, modifier) => modifier.Modify(cur));
+    }
+
+    public string GetId()
+    {
+        return ID;
+    }
+
+    public SaveFragmentBase Save()
+    {
+        return new CombatEntityFragmentV0(health, mana, GetId());
+    }
+
+    public void Load(SaveFragmentBase fragment)
+    {
+        var latest = (CombatEntityFragmentV0)fragment.GetLatest();
+        health = latest.Health;
+        mana = latest.Mana;
     }
 }

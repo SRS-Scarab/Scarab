@@ -5,9 +5,19 @@ using UnityEngine;
 
 public abstract class SaveableObject : MonoBehaviour
 {
+    [SerializeField]
+    private bool isLoaded;
+
+    public void ResetIsLoaded() => isLoaded = false;
+
+    public bool IsLoaded() => isLoaded;
+    
     public abstract SaveObjectBase Save();
 
-    public abstract void Load(SaveObjectBase obj);
+    public virtual void Load(SaveObjectBase obj)
+    {
+        isLoaded = true;
+    }
 
     protected List<SaveFragmentBase> SaveFragments()
     {

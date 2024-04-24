@@ -1,6 +1,7 @@
 #nullable enable
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class SaveUtility
 {
@@ -13,15 +14,24 @@ public static class SaveUtility
 
     public static void Load(SaveDataBase data, SaveablePrefabList prefabList)
     {
-        var latest = (SaveDataV0)data.GetLatest();
-        foreach (var obj in latest.Objects)
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadSceneAsync(scene.name).completed += _ =>
         {
-            obj.LoadToBase(prefabList);
-        }
-    }
-
-    public static void Clear()
-    {
-        Object.FindObjectsOfType<SaveablePrefabInstance>().ToList().ForEach(e => Object.Destroy(e.gameObject));
+            Object.FindObjectsOfType<SaveableObject>().ToList().ForEach(e => e.ResetIsLoaded());
+        
+            var latest = (SaveDataV0)data.GetLatest();
+            foreach (var obj in latest.Objects)
+            {
+                obj.LoadToBase(prefabList);
+            }
+        
+            Object.FindObjectsOfType<SaveableObject>().ToList().ForEach(e =>
+            {
+                if (!e.IsLoaded())
+                {
+                    Object.Destroy(e.gameObject);
+                }
+            });
+        };
     }
 }

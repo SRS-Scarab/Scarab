@@ -20,6 +20,7 @@ public class SaveablePrefabInstance : SaveableObject
 
     public override void Load(SaveObjectBase obj)
     {
+        base.Load(obj);
         var latest = (SaveObjectV0)obj.GetLatest();
         LoadFragments(latest.Fragments);
     }

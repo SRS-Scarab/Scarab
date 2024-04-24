@@ -241,6 +241,7 @@ MonoBehaviour:
   hotbarSubsystem: {fileID: 11400000, guid: 89624fb80c366034a8707901b16072f7, type: 2}
   hotbarInventory: {fileID: 11400000, guid: 7a0ffd064b813cc45a26ab5037e6c711, type: 2}
   camVar: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
+  prefabList: {fileID: 11400000, guid: 696f1f64de2f1fd4d81286df26800f5e, type: 2}
   entity: {fileID: 8411294777439142217}
   rigidbody: {fileID: 2497298868604222244}
   basicAttack:

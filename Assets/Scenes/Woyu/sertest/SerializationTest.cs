@@ -1,4 +1,5 @@
 #nullable enable
+using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -38,7 +39,6 @@ public class SerializationTest : MonoBehaviour
                 PreserveReferencesHandling = PreserveReferencesHandling.All
             };
             var data = JsonConvert.DeserializeObject<SaveDataBase>(serialized, settings);
-            SaveUtility.Clear();
             SaveUtility.Load(data!, prefabList);
         }
 
@@ -54,7 +54,7 @@ public class SerializationTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            SaveUtility.Clear();
+            FindObjectsOfType<SaveablePrefabInstance>().ToList().ForEach(e => Destroy(e.gameObject));
         }
     }
 }

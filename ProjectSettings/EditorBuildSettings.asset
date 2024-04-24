@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo/Level 1.unity
     guid: 4e0ea0cdec22b43d4836d63e156a9301
+  - enabled: 1
+    path: Assets/Scenes/Woyu/sertest/sertest.unity
+    guid: b3a8368419c93f240a9c788e970aba22
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 163b1ac1e92908a4cbfaedd25c4adf1a, type: 2}
