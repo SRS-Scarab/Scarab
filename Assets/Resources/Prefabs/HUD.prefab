@@ -4029,10 +4029,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2877743836720828571}
   - {fileID: 8406410056421888398}
+  - {fileID: 8299732425759098945}
+  - {fileID: 8526924372819119203}
   - {fileID: 3691010098172945518}
   - {fileID: 8657267371648842250}
-  - {fileID: 8299732425759098945}
   - {fileID: 6590875991293511346}
   - {fileID: 4320025988268904411}
   - {fileID: 7070032193762513607}
@@ -4040,8 +4042,6 @@ RectTransform:
   - {fileID: 7699862843881544393}
   - {fileID: 6283118463213086689}
   - {fileID: 404513799116993481}
-  - {fileID: 8526924372819119203}
-  - {fileID: 2877743836720828571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4923,6 +4923,7 @@ GameObject:
   - component: {fileID: 6052316294335474426}
   - component: {fileID: 3601976858757451826}
   - component: {fileID: 5880145512109994627}
+  - component: {fileID: 98594735742608551}
   m_Layer: 5
   m_Name: DamageFlash
   m_TagString: Untagged
@@ -4937,7 +4938,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8812980274402878691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4946,7 +4947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 1600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6052316294335474426
@@ -4999,6 +5000,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9464b7a8b7b0e4ad4a34b0aee1c6aab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &98594735742608551
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812980274402878691}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &9004405924762602755
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,11 +5698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7983909245860435085, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00012588501
+      value: -0.0001296997
       objectReference: {fileID: 0}
     - target: {fileID: 7983909245860435085, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000037391597
+      value: -0.000029915902
       objectReference: {fileID: 0}
     - target: {fileID: 8142070504809314735, guid: 99239b3d1300b6d4e96049d17cc99d5f, type: 3}
       propertyPath: m_Name
