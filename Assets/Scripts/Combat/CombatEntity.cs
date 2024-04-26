@@ -7,24 +7,24 @@ using Cinemachine;
 public class CombatEntity : MonoBehaviour, IFragmentSaveable
 {
     private const string ID = "combat-entity";
-    
+
     [Header("Dependencies")]
-    
+
     [SerializeField] private Rigidbody2D? rb;
     [SerializeField] private CombatEntityVariable? playerEntityVar;
     [SerializeField] private MoralitySubsystem? moralitySubsystem;
     [SerializeField] private CameraVariable? mainCamera;
 
     [Header("Parameters")]
-    
+
     [SerializeField] private CombatStats baseStats;
     [SerializeField] private List<CombatStatsModifier> modifiers = new();
     [SerializeField] private float iframeDuration;
     [SerializeField] private float moralAlignment;
     [SerializeField] private LootTable? lootTable;
-    
+
     [Header("State")]
-    
+
     [SerializeField] private float health;
     [SerializeField] private float mana;
     [SerializeField] private CombatStats stats;
@@ -73,14 +73,17 @@ public class CombatEntity : MonoBehaviour, IFragmentSaveable
             processed.Add(instance);
             iframeLeft = iframeDuration;
             health -= instance.GetAttackInfo().damage * source.GetAttack() / GetDefence();
+            if (playerEntityVar != null && this == playerEntityVar.Provide()) DamageFlash.Flash(0.7f, 0.1f, 0.4f, Color.red);
             if (rb != null) rb.AddForce((transform.position - instance.transform.position).normalized * instance.GetAttackInfo().knockback, ForceMode2D.Impulse);
             if (health <= 0)
             {
                 // if player dies, respawn them
-                if (playerEntityVar != null && this == playerEntityVar.Provide()){
+                if (playerEntityVar != null && this == playerEntityVar.Provide())
+                {
                     // TODO: get respawn position from save data
-                    GameObject newObj = Instantiate(gameObject, new Vector3(0,0,0), Quaternion.identity);
-                    if(mainCamera != null) mainCamera.Provide().transform.GetChild(0).GetComponent<CinemachineVirtualCamera>().Follow = newObj.transform;
+                    DamageFlash.StopFlash();
+                    GameObject newObj = Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
+                    if (mainCamera != null) mainCamera.Provide().transform.GetChild(0).GetComponent<CinemachineVirtualCamera>().Follow = newObj.transform;
                 }
                 Destroy(gameObject);
                 if (playerEntityVar != null && moralitySubsystem != null)
