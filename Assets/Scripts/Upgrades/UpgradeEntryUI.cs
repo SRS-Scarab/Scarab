@@ -8,30 +8,27 @@ public class UpgradeEntryUI : MonoBehaviour
 {
     [SerializeField]
     private Image iconImage = null!;
-    
+
     [SerializeField]
     private TextMeshProUGUI nameText = null!;
-    
+
     [SerializeField]
     private TextMeshProUGUI descriptionText = null!;
-    
+
     [SerializeField]
     private Button buyButton = null!;
-    
+
     [SerializeField]
     private TextMeshProUGUI costText = null!;
-    
+
     [SerializeField]
     private UpgradesSubsystem upgradesSubsystem = null!;
-    
+
     [SerializeField]
     private InventoryVariable inventoryVar = null!;
-    
+
     [SerializeField]
     private InventoryVariable hotbarVar = null!;
-    
-    [SerializeField]
-    private ItemType goldCoinType = null!;
 
     [SerializeReference]
     private UpgradeEntry? entry;
@@ -56,9 +53,7 @@ public class UpgradeEntryUI : MonoBehaviour
                 buyButton.interactable = false;
                 return;
             }
-            var inventory = inventoryVar.Provide();
-            var hotbar = hotbarVar.Provide();
-            var total = inventory.CountItems(goldCoinType) + hotbar.CountItems(goldCoinType);
+            var total = CoinManager.GetCoins();
             buyButton.interactable = total >= entry.cost;
         }
     }
@@ -67,13 +62,10 @@ public class UpgradeEntryUI : MonoBehaviour
     {
         if (entry != null)
         {
-            var inventory = inventoryVar.Provide();
-            var hotbar = hotbarVar.Provide();
-            var total = inventory.CountItems(goldCoinType) + hotbar.CountItems(goldCoinType);
+            var total = CoinManager.GetCoins();
             if (total >= entry.cost)
             {
-                var remaining = entry.cost - hotbar.RemoveItems(goldCoinType, entry.cost);
-                inventory.RemoveItems(goldCoinType, remaining);
+                CoinManager.AddCoins(-entry.cost);
                 upgradesSubsystem.AcquireUpgrade(entry);
             }
         }

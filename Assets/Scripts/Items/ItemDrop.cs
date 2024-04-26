@@ -5,14 +5,14 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     [Header("Dependencies")]
-    
+
     [SerializeField] public Interactable? interactable;
     [SerializeField] public SpriteRenderer? sprite;
     [SerializeField] public InventoryVariable? hotbarVar;
     [SerializeField] public InventoryVariable? inventoryVar;
-    
+
     [Header("State")]
-    
+
     [SerializeField] private ItemType? itemType;
     [SerializeField] private int quantity;
 
@@ -32,15 +32,16 @@ public class ItemDrop : MonoBehaviour
         if (sprite != null) sprite.sprite = itemType.icon;
         if (interactable != null)
         {
-            interactable.SetPromptText($"{itemType.name} ({quantity})");
+            interactable.SetPromptText($"{itemType.itemName} ({quantity})");
             interactable.OnInteract += OnPickUp;
         }
     }
 
     private void OnPickUp(object sender, EventArgs args)
     {
-        if (hotbarVar != null) quantity = hotbarVar.Provide().AddItems(itemType!, quantity);
-        if (inventoryVar != null) quantity = inventoryVar.Provide().AddItems(itemType!, quantity);
+        if (quantity > 0 && itemType?.itemName == "Gold Coin") { CoinManager.AddCoins(quantity); quantity = 0; }
+        if (quantity > 0 && hotbarVar != null) quantity = hotbarVar.Provide().AddItems(itemType!, quantity);
+        if (quantity > 0 && inventoryVar != null) quantity = inventoryVar.Provide().AddItems(itemType!, quantity);
         if (quantity == 0)
         {
             if (interactable != null) interactable.OnInteract -= OnPickUp;
