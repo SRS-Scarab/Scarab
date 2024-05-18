@@ -1,23 +1,22 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerWalkState : PlayerMovementState
+public class PlayerWalkState : MonoState
 {
     [SerializeField]
-    protected PlayerSprintState? sprintState;
+    private float walkSpeed;
 
     public override void OnTick(MonoStateMachine stateMachine, float delta)
     {
         base.OnTick(stateMachine, delta);
-
-        if (actionsVar == null) return;
-        if (sprintState == null) return;
-
-        var gameplayActions = actionsVar.Provide().Gameplay;
         
-        if (stateMachine.GetState() == this && gameplayActions.Sprint.IsPressed())
-        {
-            stateMachine.SetState(sprintState);
-        }
+        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        if (blackboard == null || !blackboard.IsValid()) return;
+        
+        var velocity = blackboard.rigidbody!.velocity;
+        var input = blackboard.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
+        velocity.x = input.x * walkSpeed;
+        velocity.z = input.y * walkSpeed;
+        blackboard.rigidbody!.velocity = velocity;
     }
 }

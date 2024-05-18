@@ -661,11 +661,14 @@ GameObject:
   - component: {fileID: 1657906100}
   - component: {fileID: 1657906099}
   - component: {fileID: 1657906098}
+  - component: {fileID: 1657906104}
+  - component: {fileID: 1657906103}
   - component: {fileID: 1657906097}
   - component: {fileID: 1657906096}
   - component: {fileID: 1657906095}
-  - component: {fileID: 1657906094}
   - component: {fileID: 1657906093}
+  - component: {fileID: 1657906094}
+  - component: {fileID: 1657906102}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -685,14 +688,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9346d063e547591428b9cd824957e757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  parent: {fileID: 0}
+  children: []
+  dashForce: 10
   threshold: 5
-  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
-  rigidbody: {fileID: 1657906099}
-  groundChecker: {fileID: 1169068277}
-  walkState: {fileID: 1657906097}
-  sprintState: {fileID: 1657906096}
-  fallState: {fileID: 1657906094}
 --- !u!114 &1657906094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,12 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b94d110f4d14240839e21c9592b960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
-  rigidbody: {fileID: 1657906099}
-  groundChecker: {fileID: 1169068277}
-  dashState: {fileID: 1657906093}
-  walkState: {fileID: 1657906097}
-  sprintState: {fileID: 1657906096}
+  parent: {fileID: 0}
+  children: []
 --- !u!114 &1657906095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,9 +718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7cd024638105d4da13e9db2e529c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10
-  rigidbody: {fileID: 1657906099}
-  fallState: {fileID: 1657906094}
+  parent: {fileID: 0}
+  children: []
+  jumpForce: 10
 --- !u!114 &1657906096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,14 +733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1754e1f750e482f44895baa5afa71988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
-  rigidbody: {fileID: 1657906099}
-  groundChecker: {fileID: 1169068277}
-  fallState: {fileID: 1657906094}
-  jumpState: {fileID: 1657906095}
-  dashState: {fileID: 1657906093}
-  walkState: {fileID: 1657906097}
+  parent: {fileID: 0}
+  children: []
+  sprintSpeed: 5
 --- !u!114 &1657906097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,14 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6980414a91c8b4c409956e711e00dda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
-  rigidbody: {fileID: 1657906099}
-  groundChecker: {fileID: 1169068277}
-  fallState: {fileID: 1657906094}
-  jumpState: {fileID: 1657906095}
-  dashState: {fileID: 1657906093}
-  sprintState: {fileID: 1657906096}
+  parent: {fileID: 0}
+  children: []
+  walkSpeed: 3
 --- !u!114 &1657906098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfbe4cb0d92dfb49b502344b83dbfc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 1657906097}
+  blackboards:
+  - {fileID: 1657906102}
+  state: {fileID: 1657906104}
 --- !u!54 &1657906099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -847,6 +834,61 @@ Transform:
   - {fileID: 1169068280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657906102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd875ee54389584c9deac685162b1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
+  rigidbody: {fileID: 1657906099}
+  groundChecker: {fileID: 1169068277}
+--- !u!114 &1657906103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3eda0909d480b479ec85c341fe530a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  children:
+  - {fileID: 1657906097}
+  - {fileID: 1657906096}
+  walkState: {fileID: 1657906097}
+  sprintState: {fileID: 1657906096}
+--- !u!114 &1657906104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3ca6787ef2ef945bf222f8f7ff4b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  children:
+  - {fileID: 1657906103}
+  - {fileID: 1657906095}
+  - {fileID: 1657906093}
+  - {fileID: 1657906094}
+  movementState: {fileID: 1657906103}
+  jumpState: {fileID: 1657906095}
+  dashState: {fileID: 1657906093}
+  fallState: {fileID: 1657906094}
 --- !u!1 &1861011995
 GameObject:
   m_ObjectHideFlags: 0

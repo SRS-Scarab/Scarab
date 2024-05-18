@@ -4,26 +4,25 @@ using UnityEngine;
 public class PlayerJumpState : MonoState
 {
     [SerializeField]
-    protected float force;
-    
-    [SerializeField]
-    protected new Rigidbody? rigidbody;
-    
-    [SerializeField]
-    protected PlayerFallState? fallState;
+    private float jumpForce;
 
     public override void OnEnter(MonoStateMachine stateMachine)
     {
-        if (rigidbody == null) return;
+        base.OnEnter(stateMachine);
+        
+        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        if (blackboard == null || !blackboard.IsValid()) return;
 
-        rigidbody.drag = 0;
-        rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+        blackboard.rigidbody!.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    public override void OnTick(MonoStateMachine stateMachine, float delta)
+    protected override void OnEnterPropagate(MonoStateMachine stateMachine)
     {
-        if (fallState == null) return;
+        base.OnEnterPropagate(stateMachine);
+        
+        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        if (blackboard == null || !blackboard.IsValid()) return;
 
-        stateMachine.SetState(fallState);
+        blackboard.rigidbody!.drag = 0;
     }
 }

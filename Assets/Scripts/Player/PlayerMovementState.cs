@@ -4,64 +4,35 @@ using UnityEngine;
 public class PlayerMovementState : MonoState
 {
     [SerializeField]
-    protected float speed;
+    private PlayerWalkState? walkState;
     
     [SerializeField]
-    protected ActionsVariable? actionsVar;
-    
-    [SerializeField]
-    protected new Rigidbody? rigidbody;
-    
-    [SerializeField]
-    protected GroundChecker? groundChecker;
-    
-    [SerializeField]
-    protected PlayerFallState? fallState;
-    
-    [SerializeField]
-    protected PlayerJumpState? jumpState;
-    
-    [SerializeField]
-    protected PlayerDashState? dashState;
+    private PlayerSprintState? sprintState;
 
     public override void OnEnter(MonoStateMachine stateMachine)
     {
-        if (rigidbody == null) return;
-
-        rigidbody.drag = 1;
+        base.OnEnter(stateMachine);
+        
+        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        if (blackboard == null || !blackboard.IsValid()) return;
+        
+        if (blackboard.Actions!.Gameplay.Sprint.IsPressed())
+        {
+            stateMachine.SetState(sprintState);
+        }
+        else
+        {
+            stateMachine.SetState(walkState);
+        }
     }
 
-    public override void OnTick(MonoStateMachine stateMachine, float delta)
+    protected override void OnEnterPropagate(MonoStateMachine stateMachine)
     {
-        if (actionsVar == null) return;
-        if (rigidbody == null) return;
-        if (groundChecker == null) return;
-        if (jumpState == null) return;
-        if (dashState == null) return;
-
-        var gameplayActions = actionsVar.Provide().Gameplay;
-
-        var velocity = rigidbody.velocity;
-        var input = gameplayActions.Move.ReadValue<Vector2>().normalized;
-        velocity.x = input.x * speed;
-        velocity.z = input.y * speed;
-        rigidbody.velocity = velocity;
-
-        if (!groundChecker.IsGrounded())
-        {
-            stateMachine.SetState(fallState);
-            return;
-        }
-
-        if (gameplayActions.Jump.WasPressedThisFrame())
-        {
-            stateMachine.SetState(jumpState);
-            return;
-        }
+        base.OnEnterPropagate(stateMachine);
         
-        if (gameplayActions.Dash.WasPressedThisFrame())
-        {
-            stateMachine.SetState(dashState);
-        }
+        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        if (blackboard == null || !blackboard.IsValid()) return;
+
+        blackboard.rigidbody!.drag = 1;
     }
 }
