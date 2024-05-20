@@ -795,6 +795,7 @@ GameObject:
   - component: {fileID: 155730675}
   - component: {fileID: 155730676}
   - component: {fileID: 155730677}
+  - component: {fileID: 155730678}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -829,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3497ff21ba935478121826171a8aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXObject: {fileID: 0}
+  soundFXObject: {fileID: -1567170818736339545, guid: 972e070885c044fe29ee2b612f8c7800, type: 3}
 --- !u!114 &155730677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +844,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 1b0961a62b79adb409ebe9d7f23acb7b, type: 2}
+--- !u!114 &155730678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155730674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f0a6c37e26840939d2c61625acfd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &248475262 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6079802429711199880, guid: 29ed771ccfe8846df9e863583fa4e86e, type: 3}

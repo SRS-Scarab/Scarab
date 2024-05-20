@@ -10,6 +10,7 @@ tags:
 
 <<set-primary Stage scarab>>
 
+<<play-audio Scarab_1>>
 Scarab: OH! Sorry for intruding! I hope I did not wake you. You are a human, right?
 
 <<set-primary Stage player>>
