@@ -1,13 +1,13 @@
 #nullable enable
-public class PlayerFallState : MonoState
+public class PlayerFallState : StateNode
 {
-    protected override void OnEnterPropagate(MonoStateMachine stateMachine)
+    protected override void OnEnter()
     {
-        base.OnEnterPropagate(stateMachine);
+        base.OnEnter();
         
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
 
-        blackboard.rigidbody!.drag = 0;
+        dependencies.rigidbody!.drag = 0;
     }
 }

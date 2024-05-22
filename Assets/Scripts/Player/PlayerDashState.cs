@@ -1,7 +1,7 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerDashState : MonoState
+public class PlayerDashState : StateNode
 {
     [SerializeField]
     private float dashForce;
@@ -9,40 +9,52 @@ public class PlayerDashState : MonoState
     [SerializeField]
     private float threshold;
 
-    public override void OnEnter(MonoStateMachine stateMachine)
+    [SerializeField]
+    private bool isFinished;
+
+    public bool IsFinished()
     {
-        base.OnEnter(stateMachine);
-        
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
-
-        var input = blackboard.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
-
-        blackboard.rigidbody!.useGravity = false;
-        blackboard.rigidbody.drag = 3;
-        blackboard.rigidbody.AddForce(new Vector3(input.x * dashForce, 0, input.y * dashForce), ForceMode.Impulse);
+        return isFinished;
     }
 
-    protected override void OnTickPropagate(MonoStateMachine stateMachine, float delta)
+    protected override void OnEnter()
     {
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        base.OnEnter();
         
-        var groundSpeed = blackboard.rigidbody!.velocity;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
+
+        var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
+
+        dependencies.rigidbody!.useGravity = false;
+        dependencies.rigidbody.drag = 3;
+        dependencies.rigidbody.AddForce(new Vector3(input.x * dashForce, 0, input.y * dashForce), ForceMode.Impulse);
+
+        isFinished = false;
+    }
+
+    protected override void OnTick(float delta)
+    {
+        base.OnTick(delta);
+        
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
+        
+        var groundSpeed = dependencies.rigidbody!.velocity;
         groundSpeed.y = 0;
         if (groundSpeed.magnitude < threshold)
         {
-            base.OnTickPropagate(stateMachine, delta);
+            isFinished = true;
         }
     }
 
-    public override void OnExit(MonoStateMachine stateMachine)
+    protected override void OnExit()
     {
-        base.OnExit(stateMachine);
+        base.OnExit();
         
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
 
-        blackboard.rigidbody!.useGravity = true;
+        dependencies.rigidbody!.useGravity = true;
     }
 }

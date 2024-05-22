@@ -706,7 +706,6 @@ GameObject:
   - component: {fileID: 1657906101}
   - component: {fileID: 1657906100}
   - component: {fileID: 1657906099}
-  - component: {fileID: 1657906098}
   - component: {fileID: 1657906104}
   - component: {fileID: 1657906103}
   - component: {fileID: 1657906097}
@@ -738,8 +737,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children: []
+  current: {fileID: 0}
+  blackboards: []
   dashForce: 10
   threshold: 5
+  isFinished: 0
 --- !u!114 &1657906094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children: []
+  current: {fileID: 0}
+  blackboards: []
 --- !u!114 &1657906095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children: []
+  current: {fileID: 0}
+  blackboards: []
   jumpForce: 10
 --- !u!114 &1657906096
 MonoBehaviour:
@@ -783,6 +789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children: []
+  current: {fileID: 0}
+  blackboards: []
   sprintSpeed: 5
 --- !u!114 &1657906097
 MonoBehaviour:
@@ -798,23 +806,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   children: []
+  current: {fileID: 0}
+  blackboards: []
   walkSpeed: 3
---- !u!114 &1657906098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657906092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cfbe4cb0d92dfb49b502344b83dbfc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackboards:
-  - {fileID: 1657906102}
-  - {fileID: 1657906105}
-  state: {fileID: 1657906104}
 --- !u!54 &1657906099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -914,6 +908,8 @@ MonoBehaviour:
   children:
   - {fileID: 1657906097}
   - {fileID: 1657906096}
+  current: {fileID: 0}
+  blackboards: []
   walkState: {fileID: 1657906097}
   sprintState: {fileID: 1657906096}
 --- !u!114 &1657906104
@@ -934,6 +930,10 @@ MonoBehaviour:
   - {fileID: 1657906095}
   - {fileID: 1657906093}
   - {fileID: 1657906094}
+  current: {fileID: 0}
+  blackboards:
+  - {fileID: 1657906102}
+  - {fileID: 1657906105}
   movementState: {fileID: 1657906103}
   jumpState: {fileID: 1657906095}
   dashState: {fileID: 1657906093}

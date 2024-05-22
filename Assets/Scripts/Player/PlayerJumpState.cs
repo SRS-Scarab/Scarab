@@ -1,28 +1,19 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerJumpState : MonoState
+public class PlayerJumpState : StateNode
 {
     [SerializeField]
     private float jumpForce;
 
-    public override void OnEnter(MonoStateMachine stateMachine)
+    protected override void OnEnter()
     {
-        base.OnEnter(stateMachine);
+        base.OnEnter();
         
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
 
-        blackboard.rigidbody!.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    }
-
-    protected override void OnEnterPropagate(MonoStateMachine stateMachine)
-    {
-        base.OnEnterPropagate(stateMachine);
-        
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
-
-        blackboard.rigidbody!.drag = 0;
+        dependencies.rigidbody!.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        dependencies.rigidbody!.drag = 0;
     }
 }

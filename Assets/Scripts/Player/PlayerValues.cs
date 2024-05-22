@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class PlayerZoneBlackboard : MonoStateMachineBlackboard
+public class PlayerValues : Blackboard
 {
     [SerializeField]
     private ZoneChecker? zoneChecker;

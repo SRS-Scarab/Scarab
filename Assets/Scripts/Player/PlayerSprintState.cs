@@ -1,23 +1,23 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerSprintState : MonoState
+public class PlayerSprintState : StateNode
 {
     [SerializeField]
     private float sprintSpeed;
 
-    public override void OnTick(MonoStateMachine stateMachine, float delta)
+    protected override void OnTick(float delta)
     {
-        base.OnTick(stateMachine, delta);
+        base.OnTick(delta);
         
-        var dependencyBlackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        var zoneBlackboard = stateMachine.GetBlackboard<PlayerZoneBlackboard>();
-        if (dependencyBlackboard == null || !dependencyBlackboard.IsValid() || zoneBlackboard == null) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        var values = GetBlackboard<PlayerValues>();
+        if (dependencies == null || !dependencies.IsValid() || values == null) return;
         
-        var velocity = dependencyBlackboard.rigidbody!.velocity;
-        var input = dependencyBlackboard.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
-        velocity.x = input.x * sprintSpeed * zoneBlackboard.GetSpeedMultiplier();
-        velocity.z = input.y * sprintSpeed * zoneBlackboard.GetSpeedMultiplier();
-        dependencyBlackboard.rigidbody!.velocity = velocity;
+        var velocity = dependencies.rigidbody!.velocity;
+        var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
+        velocity.x = input.x * sprintSpeed * values.GetSpeedMultiplier();
+        velocity.z = input.y * sprintSpeed * values.GetSpeedMultiplier();
+        dependencies.rigidbody!.velocity = velocity;
     }
 }

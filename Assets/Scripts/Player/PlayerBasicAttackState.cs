@@ -1,6 +1,6 @@
 #nullable enable
 
-public class PlayerBasicAttackState : MonoState
+public class PlayerBasicAttackState : StateNode
 {
     
 }

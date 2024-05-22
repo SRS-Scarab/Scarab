@@ -7,9 +7,9 @@ public class ZoneChecker : MonoBehaviour
     [SerializeField]
     private List<Zone> zones = new();
 
-    public Zone[] GetZones()
+    public IReadOnlyList<Zone> GetZones()
     {
-        return zones.ToArray();
+        return zones;
     }
 
     private void Update()

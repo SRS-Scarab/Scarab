@@ -1,7 +1,7 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerBaseState : MonoState
+public class PlayerBaseState : StateNode
 {
     [SerializeField]
     private PlayerMovementState? movementState;
@@ -15,32 +15,40 @@ public class PlayerBaseState : MonoState
     [SerializeField]
     private PlayerFallState? fallState;
 
-    protected override void OnTickPropagate(MonoStateMachine stateMachine, float delta)
+    protected override void OnTick(float delta)
     {
-        base.OnTickPropagate(stateMachine, delta);
+        base.OnTick(delta);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
 
-        if (blackboard.Actions!.Gameplay.Dash.WasPressedThisFrame())
+        if (GetCurrent() == dashState && dashState != null)
         {
-            stateMachine.SetState(dashState);
+            if (!dashState.IsFinished())
+            {
+                return;
+            }
+        }
+
+        if (dependencies.Actions!.Gameplay.Dash.WasPressedThisFrame())
+        {
+            SetCurrent(dashState);
             return;
         }
         
-        if (blackboard.groundChecker!.IsGrounded())
+        if (dependencies.groundChecker!.IsGrounded())
         {
-            if (blackboard.Actions!.Gameplay.Jump.WasPressedThisFrame())
+            if (dependencies.Actions!.Gameplay.Jump.WasPressedThisFrame())
             {
-                stateMachine.SetState(jumpState);
+                SetCurrent(jumpState);
                 return;
             }
             
-            stateMachine.SetState(movementState);
+            SetCurrent(movementState);
         }
         else
         {
-            stateMachine.SetState(fallState);
+            SetCurrent(fallState);
         }
     }
 }

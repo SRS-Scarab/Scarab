@@ -1,7 +1,7 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerMovementState : MonoState
+public class PlayerMovementState : StateNode
 {
     [SerializeField]
     private PlayerWalkState? walkState;
@@ -9,30 +9,30 @@ public class PlayerMovementState : MonoState
     [SerializeField]
     private PlayerSprintState? sprintState;
 
-    public override void OnEnter(MonoStateMachine stateMachine)
+    protected override void OnEnter()
     {
-        base.OnEnter(stateMachine);
+        base.OnEnter();
         
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
+
+        dependencies.rigidbody!.drag = 1;
+    }
+
+    protected override void OnTick(float delta)
+    {
+        base.OnTick(delta);
         
-        if (blackboard.Actions!.Gameplay.Sprint.IsPressed())
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
+        
+        if (dependencies.Actions!.Gameplay.Sprint.IsPressed())
         {
-            stateMachine.SetState(sprintState);
+            SetCurrent(sprintState);
         }
         else
         {
-            stateMachine.SetState(walkState);
+            SetCurrent(walkState);
         }
-    }
-
-    protected override void OnEnterPropagate(MonoStateMachine stateMachine)
-    {
-        base.OnEnterPropagate(stateMachine);
-        
-        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
-        if (blackboard == null || !blackboard.IsValid()) return;
-
-        blackboard.rigidbody!.drag = 1;
     }
 }
