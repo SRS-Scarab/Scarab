@@ -1,7 +1,7 @@
 #nullable enable
 using UnityEngine;
 
-public class PlayerBlackboard : MonoStateMachineBlackboard
+public class PlayerDependencyBlackboard : MonoStateMachineBlackboard
 {
     public Actions? Actions => actionsVar == null ? null : actionsVar.Provide();
     

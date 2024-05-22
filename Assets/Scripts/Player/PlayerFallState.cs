@@ -5,7 +5,7 @@ public class PlayerFallState : MonoState
     {
         base.OnEnterPropagate(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         blackboard.rigidbody!.drag = 0;

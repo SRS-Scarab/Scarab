@@ -13,7 +13,7 @@ public class PlayerMovementState : MonoState
     {
         base.OnEnter(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
         
         if (blackboard.Actions!.Gameplay.Sprint.IsPressed())
@@ -30,7 +30,7 @@ public class PlayerMovementState : MonoState
     {
         base.OnEnterPropagate(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         blackboard.rigidbody!.drag = 1;

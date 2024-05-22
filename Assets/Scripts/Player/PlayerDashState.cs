@@ -13,7 +13,7 @@ public class PlayerDashState : MonoState
     {
         base.OnEnter(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         var input = blackboard.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
@@ -25,7 +25,7 @@ public class PlayerDashState : MonoState
 
     protected override void OnTickPropagate(MonoStateMachine stateMachine, float delta)
     {
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
         
         var groundSpeed = blackboard.rigidbody!.velocity;
@@ -40,7 +40,7 @@ public class PlayerDashState : MonoState
     {
         base.OnExit(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         blackboard.rigidbody!.useGravity = true;

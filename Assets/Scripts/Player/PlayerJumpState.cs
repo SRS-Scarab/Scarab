@@ -10,7 +10,7 @@ public class PlayerJumpState : MonoState
     {
         base.OnEnter(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         blackboard.rigidbody!.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -20,7 +20,7 @@ public class PlayerJumpState : MonoState
     {
         base.OnEnterPropagate(stateMachine);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         blackboard.rigidbody!.drag = 0;

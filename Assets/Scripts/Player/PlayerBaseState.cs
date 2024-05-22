@@ -19,7 +19,7 @@ public class PlayerBaseState : MonoState
     {
         base.OnTickPropagate(stateMachine, delta);
         
-        var blackboard = stateMachine.GetBlackboard<PlayerBlackboard>();
+        var blackboard = stateMachine.GetBlackboard<PlayerDependencyBlackboard>();
         if (blackboard == null || !blackboard.IsValid()) return;
 
         if (blackboard.Actions!.Gameplay.Dash.WasPressedThisFrame())

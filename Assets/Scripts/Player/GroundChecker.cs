@@ -1,34 +1,31 @@
 #nullable enable
-using System;
 using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
     [SerializeField]
-    private int groundCounter;
+    private bool isGrounded;
+
+    [SerializeField]
+    private Rigidbody? parentRigidbody;
 
     public bool IsGrounded()
     {
-        return groundCounter > 0;
+        return isGrounded;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        groundCounter++;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        groundCounter--;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        groundCounter++;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        groundCounter--;
+        var t = transform;
+        var colliders = Physics.OverlapSphere(t.position, 0.1f);
+        isGrounded = false;
+        foreach (var collider in colliders)
+        {
+            if (collider.attachedRigidbody != parentRigidbody)
+            {
+                isGrounded = true;
+                break;
+            }
+        }
     }
 }
