@@ -11,8 +11,19 @@ public class PlayerDependencies : Blackboard
 
     public GroundChecker? groundChecker;
 
+    public CombatEntity? entity;
+
+    public InventorySubsystem? hotbarSubsystem;
+
+    public InventoryVariable? hotbarVar;
+
     public bool IsValid()
     {
-        return actionsVar != null && rigidbody != null && groundChecker != null;
+        return actionsVar != null &&
+               rigidbody != null &&
+               groundChecker != null &&
+               entity != null &&
+               hotbarSubsystem != null &&
+               hotbarVar != null;
     }
 }

@@ -17,6 +17,9 @@ public abstract class StateNode : MonoBehaviour
     
     [SerializeField]
     private List<Blackboard> blackboards = new();
+
+    [SerializeField]
+    private bool isBlocking;
     
     private void Awake()
     {
@@ -43,6 +46,7 @@ public abstract class StateNode : MonoBehaviour
 
     public void SetCurrent(StateNode? node)
     {
+        if (current != null && current.isBlocking) return;
         if (node != null && !children.Contains(node)) return;
 
         if (current != null)
@@ -64,6 +68,16 @@ public abstract class StateNode : MonoBehaviour
             blackboard = parent.GetBlackboard<T>();
         }
         return blackboard;
+    }
+
+    public bool IsBlocking()
+    {
+        return isBlocking;
+    }
+
+    public void SetBlocking(bool target)
+    {
+        isBlocking = target;
     }
     
     protected virtual void OnEnter()

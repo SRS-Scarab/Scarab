@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &475949369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -706,7 +706,10 @@ GameObject:
   - component: {fileID: 1657906101}
   - component: {fileID: 1657906100}
   - component: {fileID: 1657906099}
+  - component: {fileID: 1657906109}
   - component: {fileID: 1657906104}
+  - component: {fileID: 1657906108}
+  - component: {fileID: 1657906107}
   - component: {fileID: 1657906103}
   - component: {fileID: 1657906097}
   - component: {fileID: 1657906096}
@@ -716,6 +719,8 @@ GameObject:
   - component: {fileID: 1657906102}
   - component: {fileID: 1657906105}
   - component: {fileID: 1657906106}
+  - component: {fileID: 1657906111}
+  - component: {fileID: 1657906110}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -739,9 +744,9 @@ MonoBehaviour:
   children: []
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
   dashForce: 10
   threshold: 5
-  isFinished: 0
 --- !u!114 &1657906094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +763,7 @@ MonoBehaviour:
   children: []
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
 --- !u!114 &1657906095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +780,7 @@ MonoBehaviour:
   children: []
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
   jumpForce: 10
 --- !u!114 &1657906096
 MonoBehaviour:
@@ -791,6 +798,7 @@ MonoBehaviour:
   children: []
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
   sprintSpeed: 5
 --- !u!114 &1657906097
 MonoBehaviour:
@@ -808,6 +816,7 @@ MonoBehaviour:
   children: []
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
   walkSpeed: 3
 --- !u!54 &1657906099
 Rigidbody:
@@ -892,6 +901,9 @@ MonoBehaviour:
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   rigidbody: {fileID: 1657906099}
   groundChecker: {fileID: 1169068277}
+  entity: {fileID: 1657906109}
+  hotbarSubsystem: {fileID: 11400000, guid: 89624fb80c366034a8707901b16072f7, type: 2}
+  hotbarVar: {fileID: 11400000, guid: 7a0ffd064b813cc45a26ab5037e6c711, type: 2}
 --- !u!114 &1657906103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +922,7 @@ MonoBehaviour:
   - {fileID: 1657906096}
   current: {fileID: 0}
   blackboards: []
+  isBlocking: 0
   walkState: {fileID: 1657906097}
   sprintState: {fileID: 1657906096}
 --- !u!114 &1657906104
@@ -930,14 +943,20 @@ MonoBehaviour:
   - {fileID: 1657906095}
   - {fileID: 1657906093}
   - {fileID: 1657906094}
+  - {fileID: 1657906108}
+  - {fileID: 1657906107}
   current: {fileID: 0}
   blackboards:
   - {fileID: 1657906102}
   - {fileID: 1657906105}
+  isBlocking: 0
+  actionState: {fileID: 1657906108}
+  specialState: {fileID: 1657906107}
   movementState: {fileID: 1657906103}
   jumpState: {fileID: 1657906095}
   dashState: {fileID: 1657906093}
   fallState: {fileID: 1657906094}
+  selectedIndex: 0
 --- !u!114 &1657906105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,6 +985,133 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zones: []
+--- !u!114 &1657906107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3844c52f285a3540a22bb8a85d751c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  children: []
+  current: {fileID: 0}
+  blackboards: []
+  isBlocking: 0
+  specialAttack:
+    manaCost: 0
+    damage: 0
+    knockback: 0
+    persist: 0
+    isFree: 0
+    hitboxes: {fileID: 0}
+    indicate: 0
+    indicator: {fileID: 0}
+  cooldown: 0
+  cooldownFinished: 0
+  delay: 0
+  delayFinished: 0
+--- !u!114 &1657906108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf527313fb3b38b438d89e524fdca34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  children: []
+  current: {fileID: 0}
+  blackboards: []
+  isBlocking: 0
+  basicAttack:
+    manaCost: 0
+    damage: 0
+    knockback: 0
+    persist: 0
+    isFree: 0
+    hitboxes: {fileID: 0}
+    indicate: 0
+    indicator: {fileID: 0}
+  cooldown: 0
+  cooldownFinished: 0
+  delay: 0
+  delayFinished: 0
+--- !u!114 &1657906109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d445c0208640483488de257eb3ce2fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
+  moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
+  mainCamera: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
+  baseStats:
+    maxHealth: 100
+    maxMana: 100
+    manaRegen: 10
+    attack: 10
+    defence: 10
+  modifiers:
+  - {fileID: 11400000, guid: 7c6758c0900b9fa49b72808dd5936e24, type: 2}
+  - {fileID: 11400000, guid: cf010b8b950390648951c88ead6ca1bc, type: 2}
+  - {fileID: 11400000, guid: 5cf8a5fdbeda3c045a534fdb445fe9b7, type: 2}
+  iframeDuration: 0.1
+  moralAlignment: 0
+  lootTable: {fileID: 0}
+  health: 0
+  mana: 0
+  stats:
+    maxHealth: 0
+    maxMana: 0
+    manaRegen: 0
+    attack: 0
+    defence: 0
+  iframeLeft: 0
+  processed: []
+--- !u!114 &1657906110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866f0a98c488e4541b140a641a544cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
+  value: {fileID: 1657906109}
+--- !u!114 &1657906111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657906092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d275f77a88523c84aad89d22782010d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: 60ecc7979036d9c46ad5d2317f9e2152, type: 2}
+  value: {fileID: 1657906092}
 --- !u!1 &1794830380
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +1129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1794830381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861011995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5828cb0a341fbf841a2966eb15a51671, type: 3}
   m_Name: 

@@ -9,14 +9,6 @@ public class PlayerDashState : StateNode
     [SerializeField]
     private float threshold;
 
-    [SerializeField]
-    private bool isFinished;
-
-    public bool IsFinished()
-    {
-        return isFinished;
-    }
-
     protected override void OnEnter()
     {
         base.OnEnter();
@@ -30,7 +22,7 @@ public class PlayerDashState : StateNode
         dependencies.rigidbody.drag = 3;
         dependencies.rigidbody.AddForce(new Vector3(input.x * dashForce, 0, input.y * dashForce), ForceMode.Impulse);
 
-        isFinished = false;
+        SetBlocking(true);
     }
 
     protected override void OnTick(float delta)
@@ -44,7 +36,7 @@ public class PlayerDashState : StateNode
         groundSpeed.y = 0;
         if (groundSpeed.magnitude < threshold)
         {
-            isFinished = true;
+            SetBlocking(false);
         }
     }
 
