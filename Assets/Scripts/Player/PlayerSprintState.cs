@@ -18,6 +18,7 @@ public class PlayerSprintState : StateNode
         var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
         velocity.x = input.x * sprintSpeed * values.GetSpeedMultiplier();
         velocity.z = input.y * sprintSpeed * values.GetSpeedMultiplier();
+        velocity = Quaternion.Euler(0, values.GetCameraDirection(), 0) * velocity;
         dependencies.rigidbody!.velocity = velocity;
     }
 }

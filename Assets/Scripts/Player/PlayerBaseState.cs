@@ -43,11 +43,18 @@ public class PlayerBaseState : StateNode
         base.OnTick(delta);
         
         var dependencies = GetBlackboard<PlayerDependencies>();
-        if (dependencies == null || !dependencies.IsValid()) return;
+        var values = GetBlackboard<PlayerValues>();
+        if (dependencies == null || !dependencies.IsValid() || values == null) return;
+
+        // Camera direction
+        var angles = transform.localEulerAngles;
+        angles.y = values.GetCameraDirection();
+        transform.localEulerAngles = angles;
         
+        // Hotbar scrolling
         var num = dependencies.hotbarVar!.Provide().GetMaxSlots();
         var scroll = dependencies.Actions!.Gameplay.HotbarScroll.ReadValue<float>() / 10;
-        selectedIndex = (selectedIndex + scroll + num) % num;
+        selectedIndex = MathUtils.Mod(selectedIndex + scroll, num);
         dependencies.hotbarSubsystem!.OnSlotSelected(dependencies.hotbarVar!.Provide(), (int)selectedIndex);
 
         // Blocking states automatically handled by SetCurrent

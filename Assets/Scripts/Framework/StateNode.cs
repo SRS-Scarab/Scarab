@@ -34,7 +34,7 @@ public abstract class StateNode : MonoBehaviour
         return parent;
     }
 
-    public IReadOnlyList<StateNode> GetChildren()
+    public IEnumerable<StateNode> GetChildren()
     {
         return children;
     }
