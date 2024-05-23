@@ -46,10 +46,17 @@ public class PlayerBaseState : StateNode
         var values = GetBlackboard<PlayerValues>();
         if (dependencies == null || !dependencies.IsValid() || values == null) return;
 
-        // Camera direction
+        // Camera angle
         var angles = transform.localEulerAngles;
-        angles.y = values.GetCameraDirection();
+        angles.y = values.GetCameraAngle();
         transform.localEulerAngles = angles;
+        
+        // Camera position
+        var cam = dependencies.camVar!.Provide()!;
+        var pos = new Vector3(0, 0, -values.GetCameraDistance());
+        pos = Quaternion.Euler(values.GetCameraElevation(), 0, 0) * pos;
+        cam.transform.localPosition = pos;
+        cam.transform.localEulerAngles = new Vector3(values.GetCameraElevation(), 0, 0);
         
         // Hotbar scrolling
         var num = dependencies.hotbarVar!.Provide().GetMaxSlots();

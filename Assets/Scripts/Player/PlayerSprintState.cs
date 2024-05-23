@@ -14,11 +14,9 @@ public class PlayerSprintState : StateNode
         var values = GetBlackboard<PlayerValues>();
         if (dependencies == null || !dependencies.IsValid() || values == null) return;
         
-        var velocity = dependencies.rigidbody!.velocity;
         var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
-        velocity.x = input.x * sprintSpeed * values.GetSpeedMultiplier();
-        velocity.z = input.y * sprintSpeed * values.GetSpeedMultiplier();
-        velocity = Quaternion.Euler(0, values.GetCameraDirection(), 0) * velocity;
-        dependencies.rigidbody!.velocity = velocity;
+        var deltaPos = new Vector3(input.x, 0, input.y) * (sprintSpeed * values.GetSpeedMultiplier() * delta);
+        deltaPos = Quaternion.Euler(0, values.GetCameraAngle(), 0) * deltaPos;
+        dependencies.rigidbody!.MovePosition(dependencies.rigidbody!.transform.position + deltaPos);
     }
 }

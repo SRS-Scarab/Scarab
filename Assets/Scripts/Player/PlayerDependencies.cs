@@ -17,6 +17,8 @@ public class PlayerDependencies : Blackboard
 
     public InventoryVariable? hotbarVar;
 
+    public CameraVariable? camVar;
+
     public bool IsValid()
     {
         return actionsVar != null &&
@@ -24,6 +26,7 @@ public class PlayerDependencies : Blackboard
                groundChecker != null &&
                entity != null &&
                hotbarSubsystem != null &&
-               hotbarVar != null;
+               hotbarVar != null &&
+               camVar != null && camVar.Provide() != null;
     }
 }

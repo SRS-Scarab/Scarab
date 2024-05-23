@@ -16,7 +16,7 @@ public class PlayerMovementState : StateNode
         var dependencies = GetBlackboard<PlayerDependencies>();
         if (dependencies == null || !dependencies.IsValid()) return;
 
-        dependencies.rigidbody!.drag = 1;
+        dependencies.rigidbody!.drag = 3;
     }
 
     protected override void OnTick(float delta)

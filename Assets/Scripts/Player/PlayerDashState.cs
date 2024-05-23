@@ -14,13 +14,17 @@ public class PlayerDashState : StateNode
         base.OnEnter();
         
         var dependencies = GetBlackboard<PlayerDependencies>();
-        if (dependencies == null || !dependencies.IsValid()) return;
+        var values = GetBlackboard<PlayerValues>();
+        if (dependencies == null || !dependencies.IsValid() || values == null) return;
 
         var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
 
         dependencies.rigidbody!.useGravity = false;
-        dependencies.rigidbody.drag = 3;
-        dependencies.rigidbody.AddForce(new Vector3(input.x * dashForce, 0, input.y * dashForce), ForceMode.Impulse);
+        dependencies.rigidbody.drag = 2;
+        
+        var force = new Vector3(input.x, 0, input.y) * dashForce;
+        force = Quaternion.Euler(0, values.GetCameraAngle(), 0) * force;
+        dependencies.rigidbody.AddForce(force, ForceMode.Impulse);
 
         SetBlocking(true);
     }

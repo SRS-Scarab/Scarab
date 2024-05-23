@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class CameraZone : Zone
 {
-    public float cameraDirection;
-
     public float innerRadius;
 
     public float outerRadius;

@@ -28,8 +28,8 @@ public class ZoneChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var zone = other.GetComponent<Zone>();
-        if (zone != null)
+        var newZones = other.GetComponents<Zone>();
+        foreach (var zone in newZones)
         {
             zone.OnEnter(this);
             zones.Add(zone);
@@ -38,8 +38,8 @@ public class ZoneChecker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var zone = other.GetComponent<Zone>();
-        if (zone != null)
+        var newZones = other.GetComponents<Zone>();
+        foreach (var zone in newZones)
         {
             zone.OnExit(this);
             zones.Remove(zone);
@@ -48,8 +48,8 @@ public class ZoneChecker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var zone = other.GetComponent<Zone>();
-        if (zone != null)
+        var newZones = other.GetComponents<Zone>();
+        foreach (var zone in newZones)
         {
             zone.OnEnter(this);
             zones.Add(zone);
@@ -58,8 +58,8 @@ public class ZoneChecker : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        var zone = other.GetComponent<Zone>();
-        if (zone != null)
+        var newZones = other.GetComponents<Zone>();
+        foreach (var zone in newZones)
         {
             zone.OnExit(this);
             zones.Remove(zone);

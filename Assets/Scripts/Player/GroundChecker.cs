@@ -17,11 +17,11 @@ public class GroundChecker : MonoBehaviour
     private void Update()
     {
         var t = transform;
-        var colliders = Physics.OverlapSphere(t.position, 0.1f);
+        var colliders = Physics.OverlapBox(t.position, new Vector3(0.5f, 0.1f, 0.5f));
         isGrounded = false;
         foreach (var collider in colliders)
         {
-            if (collider.attachedRigidbody != parentRigidbody)
+            if (!collider.isTrigger && collider.attachedRigidbody != parentRigidbody)
             {
                 isGrounded = true;
                 break;
