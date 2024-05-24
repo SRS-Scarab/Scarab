@@ -11,6 +11,8 @@ public class PlayerDependencies : Blackboard
 
     public GroundChecker? groundChecker;
 
+    public GameObject? feetPosition;
+
     public CombatEntity? entity;
 
     public InventorySubsystem? hotbarSubsystem;
@@ -24,6 +26,7 @@ public class PlayerDependencies : Blackboard
         return actionsVar != null &&
                rigidbody != null &&
                groundChecker != null &&
+               feetPosition != null &&
                entity != null &&
                hotbarSubsystem != null &&
                hotbarVar != null &&

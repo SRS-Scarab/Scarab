@@ -17,6 +17,6 @@ public class PlayerSprintState : StateNode
         var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>().normalized;
         var deltaPos = new Vector3(input.x, 0, input.y) * (sprintSpeed * values.GetSpeedMultiplier() * delta);
         deltaPos = Quaternion.Euler(0, values.GetCameraAngle(), 0) * deltaPos;
-        dependencies.rigidbody!.MovePosition(dependencies.rigidbody!.transform.position + deltaPos);
+        dependencies.rigidbody!.position += deltaPos;
     }
 }
