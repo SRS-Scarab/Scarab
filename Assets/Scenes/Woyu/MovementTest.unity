@@ -522,6 +522,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1657906101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1538805771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538805772}
+  m_Layer: 0
+  m_Name: Feet Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538805772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538805771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657906101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657906092
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +742,7 @@ Transform:
   - {fileID: 30394538}
   - {fileID: 1861011996}
   - {fileID: 1169068280}
+  - {fileID: 1538805772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1657906102
@@ -728,6 +760,7 @@ MonoBehaviour:
   actionsVar: {fileID: 11400000, guid: 9bdb401d6d4375d4ba2657c76c5f5735, type: 2}
   rigidbody: {fileID: 1657906099}
   groundChecker: {fileID: 1169068277}
+  feetPosition: {fileID: 1538805771}
   entity: {fileID: 1657906109}
   hotbarSubsystem: {fileID: 11400000, guid: 89624fb80c366034a8707901b16072f7, type: 2}
   hotbarVar: {fileID: 11400000, guid: 7a0ffd064b813cc45a26ab5037e6c711, type: 2}
@@ -751,6 +784,9 @@ MonoBehaviour:
   current: {fileID: 0}
   blackboards: []
   isBlocking: 0
+  stepDistance: 0.6
+  stepHeight: 0.3
+  stepSpeed: 2
   walkState: {fileID: 1657906097}
   sprintState: {fileID: 1657906096}
 --- !u!114 &1657906104
@@ -1074,7 +1110,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
-  m_CookingOptions: 30
+  m_CookingOptions: 14
   m_Mesh: {fileID: -3213388140244033404, guid: 073bff4681e375d43a23d95b53989b8c, type: 3}
 --- !u!1 &2121079981
 GameObject:
