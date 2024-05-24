@@ -5,8 +5,8 @@ using Yarn.Unity;
 
 public class DialogueInteraction : MonoBehaviour
 {
-  [Header("Dependencies")]
 
+  [Header("Dependencies")]
   [SerializeField] private InputSubsystem? inputSubsystem;
   [SerializeField] private GameObject? Sidebar;
   [SerializeField] private GameObject? Healthbar;
@@ -51,7 +51,7 @@ public class DialogueInteraction : MonoBehaviour
     if (Manabar != null) Manabar.SetActive(false);
     // start dialogue at start node
     if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
-  }
+    }
 
   private void OnCompleteDialogue()
   {
@@ -59,7 +59,7 @@ public class DialogueInteraction : MonoBehaviour
     if (Sidebar != null) Sidebar.SetActive(true);
     if (Healthbar != null) Healthbar.SetActive(true);
     if (Manabar != null) Manabar.SetActive(true);
-  }
+    }
 
   private void onNodeStart(string nodeName)
   {
