@@ -3,7 +3,8 @@
   "sourceFiles": [
     "Prologue.yarn",
     "Scarab.yarn",
-    "Qamaar.yarn"
+    "Qamaar.yarn",
+    "Caravaneer.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

@@ -1,0 +1,528 @@
+title: Caravaneer1
+tags:
+---
+<<set-primary Stage caravaneer>>
+
+Caravaneer: . . .
+
+<<jump Caravaneer2>>
+===
+title: Caravaneer2
+tags:
+---
+<<set-primary Stage caravaneer>>
+
+Caravaneer:
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Hey kid! Can't a guy pray in peace? Don't you know temples are silent?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Okay. How about this? You leave me alone, and then you get the pleasure of not having to interact with me.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Fine!! What do you want??
+
+<<set-primary Stage scarab>>
+
+Scarab: Qamaar sent us to find you.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Don't you DARE lie to me. Not in this place.
+
+<<set-primary Stage scarab>>
+
+Scarab: It's true! We even met her dog, Anubis!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Funny. And tell me. How did a weak little… nomad like you get into her place? No normal people are- Hold on. My magic-dar has been off ever since my powers were stripped. You're a wielder, aren't you?
+
+<<set-primary Stage nomad>>
+
+Nomad: Gives an emote of agreement
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Well, why didn't you say so?!? I'm certain you did see Qamaar, then. She knows how to find the best wielders. That's why you're here, isn't it? I've heard what they're doing to people like you on the surface.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Well, I'm glad to know Qamaar is still hiring. But why are you bothering me?
+
+<<set-primary Stage scarab>>
+
+Scarab: We need help learning how to push the sun.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Nope.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Look. I'm not a man with many regrets. But take it from me. Take this idea you have, and crush it. I'm done with this conversation.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Can't even get a coffee in peace, can I? Look, it's good that you got a bid from Qamaar. But she's not omniscient. She makes mistakes when she chooses magicians. Humans can't push the sun. Leave it there.
+
+<<set-primary Stage scarab>>
+
+Scarab: But, it will not be them pushing the sun. It will be me.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: . . .
+
+<<set-primary Stage barista>>
+
+Barista: One ghost style coffee for… Caravaneer.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Come find me again
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I've always hated this place. Read one book, and everything's clearer. Read ten books, and you're back in the dark. Read a hundred books? Try going outside for a change.
+
+<<set-primary Stage scarab>>
+
+Scarab: Very wise words, Caravaneer.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Don't flatter me. I've been called many things, most of them true, and wise is not one of them. But let's get down to business. If you want to learn to push the sun, you're going to need to read this book.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: (Cutting him off)
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Gotta say, a big perk of eternal imprisonment is that everyone wets their pants at the thought of being put in a similar situation to me. Gives me a lot of leverage.
+
+<<set-primary Stage scarab>>
+
+Scarab: You are imprisoned?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: No, I eternally run this caravan because I love the work. Of course I'm imprisoned. I really only still exist because of Qamaar's influence. Some days, I curse her for it. This job… it grinds a person down. On the worst days, I can't even remember why I exist. I just know I have to keep existing… keep working…”
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Most days, though, I get through it. I used to believe that if I put in the work for penance, there was a chance I could be forgiven. But now, I know I'll never be free of this punishment. Maybe one day, people will look at me working and decide the world has been made right... but I'm not sure if I'll make it to that day.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: even the lotuses… the reality i created is punishment enough. oh, Khepri, I hope you've found solace-
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Okay, Scarab. Take a deep breath. Now, I want you to imagine the warmth of the sun within your small body. When you breathe out, share that light with this lotus.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: . . .
+
+<<set-primary Stage scarab>>
+
+Scarab: What does it mean?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: they shouldn't be able to bloom right now-
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Again? Wait here, kid. I have to handle something.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Another protest, you guys? But the last one was so successful.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I feel like… you're upset about the sun.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I'm confused, though.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Ohhhh, I get it. You want to make the world right.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: So this protest will bring the sun back?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Ohhhhhhh. So you don't know how to bring the sun back?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Well I do know how to bring the sun back.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I'm the only one left who knows how. And do you know what would happen if I died?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Maybe! But I know one thing for certain. No one. Not a soul. Would ever be able to move the sun again. So while you're bitching, I'm making sure my knowledge lives on. So that one day, the world can be made right. So don't tell me about justice.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: What are you going to do? Hit me? I'm immortal. As long as I have to serve, death can't release me.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: You'll halt the entire underground!
+
+<<set-primary Stage scarab>>
+
+Scarab: This is looking bad, Nomad. Should we fight them off before they can light the Caravan on fire?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: . . .
+
+<<set-primary Stage scarab>>
+
+Scarab: I guess Caravaneer told us to wait. I'm sure he has got it handled.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Idiot protestors. You'd think they'd learn, don't mess with me.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: So how much did you hear?
+
+<<set-primary Stage scarab>>
+
+Scarab: . . . all of it?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Well, then you know why Qamaar sent you to me. Yes, I can teach you how to move the sun. The knowledge has been burning away at me. I think it hates to be held by a human.
+
+<<set-primary Stage scarab>>
+
+Scarab: So when can I learn?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: So eager. Well, I can't transfer the knowledge here, there's too little magic. I'll have to take you to a spot known only to the wayward. It is where I take my Caravan when it needs to regrow or recharge.
+
+<<set-primary Stage scarab>>
+
+Scarab: Is it far from here?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I forget you're new here. Distance is for those above. I can take you there. That's all you need to know. When you're ready, I'll be here.
+
+<<set-primary Stage scarab>>
+
+Scarab: But… Why are there so many books here?
+
+<<set-primary Stage scarab>>
+
+Scarab: They just give you their book? What do they get out of it!
+
+<<set-primary Stage scarab>>
+
+Scarab: On what?
+
+<<set-primary Stage scarab>>
+
+Scarab: AHH!! What??!!
+
+<<set-primary Stage priest>>
+
+Priest: Hello?? Who's there? I'm just a blind old man… I sure hope no one takes my bunch of gold and cool treasure…
+
+<<set-primary Stage scarab>>
+
+Scarab: It is getting hard to keep justifying your actions, Nomad.
+
+<<set-primary Stage priest>>
+
+Priest: . . .
+
+<<set-primary Stage priest>>
+
+Priest: I sense you were hesitating about taking my stuff. I'm glad you didn't, but still. Come on. Well, anyways -> into dialogue of DONT TAKE
+
+<<set-primary Stage priest>>
+
+Priest: You passed my test! It's a simple one, sure, but you'd be surprised the kind of people who will come through here. If you can't resist taking my stuff, you're probably not worth the waste of breath to talk to!
+
+<<set-primary Stage scarab>>
+
+Scarab: Are you the priest here?
+
+<<set-primary Stage priest>>
+
+Priest: Indeed I am, my small friend.
+
+<<set-primary Stage scarab>>
+
+Scarab: And you are blind?
+
+<<set-primary Stage priest>>
+
+Priest: Blind in some ways, to be sure. But I see plenty. I see why you two are here. And I see that what you seek is… closer than you might think. Now, what may I do for you?
+
+<<set-primary Stage priest>>
+
+Priest: I sense the energy of Qamaar's temple on you. This temple here is dingy by comparison.
+
+<<set-primary Stage scarab>>
+
+Scarab: I know you cannot see, but this temple is actually much nicer than Qamaar's.
+
+<<set-primary Stage priest>>
+
+Priest: In quality of stone, perhaps. But a temple's grandiosity is brought by the power and faith of those who reside in it. Qamaar provides an ocean of power, and it floods her temple. But the Bazaar is a place of travel and movement, and our magic is only supplied by those who pass through here. People like you. And people like him.
+
+<<set-primary Stage scarab>>
+
+Scarab: Oh, we do not have any deben.
+
+<<set-primary Stage montage>>
+
+Montage: 
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Alright everyone! Make yourselves at home. We leave
+
+<<set-primary Stage scarab>>
+
+Scarab: Hrmm? What is that…sound?
+
+<<set-primary Stage scarab>>
+
+Scarab: NOMAD, WAKE UP. WAKE UP NOW.
+
+<<set-primary Stage nomad>>
+
+Nomad: “!!!”
+
+<<set-primary Stage scarab>>
+
+Scarab: (horrified and panicking)
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: *Sigh* I- You were never meant to see this side of me.
+
+<<set-primary Stage scarab>>
+
+Scarab: HOW COULD YOU DO THIS? THEY- WE TRUSTED YOU! HOW COULD
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: You don't understand. I never wanted any of this. But on this land, it changes a person. It takes and it takes until there's nothing left but dullness and survival.
+
+<<set-primary Stage scarab>>
+
+Scarab: And so you make others suffer with you? They entrusted you with their lives!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Yes..I know, but-
+
+<<set-primary Stage scarab>>
+
+Scarab: But what? That does not justify betraying them!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: LISTEN! YOU HAVEN'T THE SLIGHTEST IDEA OF WHAT I'VE ENDURED THESE PAST FIFTY DECADES. THE AGONY, TORMENT, AND THE LONELINESS THAT ECHOES THROUGH EVERY MOMENT OF MY EXISTENCE. ALL BECAUSE OF MY YOUNG AND FOOLISH PAST.
+
+<<set-primary Stage nomad>>
+
+Nomad: “?”
+
+<<set-primary Stage scarab>>
+
+Scarab: Your past you say?!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: YES! I ONLY WANTED TO HELP! I DIDN'T MEAN FOR DESTRUCTION.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: The destruction of the sun! The fall of Khepri! IT WAS ME! IT WAS ALL ME!
+
+<<set-primary Stage scarab>>
+
+Scarab: Qamaar?...That was your doing?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Qamaar…a beautiful soul. She taught me everything I know, molded me into who I was and took me in despite my past. She was labeled as an accomplice and imprisoned within the temple. Guilty by association.
+
+<<set-primary Stage scarab>>
+
+Scarab: No, it does not have to be! You can change your ways and help us restore the world. The sun will return to its cycle and help us begin anew!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Afraid not. Things don't work that way here. The land of redemption? Pfff, what a hoax.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Choosing to help others…what a privilege that must be.
+
+<<set-primary Stage nomad>>
+
+Nomad: *emote of refusal* “!!!”
+
+<<set-primary Stage scarab>>
+
+Scarab: No! We refuse! Please just join us! This isn't the answer to freedom!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: YOU DON'T KNOW FREEDOM TILL YOU'VE BEEN STRIPPED OF IT!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: PLEASE KILL ME, I BEG OF YOU. I CAN NO LONGER ENDURE IT. RELEASE ME!
+
+<<set-primary Stage scarab>>
+
+Scarab: WE WILL NOT ALLOW IT. KHEPRI WOULD NOT WANT THIS!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I see, you leave me with no choice!
+
+<<set-primary Stage scarab>>
+
+Scarab: ENOUGH! SURRENDER NOW CARAVANEER!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Why do you spare me…
+
+<<set-primary Stage scarab>>
+
+Scarab: Because, it is not the answer! You are misunderstood, Caravaneer. A good spirit lives deep within you. Qamaar speaks highly of you. This isn't your place, and I agree,  how ironic it is to deny you freedom in the proclaimed land of redemption.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: And what happens to me once I help you, huh? I just return to my depressing life?
+
+<<set-primary Stage scarab>>
+
+Scarab: I cannot answer for the future, but you may find your solace in helping others. This was your initial goal in life, correct? This is why you moved the sun. You only wanted to help?
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: *Sigh* Yes, that's correct. I've spent my life pleading for a second chance. That's the only guarantee I want.
+
+<<set-primary Stage scarab>>
+
+Scarab: I think it is at least worth trying! Help us restore the sun and your curse may be broken!
+
+<<set-primary Stage scarab>>
+
+Scarab: We cannot change what's already been done, but we can choose how we move forward from here. That is what it means to redeem.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: You're right. I'll return what I've taken, and I'll face whatever consequences come my way. It's the least I can do to make amends.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Everyone- I'm…sorry. I am so sorry for what I've done.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Please, allow me to continue our journey to the gates and bring you closer to your new lives. Let's aid our heroes in their revival of the sun!
+
+<<set-primary Stage scarab>>
+
+Scarab: Qamaar and Khepri would be proud, Caravaneer. You are not alone.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: (IN PAIN)
+
+<<set-primary Stage scarab>>
+
+Scarab: PLEASE! Let us help you! There is still time!-
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: ‘Fraid not little bug. This is my fate. This is what happens to bad people.
+
+<<set-primary Stage scarab>>
+
+Scarab: (tearfully)
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: (IN PAIN)
+
+<<set-primary Stage scarab>>
+
+Scarab: (TEARY)
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I hope so! I'm not dying for nothin! Ha ha!
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: Khepri would be so proud of you two. I'll tell him all about it once I join him in the stars. Well…that's if he forgives me.
+
+<<set-primary Stage scarab>>
+
+Scarab: May your spirit find the peace it longed for, Caravaneer.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: (LAST BREATH)
+
+<<set-primary Stage scarab>>
+
+Scarab: *Sigh* He's gone. If only- *pause*
+
+<<set-primary Stage scarab>>
+
+Scarab: *Inhales* We will honor him in our journey. But first, let's restore everyone's hearts.
+
+<<set-primary Stage scarab>>
+
+Scarab: ...
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: I think an explanation is needed.
+
+<<set-primary Stage caravaneer>>
+
+Caravaneer: After I met you, Nomad, I found my interest piqued. I wanted to know more about you. My caravan allows me occasional forays into your old world, so I visited your village and listened to the townspeople speak of the last child of magic. A loving child, who wanted happiness for everyone around them.
+
+<<set-primary Stage scarab>>
+
+Scarab: Nomad, I am sorry I did not tell you earlier. I thought maybe the attacking spirits and odd characters you were meeting would have tipped you off, but… you are dead. You have been since we first met. I should have told you.
+
+<<set-primary Stage caravaneer>>
+
+
+===

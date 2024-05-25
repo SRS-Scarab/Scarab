@@ -14,8 +14,6 @@ public class DialogueInteraction : MonoBehaviour
 
   [SerializeField] private DialogueRunner? dialogueRunner;
   [SerializeField] private Interactable? interactable;
-  [SerializeField] private GameObject? qamaar;
-  [SerializeField] private GameObject? anubis;
   [SerializeField] private AudioSource music;
   [SerializeField] private AudioClip newMusic;
 
@@ -61,15 +59,4 @@ public class DialogueInteraction : MonoBehaviour
     if (Manabar != null) Manabar.SetActive(true);
     }
 
-  private void onNodeStart(string nodeName)
-  {
-    if (nodeName == "Qamaar" && qamaar != null && anubis != null)
-    {
-      music.Pause();
-      qamaar.SetActive(true);
-      anubis.SetActive(true);
-      music.clip = newMusic;
-      music.Play();
-    }
-  }
 }

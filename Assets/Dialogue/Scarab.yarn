@@ -1,4 +1,4 @@
-﻿title: Start
+﻿title: Scarab
 tags:
 ---
 
@@ -20,6 +20,7 @@ Nomad: You nod.
 <<set-primary Stage scarab>>
 <<perform-direction Stage scarab jump>>
 
+<<play-audio Scarab_2>>
 Scarab: Right! Yes, I was thinking maybe a crocodile, but no scales. I am getting better at this! I only ask because humans usually use blankets to sleep, right?
 <<set-primary Stage player>>
 <<reset-direction Stage scarab>>
