@@ -909,7 +909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2045918988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9845eec117e9634888ed71e195a39e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 30fbbea08cc10ed45ac6ce6b7dcf56c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1494815563}
@@ -917,7 +917,7 @@ MonoBehaviour:
   - 'In the beginning, there was only darkness. Out of nothing became the very fabrications
     of creation; in fragments of light.  '
   - 'Gifted with elemental magic, our people possessed connection and power with
-    the world.  '
+    the world. '
   - "Marveling at our own triumphs, magic became revered and the makeshift of humanity.
     But then\u2026the sun became clouded by oblivion.  "
   - 'In foolish vain, a wielder attempted to move the sun, vanquishing it entirely. '
@@ -925,12 +925,10 @@ MonoBehaviour:
     that once connected us with life was banished. Anyone of magic descent was sought
     after. '
   - 'As civilization grew further contempt, now surviving solely on human-made technologies,
-    those with magic abilities went into recluse. '
-  - 'The world became dark once more.  '
-  - 
-  - 
-  - 
+    those with magic abilities went into recluse.  '
+  - The world became dark once more.
   textSpeed: 0.05
+  openingScene: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
