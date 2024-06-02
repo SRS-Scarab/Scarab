@@ -189,7 +189,9 @@ Qamaar: *Sigh* Follow me.
 
 <<no-primary Stage>>
 
-The trio makes their way towards a wall adorned with inscriptions and ancient paintings. Egyptian-style depictions of a scarab beetle raising the sun into the sky.
+===
+title: Qamaar2
+---
 
 <<set-primary Stage qamaar>>
 
@@ -236,8 +238,9 @@ Qamaar: One last thing... we must search the temple to retrieve a relic that'll 
 Qamaar: Come now, we must hurry.
 
 <<no-primary Stage>>
-
-The trio make their way through the ruins, following Qamaar. She finds a pillar with a sword's outline etched into it. She places her glowing hand on the pillar, then signals for Nomad to come over.
+=== 
+title: Qamaar3
+---
 
 <<set-primary Stage qamaar>>
 
@@ -252,8 +255,9 @@ Nomad places their hand next to Qamaar's in the same spot. A blue sword is magic
 Qamaar: You think you can move the sun?! Let's see if you can handle me. Follow my command!
 
 <<no-primary Stage>>
-
-Nomad wins.
+===
+title: First_Victory
+---
 
 <<set-primary Stage qamaar>>
 

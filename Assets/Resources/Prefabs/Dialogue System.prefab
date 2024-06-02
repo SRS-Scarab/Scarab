@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2918034808879588113}
   - component: {fileID: 1639070888293555041}
   - component: {fileID: 3837999813926165357}
-  - component: {fileID: 5707060402550191428}
   m_Layer: 0
   m_Name: Dialogue System
   m_TagString: Untagged
@@ -85,37 +84,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showDebug: 0
   debugTextView: {fileID: 0}
---- !u!114 &5707060402550191428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074307836956215224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b95c9f69f04f2d8c08a817e7786af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueView: {fileID: 0}
-  continueActionType: 3
-  continueActionKeyCode: 32
-  continueActionReference: {fileID: -7138011938755900983, guid: 545f01e11bfc70749a0a4aa8de63e1e1, type: 3}
-  continueAction:
-    m_Name: Skip
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: 4f958d3a-de31-4d06-9f31-aedd89c271d1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 77dde30a-4b81-45e4-a213-65898169c042
-      m_Path: Submit
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Skip
-      m_Flags: 0
-    m_Flags: 0
-  enableActionOnStart: 1

@@ -15,4 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Woyu/sertest/sertest.unity
     guid: b3a8368419c93f240a9c788e970aba22
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 65a52f503d8f14f549d760cf29ac588c, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 163b1ac1e92908a4cbfaedd25c4adf1a, type: 2}
