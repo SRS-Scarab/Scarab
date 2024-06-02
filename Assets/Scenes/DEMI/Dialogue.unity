@@ -441,8 +441,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8983782058e69804fa6a6fc5fd9c077f, type: 2}
+  m_sharedMaterial: {fileID: 5546823936153344901, guid: 8983782058e69804fa6a6fc5fd9c077f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -472,9 +472,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -914,17 +914,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1494815563}
   lines:
-  - Hi hi hi
-  - bye bye bye
-  - cry cry cry
+  - 'In the beginning, there was only darkness. Out of nothing became the very fabrications
+    of creation; in fragments of light.  '
+  - 'Gifted with elemental magic, our people possessed connection and power with
+    the world.  '
+  - "Marveling at our own triumphs, magic became revered and the makeshift of humanity.
+    But then\u2026the sun became clouded by oblivion.  "
+  - 'In foolish vain, a wielder attempted to move the sun, vanquishing it entirely. '
+  - 'No wielder could undo it. Society fell into a perpetual collapse. The practice
+    that once connected us with life was banished. Anyone of magic descent was sought
+    after. '
+  - 'As civilization grew further contempt, now surviving solely on human-made technologies,
+    those with magic abilities went into recluse. '
+  - 'The world became dark once more.  '
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  textSpeed: 0
+  textSpeed: 0.05
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
