@@ -1,29 +1,21 @@
 #nullable enable
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
 public class DialogueInteraction : MonoBehaviour
 {
 
-  [Header("Dependencies")]
-  [SerializeField] private InputSubsystem? inputSubsystem;
-  [SerializeField] private GameObject? Sidebar;
-  [SerializeField] private GameObject? Healthbar;
-  [SerializeField] private GameObject? Manabar;
-
-  [SerializeField] private DialogueRunner? dialogueRunner;
   [SerializeField] private Interactable? interactable;
-  [SerializeField] private AudioSource music;
-  [SerializeField] private AudioClip newMusic;
+  [SerializeField] private List<String> nodes;
+  private int index;
 
   private void OnEnable()
   {
     if (interactable != null)
     {
-      interactable.OnInteract += OnTriggerDialogue;
-      if (dialogueRunner != null) dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
-      if (dialogueRunner != null) dialogueRunner.onNodeStart.AddListener(onNodeStart);
+      interactable.OnInteract += TriggerDialogue;
     }
   }
 
@@ -31,32 +23,15 @@ public class DialogueInteraction : MonoBehaviour
   {
     if (interactable != null)
     {
-      interactable.OnInteract -= OnTriggerDialogue;
-      if (dialogueRunner != null) dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
-      if (dialogueRunner != null) dialogueRunner.onNodeStart.RemoveListener(onNodeStart);
+      interactable.OnInteract -= TriggerDialogue;
     }
   }
 
-  private void OnTriggerDialogue(object sender, EventArgs args)
-  {
-    // set input system to UI so that player cannot perform other actions
-    if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
-    // remove sidebar
-    if (Sidebar != null) Sidebar.SetActive(false);
-    // remove healthbar
-    if (Healthbar != null) Healthbar.SetActive(false);
-    // remove manabar
-    if (Manabar != null) Manabar.SetActive(false);
-    // start dialogue at start node
-    if (dialogueRunner != null) dialogueRunner.StartDialogue(dialogueRunner.startNode);
-    }
+  private void TriggerDialogue(object sender, EventArgs args) {
+    Debug.Log("interact");
+    DialogueManager.instance.StartDialogue(nodes[index]);
+    if(index < nodes.Count) index++;;
+  }
 
-  private void OnCompleteDialogue()
-  {
-    if (inputSubsystem != null) inputSubsystem.PopMap();
-    if (Sidebar != null) Sidebar.SetActive(true);
-    if (Healthbar != null) Healthbar.SetActive(true);
-    if (Manabar != null) Manabar.SetActive(true);
-    }
 
 }
