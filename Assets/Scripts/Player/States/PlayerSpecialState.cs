@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 public class PlayerSpecialState : StateNode
 {
     [SerializeField]
-    private AttackInfo specialAttack;
+    private AttackPrefab? specialAttack;
+    
+    [SerializeField]
+    private float manaCost;
     
     [SerializeField]
     private float cooldown;
@@ -34,7 +37,7 @@ public class PlayerSpecialState : StateNode
         var mousePos = Mouse.current.position.ReadValue();
         var center = new Vector2(Screen.width / 2f, Screen.height / 2f);
         var angle = Vector2.SignedAngle(Vector2.right, mousePos - center);
-        if (specialAttack.TryAttack(dependencies.entity!, dependencies.entity!.transform.position, angle))
+        if (specialAttack != null && dependencies.entity!.DeductMana(manaCost) && specialAttack.TryInstantiate(dependencies.entity!, dependencies.entity!.transform.position, angle))
         {
             cooldownFinished = Time.time + cooldown;
             delayFinished = Time.time + delay;
