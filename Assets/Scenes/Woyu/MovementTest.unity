@@ -900,15 +900,8 @@ MonoBehaviour:
   current: {fileID: 0}
   blackboards: []
   isBlocking: 0
-  specialAttack:
-    manaCost: 0
-    damage: 0
-    knockback: 0
-    persist: 0
-    isFree: 0
-    hitboxes: {fileID: 0}
-    indicate: 0
-    indicator: {fileID: 0}
+  specialAttack: {fileID: 11400000, guid: 14866ec1244df384fb7df813a5f74c5a, type: 2}
+  manaCost: 10
   cooldown: 0
   cooldownFinished: 0
   delay: 0
@@ -930,15 +923,7 @@ MonoBehaviour:
   current: {fileID: 0}
   blackboards: []
   isBlocking: 0
-  basicAttack:
-    manaCost: 0
-    damage: 0
-    knockback: 0
-    persist: 0
-    isFree: 0
-    hitboxes: {fileID: 0}
-    indicate: 0
-    indicator: {fileID: 0}
+  basicAttack: {fileID: 11400000, guid: 7b5375822dfc9644ebdaa77576015074, type: 2}
   cooldown: 0
   cooldownFinished: 0
   delay: 0
@@ -956,6 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  rb2d: {fileID: 0}
   playerEntityVar: {fileID: 11400000, guid: da414d488d0bd84449e57204588af258, type: 2}
   moralitySubsystem: {fileID: 11400000, guid: 92e595a0cd7970940bec0aa628cf4d2c, type: 2}
   mainCamera: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
