@@ -12,6 +12,21 @@ public class PlayerMovementState : StateNode
 
     [SerializeField]
     private float stepSpeed = 2;
+
+    [SerializeField]
+    private TextureAnimationClip? idle;
+    
+    [SerializeField]
+    private TextureAnimationClip? left;
+    
+    [SerializeField]
+    private TextureAnimationClip? right;
+    
+    [SerializeField]
+    private TextureAnimationClip? up;
+    
+    [SerializeField]
+    private TextureAnimationClip? down;
     
     [SerializeField]
     private PlayerWalkState? walkState;
@@ -43,6 +58,23 @@ public class PlayerMovementState : StateNode
         else
         {
             SetCurrent(walkState);
+        }
+        
+        var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>();
+        if (input.sqrMagnitude == 0)
+        {
+            dependencies.animator!.current = idle;
+        }
+        else
+        {
+            if (input.x == 0)
+            {
+                dependencies.animator!.current = input.y > 0 ? up : down;
+            }
+            else
+            {
+                dependencies.animator!.current = input.x > 0 ? right : left;
+            }
         }
 
         var velocity = dependencies.rigidbody!.velocity;

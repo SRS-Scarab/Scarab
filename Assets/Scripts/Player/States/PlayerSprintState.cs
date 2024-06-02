@@ -21,12 +21,6 @@ public class PlayerSprintState : StateNode
             var deltaPos = new Vector3(input.x, 0, input.y) * (sprintSpeed * values.GetSpeedMultiplier() * delta);
             deltaPos = Quaternion.Euler(0, values.GetCameraAngle(), 0) * deltaPos;
             dependencies.rigidbody!.position += deltaPos;
-
-            values.jumpMomentum = sprintSpeed * values.GetSpeedMultiplier();
-        }
-        else
-        {
-            values.jumpMomentum = 0;
         }
     }
 }

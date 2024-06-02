@@ -21,12 +21,6 @@ public class PlayerWalkState : StateNode
             var deltaPos = new Vector3(input.x, 0, input.y) * (walkSpeed * values.GetSpeedMultiplier() * delta);
             deltaPos = Quaternion.Euler(0, values.GetCameraAngle(), 0) * deltaPos;
             dependencies.rigidbody!.position += deltaPos;
-
-            values.jumpMomentum = walkSpeed * values.GetSpeedMultiplier();
-        }
-        else
-        {
-            values.jumpMomentum = 0;
         }
     }
 }

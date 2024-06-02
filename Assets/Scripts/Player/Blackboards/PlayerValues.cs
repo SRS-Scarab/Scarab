@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerValues : Blackboard
 {
-    public float jumpMomentum = 0;
-    
     [SerializeField]
     private ZoneChecker? zoneChecker;
     

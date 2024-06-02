@@ -15,6 +15,8 @@ public class PlayerDependencies : Blackboard
 
     public CombatEntity? entity;
 
+    public TextureAnimator? animator;
+
     public InventorySubsystem? hotbarSubsystem;
 
     public InventoryVariable? hotbarVar;
@@ -28,6 +30,7 @@ public class PlayerDependencies : Blackboard
                groundChecker != null &&
                feetPosition != null &&
                entity != null &&
+               animator != null &&
                hotbarSubsystem != null &&
                hotbarVar != null &&
                camVar != null && camVar.Provide() != null;
