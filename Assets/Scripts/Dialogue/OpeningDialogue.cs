@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    [SerializeField] private string openingScene;
 
     private int index;
 
@@ -69,6 +70,6 @@ public class Dialogue : MonoBehaviour
     void LoadNextScene()
     {
         // Assuming the next scene is named "NextScene"
-        SceneManager.LoadScene("OpeningScene");
+        SceneManager.LoadScene(openingScene);
     }
 }
