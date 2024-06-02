@@ -18,12 +18,12 @@ public class Interactable : MonoBehaviour
 
   private void Awake()
   {
-    var trigger = GetComponent<CircleCollider2D>();
+    var trigger = GetComponent<CapsuleCollider>();
     if (trigger == null)
     {
       if (!GetComponent<Collider>())
       {
-        trigger = gameObject.AddComponent<CircleCollider2D>();
+        trigger = gameObject.AddComponent<CapsuleCollider>();
       }
     }
     if (trigger != null)

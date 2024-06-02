@@ -28,9 +28,8 @@ public class DialogueInteraction : MonoBehaviour
   }
 
   private void TriggerDialogue(object sender, EventArgs args) {
-    Debug.Log("interact");
     DialogueManager.instance.StartDialogue(nodes[index]);
-    if(index < nodes.Count) index++;;
+    if(index < nodes.Count-1) index++;
   }
 
 

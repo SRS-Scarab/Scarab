@@ -5,15 +5,15 @@ using Yarn.Unity;
 
 
 public class DialogueManager : MonoBehaviour
-{
-    public static DialogueManager instance;
-    
+{    
     [Header("Dependencies")]
     [SerializeField] private InputSubsystem? inputSubsystem;
     [SerializeField] private GameObject? Sidebar;
     [SerializeField] private GameObject? Healthbar;
     [SerializeField] private GameObject? Manabar;
     [SerializeField] private DialogueRunner? dialogueRunner;
+    
+    public static DialogueManager instance;
 
     private void Awake()
     {
