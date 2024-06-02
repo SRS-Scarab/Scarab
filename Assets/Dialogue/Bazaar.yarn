@@ -18,6 +18,8 @@ tags:
 ---
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara1>>
+
 Caravaneer: Hey kid! Can't a guy pray in peace? Don't you know temples are silent?
 
 ===
@@ -25,6 +27,8 @@ title: Caravaneer4
 tags:
 ---
 <<set-primary Stage caravaneer>>
+
+<<play-audio Cara2>>
 
 Caravaneer: Okay. How about this? You leave me alone, and then you get the pleasure of not having to interact with me.
 
@@ -35,6 +39,8 @@ tags:
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara3>>
+
 Caravaneer: Fine!! What do you want??
 
 <<set-primary Stage scarab>>
@@ -42,6 +48,8 @@ Caravaneer: Fine!! What do you want??
 Scarab: Qamaar sent us to find you.
 
 <<set-primary Stage caravaneer>>
+
+<<play-audio Cara4>>
 
 Caravaneer: Don't you DARE lie to me. Not in this place.
 
@@ -51,6 +59,8 @@ Scarab: It's true! We even met her dog, Anubis!
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara5>>
+
 Caravaneer: Funny. And tell me. How did a weak little… nomad like you get into her place? No normal people are- Hold on. My magic-dar has been off ever since my powers were stripped. You're a wielder, aren't you?
 
 <<set-primary Stage nomad>>
@@ -59,9 +69,13 @@ Nomad: Gives an emote of agreement
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara6>>
+
 Caravaneer: Well, why didn't you say so?!? I'm certain you did see Qamaar, then. She knows how to find the best wielders. That's why you're here, isn't it? I've heard what they're doing to people like you on the surface.
 
 <<set-primary Stage caravaneer>>
+
+<<play-audio Cara7>>
 
 Caravaneer: Well, I'm glad to know Qamaar is still hiring. But why are you bothering me?
 
@@ -71,6 +85,8 @@ Scarab: We need help learning how to push the sun.
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara8>>
+
 Caravaneer: Nope.
 ===
 title: Caravaneer6
@@ -79,7 +95,12 @@ tags:
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio Cara9>>
+
 Caravaneer: Look. I'm not a man with many regrets. But take it from me. Take this idea you have, and crush it. I'm done with this conversation.
+
+<<play-audio Cara10>>
+
 Caravaneer: Can't even get a coffee in peace, can I? Look, it's good that you got a bid from Qamaar. But she's not omniscient. She makes mistakes when she chooses magicians. Humans can't push the sun. Leave it there.
 
 <<set-primary Stage scarab>>
@@ -95,6 +116,8 @@ Caravaneer: . . .
 Barista: One ghost style coffee for… Caravaneer.
 
 <<set-primary Stage caravaneer>>
+
+<<play-audio Cara11>>
 
 Caravaneer: Come find me again
 ===

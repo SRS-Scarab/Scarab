@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    void OnEnable()
+    [SerializeField] private GameObject playerObject;
+    void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(sceneName);
+        if (other.gameObject == playerObject) {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

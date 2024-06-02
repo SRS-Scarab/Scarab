@@ -5132,7 +5132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3497ff21ba935478121826171a8aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXObject: {fileID: 0}
+  soundFXObject: {fileID: -1567170818736339545, guid: 972e070885c044fe29ee2b612f8c7800, type: 3}
 --- !u!114 &155730677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63521,6 +63521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133182182}
   - component: {fileID: 2133182183}
+  - component: {fileID: 2133182184}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -63560,6 +63561,18 @@ MonoBehaviour:
   Healthbar: {fileID: 429282226}
   Manabar: {fileID: 1201414273}
   dialogueRunner: {fileID: 1383108656}
+--- !u!114 &2133182184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133182181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f0a6c37e26840939d2c61625acfd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2134255713 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3790759757263562885, guid: 749ff53166fee4d4496ad767e0648eb4, type: 3}
