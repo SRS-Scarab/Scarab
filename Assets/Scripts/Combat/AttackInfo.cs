@@ -38,7 +38,7 @@ public struct AttackInfo
         {
             obj.transform.position = position;
             obj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotation));
-            var instance = obj.GetComponent<AttackInstance>();
+            var instance = obj.GetComponent<AttackInstanceDeprecated>();
             if (instance != null) instance.Initialize(source, this);
         }
     }

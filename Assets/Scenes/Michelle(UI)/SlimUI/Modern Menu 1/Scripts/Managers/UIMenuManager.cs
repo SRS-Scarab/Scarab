@@ -83,11 +83,11 @@ namespace SlimUI.ModernMenu{
 		void Start(){
 			CameraObject = transform.GetComponent<Animator>();
 
-			playMenu.SetActive(false);
-			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			firstMenu.SetActive(true);
-			mainMenu.SetActive(true);
+			if (playMenu) playMenu.SetActive(false);
+			if (exitMenu) exitMenu.SetActive(false);
+			if (extrasMenu) extrasMenu.SetActive(false);
+			if (firstMenu) firstMenu.SetActive(true);
+			if (mainMenu) mainMenu.SetActive(true);
 
 			SetThemeColors();
 		}
@@ -265,8 +265,8 @@ namespace SlimUI.ModernMenu{
 		IEnumerator LoadAsynchronously(string sceneName){ // scene name is just the name of the current scene being loaded
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = false;
-			mainCanvas.SetActive(false);
-			loadingMenu.SetActive(true);
+			if (mainMenu) mainCanvas.SetActive(false);
+			if (loadingMenu) loadingMenu.SetActive(true);
 
 			while (!operation.isDone){
 				float progress = Mathf.Clamp01(operation.progress / .95f);

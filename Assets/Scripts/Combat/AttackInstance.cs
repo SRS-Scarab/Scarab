@@ -3,48 +3,32 @@ using UnityEngine;
 
 public class AttackInstance : MonoBehaviour
 {
-    [Header("Dependencies")]
+    public bool IsInitialized => source != null;
     
-    [SerializeField] private SpriteRenderer? sprite;
+    public CombatEntity? Source => source;
     
-    [Header("State")]
-    
-    [SerializeField] private CombatEntity? source;
-    [SerializeField] private AttackInfo info;
-    [SerializeField] private float time;
+    [SerializeField]
+    private CombatEntity? source;
 
-    public CombatEntity? GetSource() => source;
+    [SerializeField]
+    private AttackProcessor? first;
 
-    public AttackInfo GetAttackInfo() => info;
-
-    public void Initialize(CombatEntity entity, AttackInfo attack)
+    public bool TryInitialize(CombatEntity newSource)
     {
-        source = entity;
-        info = attack;
-        Destroy(gameObject, attack.persist);
+        if (source != null) return false;
+        source = newSource;
+        return true;
     }
 
-    private void Update()
+    private void OnTriggerStay(Collider other)
     {
-        if (source == null) Destroy(gameObject);
-        else
+        if (source != null && first != null && other.attachedRigidbody != null)
         {
-            time += Time.deltaTime;
-            if (sprite != null)
+            var entity = other.attachedRigidbody.gameObject.GetComponent<CombatEntity>();
+            if (entity != null)
             {
-                var color = sprite.color;
-                color.a = 1 - time / info.persist;
-                sprite.color = color;
+                first.Process(source, entity);
             }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        var entity = other.GetComponent<CombatEntity>();
-        if (entity != null)
-        {
-            entity.ProcessAttack(this);
         }
     }
 }

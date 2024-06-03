@@ -7,28 +7,51 @@ using Yarn.Unity;
 public class VoiceManager : MonoBehaviour
 {
     private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
+    [SerializeField] private AudioSource voiceLineObject;
+    [SerializeField] private Camera mainCamera;
+    private AudioSource audioSource;
 
     void Start()
     {
         var dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.AddCommandHandler<string>("play-audio", PlayAudio);
+        dialogueRunner.AddCommandHandler<string, float>("play-audio", PlayAudio);
+        dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
     }
 
-    public void PlayAudio(string address)
+    public void PlayAudio(string address, float volume = 1f)
     {
         if (audioClips.TryGetValue(address, out var clip))
         {
             // If the clip is already loaded, play it
-            SoundFXManager.instance.PlaySound(clip);
+            PlayVoiceLine(clip, volume);
         }
         else
         {
             // Load the audio clip asynchronously
-            Addressables.LoadAssetAsync<AudioClip>(address).Completed += handle => OnAudioClipLoaded(handle, address);
+            Addressables.LoadAssetAsync<AudioClip>(address).Completed += handle => OnAudioClipLoaded(handle, address, volume);
+        }
+    }
+    public void PlayVoiceLine(AudioClip audioClip, float volume)
+    {
+        if(audioSource != null) {
+            audioSource.Stop();
+            Destroy(audioSource.gameObject, audioSource.clip.length);
+        }
+        audioSource = Instantiate(voiceLineObject, mainCamera.transform.position, Quaternion.identity);
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.Play();
+        Destroy(audioSource.gameObject, audioSource.clip.length);
+    }
+    
+    public void OnCompleteDialogue(){
+        if(audioSource != null) {
+            audioSource.Stop();
+            Destroy(audioSource.gameObject, audioSource.clip.length);
         }
     }
 
-    private void OnAudioClipLoaded(AsyncOperationHandle<AudioClip> handle, string address)
+    private void OnAudioClipLoaded(AsyncOperationHandle<AudioClip> handle, string address, float volume)
     {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
@@ -36,7 +59,7 @@ public class VoiceManager : MonoBehaviour
             audioClips[address] = clip;
 
             // Play the loaded audio clip
-            SoundFXManager.instance.PlaySound(clip);
+            PlayVoiceLine(clip, volume);
         }
         else
         {

@@ -2,35 +2,58 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Yarn.Unity;
+using UnityEngine.Events;
 
 public class DialogueInteraction : MonoBehaviour
 {
+    [SerializeField]
+    private Interactable? interactable;
 
-  [SerializeField] private Interactable? interactable;
-  [SerializeField] private List<String> nodes;
-  private int index;
+    [SerializeField]
+    private List<string> nodes = new();
 
-  private void OnEnable()
-  {
-    if (interactable != null)
+    [SerializeField]
+    private int index;
+    
+    public bool changePosition;
+
+    [SerializeField]
+    private UnityEvent onFinished = new();
+
+    private void OnEnable()
     {
-      interactable.OnInteract += TriggerDialogue;
+        if (interactable != null)
+        {
+            interactable.OnInteract += TriggerDialogue;
+        }
     }
-  }
 
-  private void OnDisable()
-  {
-    if (interactable != null)
+    private void OnDisable()
     {
-      interactable.OnInteract -= TriggerDialogue;
+        if (interactable != null)
+        {
+            interactable.OnInteract -= TriggerDialogue;
+        }
     }
-  }
 
-  private void TriggerDialogue(object sender, EventArgs args) {
-    DialogueManager.instance.StartDialogue(nodes[index]);
-    if(index < nodes.Count-1) index++;
-  }
+    private void Update()
+    {
+        if (index == nodes.Count && !DialogueManager.instance.isDialogueRunning && !changePosition)
+        {
+            changePosition = true;
+            onFinished.Invoke();
+        }
+    }
 
+    private void TriggerDialogue(object sender, EventArgs args)
+    {
+        DialogueManager.instance.StartDialogue(nodes[index]);
+        index++;
+    }
 
+    public void TriggerDialogue()
+    {
+        DialogueManager.instance.StartDialogue(nodes[index]);
+        index++;
+    }
 }

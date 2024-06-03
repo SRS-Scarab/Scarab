@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+#nullable enable
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttackCooldowns : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Image? actionImage;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private Image? specialImage;
+    
+    [SerializeField]
+    private AttackProxy? proxy;
+
+    private void Update()
     {
+        if (proxy != null)
+        {
+            if (actionImage != null)
+            {
+                actionImage.fillAmount = proxy.GetActionRechargeProgress();
+            }
         
+            if (specialImage != null)
+            {
+                specialImage.fillAmount = proxy.GetSpecialRechargeProgress();
+            }
+        }
     }
 }

@@ -313,6 +313,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""eb4f5dd7-59b4-4380-b815-01a0c503133d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Special"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e87232d6-bbd2-4cc5-9dda-523d73ed08a0"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",

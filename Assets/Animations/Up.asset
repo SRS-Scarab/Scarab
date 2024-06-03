@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c567f4e78bc119548b36779c69788b01, type: 3}
+  m_Name: Up
+  m_EditorClassIdentifier: 
+  framesPerSecond: 10
+  textures:
+  - {fileID: 2800000, guid: ebf8a173e41e17049b14733f26b5956b, type: 3}
+  - {fileID: 2800000, guid: b9c2da6d60b37574e9b1e33e1efe6957, type: 3}
+  - {fileID: 2800000, guid: 1150b9515bcc99a4cb69fb85e86e6e6b, type: 3}
+  - {fileID: 2800000, guid: af878e036206c8548a36b52b53005e6b, type: 3}
+  - {fileID: 2800000, guid: 0d132812372b6b64eb60e7cbfbcc5a51, type: 3}
+  - {fileID: 2800000, guid: 391de86d68cb0f844907b494862bcceb, type: 3}
+  - {fileID: 2800000, guid: 2cca214cc632ea04b89ab45b081635a8, type: 3}
+  - {fileID: 2800000, guid: fef53ad6cdbc02e4d922d6712991e450, type: 3}

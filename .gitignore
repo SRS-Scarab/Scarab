@@ -62,5 +62,6 @@ crashlytics-build.properties
 # random file
 .DS_Store
 
+# obj files
 *.fbx
 *.fbx.meta
