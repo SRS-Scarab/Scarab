@@ -24,7 +24,7 @@ public class AttackInstance : MonoBehaviour
     {
         if (source != null && first != null)
         {
-            var entity = other.GetComponent<CombatEntity>();
+            var entity = other.attachedRigidbody.gameObject.GetComponent<CombatEntity>();
             if (entity != null)
             {
                 first.Process(source, entity);

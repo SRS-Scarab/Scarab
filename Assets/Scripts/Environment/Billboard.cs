@@ -19,6 +19,11 @@ public class Billboard : MonoBehaviour
             case BillboardAlignment.Axis:
                 transform.forward = camera.Provide()!.transform.forward;
                 break;
+            case BillboardAlignment.XZAxis:
+                var forward = camera.Provide()!.transform.forward;
+                forward.y = 0;
+                transform.forward = forward.normalized;
+                break;
             case BillboardAlignment.Radius:
                 transform.LookAt(camera.Provide()!.transform.position);
                 break;
@@ -32,5 +37,6 @@ public class Billboard : MonoBehaviour
 public enum BillboardAlignment
 {
     Axis,
+    XZAxis,
     Radius,
 }
