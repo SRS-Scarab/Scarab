@@ -720,7 +720,7 @@ MonoBehaviour:
     those with magic abilities went into recluse.  '
   - The world became dark once more.
   textSpeed: 0.05
-  firstScene: 
+  firstScene: Level 1
 --- !u!328 &2045918994
 VideoPlayer:
   m_ObjectHideFlags: 0
