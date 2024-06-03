@@ -15,7 +15,7 @@ public class PlayerJumpState : StateNode
         if (dependencies == null || !dependencies.IsValid() || values == null) return;
 
         var force = Vector3.up * jumpForce;
-        var added = dependencies.rigidbody!.velocity;
+        var added = values.moveVelocity;
         added.y = 0;
         force += added;
         dependencies.rigidbody!.AddForce(force, ForceMode.Impulse);

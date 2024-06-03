@@ -15,12 +15,18 @@ public class PlayerWalkState : StateNode
         if (dependencies == null || !dependencies.IsValid() || values == null) return;
         
         var input = dependencies.Actions!.Gameplay.Move.ReadValue<Vector2>();
-        if (input.magnitude > 0)
+        if (input.magnitude == 0)
+        {
+            values.moveVelocity = Vector3.zero;
+        }
+        else
         {
             input = input.normalized;
-            var deltaPos = new Vector3(input.x, 0, input.y) * (walkSpeed * values.GetSpeedMultiplier() * delta);
-            deltaPos = Quaternion.Euler(0, values.GetCameraAngle(), 0) * deltaPos;
-            dependencies.rigidbody!.position += deltaPos;
+            var velocity = new Vector3(input.x, 0, input.y) * (walkSpeed * values.GetSpeedMultiplier());
+            velocity = Quaternion.Euler(0, values.GetCameraAngle(), 0) * velocity;
+            dependencies.rigidbody!.position += velocity * delta;
+
+            values.moveVelocity = velocity;
         }
     }
 }

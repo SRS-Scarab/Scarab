@@ -49,7 +49,8 @@ public class PlayerMovementState : StateNode
         base.OnTick(delta);
         
         var dependencies = GetBlackboard<PlayerDependencies>();
-        if (dependencies == null || !dependencies.IsValid()) return;
+        var values = GetBlackboard<PlayerValues>();
+        if (dependencies == null || !dependencies.IsValid() || values == null) return;
         
         if (dependencies.Actions!.Gameplay.Sprint.IsPressed())
         {
@@ -77,16 +78,15 @@ public class PlayerMovementState : StateNode
             }
         }
 
-        var velocity = dependencies.rigidbody!.velocity;
-        if (velocity.sqrMagnitude != 0)
+        if (values.moveVelocity.sqrMagnitude != 0)
         {
             var lower = dependencies.feetPosition!.transform.position;
             var upper = lower + new Vector3(0, stepHeight, 0);
 
-            var lowerHits = Physics.RaycastAll(lower, velocity, stepDistance);
+            var lowerHits = Physics.RaycastAll(lower, values.moveVelocity, stepDistance);
             if (lowerHits.Any(e => e.rigidbody != dependencies.rigidbody))
             {
-                var upperHits = Physics.RaycastAll(upper, velocity, stepDistance * 1.5f);
+                var upperHits = Physics.RaycastAll(upper, values.moveVelocity, stepDistance * 1.5f);
                 if (upperHits.All(e => e.rigidbody == dependencies.rigidbody))
                 {
                     dependencies.rigidbody!.position += new Vector3(0, stepHeight * delta, 0);

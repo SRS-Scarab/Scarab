@@ -13,7 +13,7 @@ public class AttackPrefab : ScriptableObject
 
         var obj = Instantiate(prefab.gameObject, isDetached ? null : source.transform)!.GetComponent<AttackInstance>()!;
         obj.transform.position = position;
-        obj.transform.rotation = Quaternion.Euler(new Vector3(0, rotation, 0));
+        obj.transform.localEulerAngles = new Vector3(0, rotation, 0);
         if (!obj.TryInitialize(source))
         {
             Destroy(obj.gameObject);

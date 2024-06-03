@@ -6,31 +6,39 @@ using Yarn.Unity;
 
 public class DialogueInteraction : MonoBehaviour
 {
+    [SerializeField]
+    private Interactable? interactable;
 
-  [SerializeField] private Interactable? interactable;
-  [SerializeField] private List<String> nodes;
-  private int index;
+    [SerializeField]
+    private List<String> nodes;
 
-  private void OnEnable()
-  {
-    if (interactable != null)
+    private int index;
+
+    private void OnEnable()
     {
-      interactable.OnInteract += TriggerDialogue;
+        if (interactable != null)
+        {
+            interactable.OnInteract += TriggerDialogue;
+        }
     }
-  }
 
-  private void OnDisable()
-  {
-    if (interactable != null)
+    private void OnDisable()
     {
-      interactable.OnInteract -= TriggerDialogue;
+        if (interactable != null)
+        {
+            interactable.OnInteract -= TriggerDialogue;
+        }
     }
-  }
 
-  private void TriggerDialogue(object sender, EventArgs args) {
-    DialogueManager.instance.StartDialogue(nodes[index]);
-    if(index < nodes.Count-1) index++;
-  }
+    private void TriggerDialogue(object sender, EventArgs args)
+    {
+        DialogueManager.instance.StartDialogue(nodes[index]);
+        if (index < nodes.Count - 1) index++;
+    }
 
-
+    private void TriggerDialogue()
+    {
+        DialogueManager.instance.StartDialogue(nodes[index]);
+        if (index < nodes.Count - 1) index++;
+    }
 }

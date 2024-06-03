@@ -1,6 +1,7 @@
 #nullable enable
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Interactable : MonoBehaviour
 
     [SerializeField]
     private string promptText = string.Empty;
+
+    [SerializeField]
+    private UnityEvent onInteract = new();
 
     public event EventHandler? OnInteract;
 
@@ -70,7 +74,9 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        if (!gameObject.activeInHierarchy) return;
         if (subsystem != null) subsystem.RemoveInteractable(this);
+        onInteract.Invoke();
         OnInteract?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerValues : Blackboard
 {
+    public Vector3 moveVelocity;
+    
     [SerializeField]
     private ZoneChecker? zoneChecker;
     

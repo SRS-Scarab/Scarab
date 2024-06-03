@@ -39,7 +39,7 @@ public class PlayerActionState : StateNode
         {
             var mousePos = Mouse.current.position.ReadValue();
             var center = new Vector2(Screen.width / 2f, Screen.height / 2f);
-            var angle = Vector2.SignedAngle(Vector2.right, mousePos - center);
+            var angle = -Vector2.SignedAngle(Vector2.right, mousePos - center);
             if (basicAttack != null && basicAttack.TryInstantiate(dependencies.entity!, dependencies.entity!.transform.position, angle))
             {
                 cooldownFinished = Time.time + cooldown;
