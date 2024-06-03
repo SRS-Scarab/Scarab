@@ -7,13 +7,16 @@ public class PlayerActionState : StateNode
 {
     [SerializeField]
     private AttackPrefab? basicAttack;
-    
+
+    [SerializeField]
+    private AudioClip[] attackClips;
+
     [SerializeField]
     private float cooldown;
-    
+
     [SerializeField]
     private float cooldownFinished;
-    
+
     [SerializeField]
     private float delay;
 
@@ -41,7 +44,7 @@ public class PlayerActionState : StateNode
     protected override void OnEnter()
     {
         base.OnEnter();
-        
+
         var dependencies = GetBlackboard<PlayerDependencies>();
         if (dependencies == null || !dependencies.IsValid()) return;
 
@@ -56,6 +59,7 @@ public class PlayerActionState : StateNode
             var angle = -Vector2.SignedAngle(Vector2.right, mousePos - center);
             if (basicAttack != null && basicAttack.TryInstantiate(dependencies.entity!, dependencies.attackPosition!.transform.position, angle))
             {
+                SoundFXManager.instance.PlayRandomSound(attackClips, transform, 1f);
                 cooldownFinished = Time.time + cooldown;
                 delayFinished = Time.time + delay;
                 SetBlocking(true);

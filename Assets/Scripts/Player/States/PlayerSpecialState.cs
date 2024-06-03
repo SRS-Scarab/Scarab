@@ -6,6 +6,9 @@ public class PlayerSpecialState : StateNode
 {
     [SerializeField]
     private AttackPrefab? specialAttack;
+
+    [SerializeField]
+    private AudioClip[] attackClips;
     
     [SerializeField]
     private float manaCost;
@@ -52,6 +55,7 @@ public class PlayerSpecialState : StateNode
         var angle = -Vector2.SignedAngle(Vector2.right, mousePos - center);
         if (specialAttack != null && dependencies.entity!.DeductMana(manaCost) && specialAttack.TryInstantiate(dependencies.entity!, dependencies.attackPosition!.transform.position, angle))
         {
+            SoundFXManager.instance.PlayRandomSound(attackClips, transform, 1f);
             cooldownFinished = Time.time + cooldown;
             delayFinished = Time.time + delay;
             SetBlocking(true);

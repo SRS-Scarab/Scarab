@@ -1238,6 +1238,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 981797752548051873, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981797752548051873, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981797752548051873, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981797752548051873, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1070297230934394163, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00005197525
@@ -1268,6 +1284,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1428836115155703440, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429196558271370401, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429196558271370401, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1714857174730501479, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
@@ -1348,6 +1372,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1714857174730501479, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228051687214169829, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228051687214169829, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4700387534694918471, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
@@ -5361,6 +5393,7 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   jumpForce: 7
+  jumpClip: {fileID: 8300000, guid: 2895941730b6b46be9a76aa4be4fc107, type: 3}
 --- !u!114 &1657906096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5379,6 +5412,7 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   sprintSpeed: 12
+  sprintClip: {fileID: 8300000, guid: 0d518fbdfab614385829f4541083425e, type: 3}
 --- !u!114 &1657906097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5397,6 +5431,7 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   walkSpeed: 6
+  walkClip: {fileID: 8300000, guid: 610cae2ccaa5e4094bde7494e53921d1, type: 3}
 --- !u!54 &1657906099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5600,6 +5635,9 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   specialAttack: {fileID: 11400000, guid: 14866ec1244df384fb7df813a5f74c5a, type: 2}
+  attackClips:
+  - {fileID: 8300000, guid: 495f3d94f7c304402b279bbbed5da9b6, type: 3}
+  - {fileID: 8300000, guid: 451ea9eb70e4245e68cc81a3054f4c2a, type: 3}
   manaCost: 10
   cooldown: 2
   cooldownFinished: 0
@@ -5623,6 +5661,11 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   basicAttack: {fileID: 11400000, guid: 7b5375822dfc9644ebdaa77576015074, type: 2}
+  attackClips:
+  - {fileID: 8300000, guid: 4a898c484248c47e98776cddc8e8781b, type: 3}
+  - {fileID: 8300000, guid: 7f4411ab0f4bf44e9a23def24e35068e, type: 3}
+  - {fileID: 8300000, guid: 07bf2e1221f8c4223a46e1c51bb81c8d, type: 3}
+  - {fileID: 8300000, guid: 28080145777df4be3b264250c4bd589a, type: 3}
   cooldown: 0.3
   cooldownFinished: 0
   delay: 0.1

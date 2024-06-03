@@ -5,6 +5,8 @@ public class PlayerJumpState : StateNode
 {
     [SerializeField]
     private float jumpForce;
+    [SerializeField]
+    private AudioClip jumpClip;
 
     protected override void OnEnter()
     {
@@ -20,5 +22,6 @@ public class PlayerJumpState : StateNode
         force += added;
         dependencies.rigidbody!.AddForce(force, ForceMode.Impulse);
         dependencies.rigidbody!.drag = 0;
+        SoundFXManager.instance.PlaySound(jumpClip, transform.position, 1f);
     }
 }

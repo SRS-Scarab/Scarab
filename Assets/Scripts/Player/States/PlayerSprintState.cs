@@ -5,6 +5,8 @@ public class PlayerSprintState : StateNode
 {
     [SerializeField]
     private float sprintSpeed;
+    [SerializeField]
+    private AudioClip sprintClip;
 
     protected override void OnTick(float delta)
     {
@@ -25,6 +27,7 @@ public class PlayerSprintState : StateNode
             var velocity = new Vector3(input.x, 0, input.y) * (sprintSpeed * values.GetSpeedMultiplier());
             velocity = Quaternion.Euler(0, values.GetCameraAngle(), 0) * velocity;
             dependencies.rigidbody!.position += velocity * delta;
+            SoundFXManager.instance.PlaySound(sprintClip, transform.position, 1f);
 
             values.moveVelocity = velocity;
         }
