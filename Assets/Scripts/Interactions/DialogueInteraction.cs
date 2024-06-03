@@ -13,6 +13,7 @@ public class DialogueInteraction : MonoBehaviour
     private List<String> nodes;
 
     private int index;
+    public bool changePosition = false;
 
     private void OnEnable()
     {
@@ -34,11 +35,13 @@ public class DialogueInteraction : MonoBehaviour
     {
         DialogueManager.instance.StartDialogue(nodes[index]);
         if (index < nodes.Count - 1) index++;
+        else changePosition = true;
     }
 
     private void TriggerDialogue()
     {
         DialogueManager.instance.StartDialogue(nodes[index]);
         if (index < nodes.Count - 1) index++;
+        else changePosition = true;
     }
 }

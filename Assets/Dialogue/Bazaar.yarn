@@ -98,7 +98,10 @@ tags:
 <<play-audio Cara9>>
 
 Caravaneer: Look. I'm not a man with many regrets. But take it from me. Take this idea you have, and crush it. I'm done with this conversation.
-
+===
+title: CaravaneerCoffee
+tags:
+---
 <<play-audio Cara10>>
 
 Caravaneer: Can't even get a coffee in peace, can I? Look, it's good that you got a bid from Qamaar. But she's not omniscient. She makes mistakes when she chooses magicians. Humans can't push the sun. Leave it there.
@@ -137,12 +140,10 @@ Scarab: Very wise words, Caravaneer.
 Caravaneer: Don't flatter me. I've been called many things, most of them true, and wise is not one of them. But let's get down to business.
 Caravaneer: If you want to learn to push the sun, you're going to need to read this book.
 
-===
-title: Ghost
-tags:
----
+He hands you "The Book of the Dead". The bookstore owner comes over to you.
+
 <<set-primary Stage ghost>>
-Hyperactive Ghost: REAT choice for a book. Not many people who come through here want that book anymore. Lost their faith in magic, that's what I say! But, unfortunately, that's a PRISTINE copy of the book. Well, fortunate AND unfortunate. 
+Hyperactive Ghost: GREAT choice for a book. Not many people who come through here want that book anymore. Lost their faith in magic, that's what I say! But, unfortunately, that's a PRISTINE copy of the book. Well, fortunate AND unfortunate. 
 Hyperactive Ghost: Fortunate because it's excellent, unfortunate because IT COSTS A TON!! So, let's talk-
 
 <<set-primary Stage caravaneer>>
@@ -168,6 +169,9 @@ Caravaneer: On the worst days, I can't even remember why I exist. I just know I 
 Caravaneer: Most days, though, I get through it. I used to believe that if I put in the work for penance, there was a chance I could be forgiven. But now, I know I'll never be free of this punishment.
 Caravaneer: Maybe one day, people will look at me working and decide the world has been made right... but I'm not sure if I'll make it to that day.
 Caravaneer: But enough about me. Read that book, and find me again.
+
+He runs out the door, leaving you and Scarab in the lotus shop.
+
 ===
 title: Lotus
 tags:
