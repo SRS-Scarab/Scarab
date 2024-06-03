@@ -404,7 +404,7 @@ Scarab: But… Why are there so many books here?
 
 <<set-primary Stage bookkeeper>>
 
-Hyperactive Bookkeeper: 
+Hyperactive Bookkeeper: Most people, they come here with their favorite book. But they don't want to read that again! They've already read it! So they give it to me!
 
 <<set-primary Stage scarab>>
 
@@ -429,11 +429,11 @@ Scarab: AHH!! What??!!
 <<set-primary Stage bookkeeper>>
 
 Hyperactive Bookkeeper: 
-    -> Yes
+-> Yes
     Hyperactive Bookkeeper: Here you go!
     Hyperactive Bookkeeper: You're so lucky to have met me.
     <<remove-all-actors Stage>>
-    -> No
+-> No
     Hyperactive Bookkeeper: Aw. Okay. Well. Then I'm REVOKING MY OFFER!! That's right. You get NOTHING now. Enjoy your NOTHING.
     <<remove-all-actors Stage>>
 ===
@@ -507,8 +507,8 @@ title: SleepWell
 <<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
-Caravaneer: Alright everyone! Make yourselves at home. We leave at dawn, so get a full night’s rest. Oversleep and you’re getting left behind with the desert gerbils.
-Caravaneer: Bathroom’s over there next to that palm tree. And don’t hound me about toilet paper. Should’ve thought about that before you came…
+Caravaneer: Alright everyone! Make yourselves at home. We leave at dawn, so get a full night's rest. Oversleep and you're getting left behind with the desert gerbils.
+Caravaneer: Bathroom's over there next to that palm tree. And don't hound me about toilet paper. Should've thought about that before you came…
 Caravaneer: Anyhow, sleep well my friends.
 
 <<add-actor Stage scarab>>
@@ -675,8 +675,8 @@ Caravaneer: (With a heavy heart, the Caravaneer begins to place the stolen heart
 <<set-primary Stage caravaneer>>
 
 Caravaneer: Everyone- I'm…sorry. I am so sorry for what I've done.
-Caravaneer: I did an awful thing. I have betrayed your trust, and for that, I’m deeply sorry. I’ve taken the most vulnerable thing from you, and I understand if you never forgive me.
-Caravaneer: But please, let me make things right. That’s all I ask.
+Caravaneer: I did an awful thing. I have betrayed your trust, and for that, I'm deeply sorry. I've taken the most vulnerable thing from you, and I understand if you never forgive me.
+Caravaneer: But please, let me make things right. That's all I ask.
 Caravaneer: Please, allow me to continue our journey to the gates and bring you closer to your new lives. Let's aid our heroes in their revival of the sun!
 
 <<set-primary Stage scarab>>
@@ -690,7 +690,7 @@ title: CaravaneerDeath
 <<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
-Caravaneer: I’m not as young as I used to be. You put up a good fight, Nomad.
+Caravaneer: I'm not as young as I used to be. You put up a good fight, Nomad.
 <<add-actor Stage scarab>>
 <<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
@@ -707,9 +707,9 @@ Scarab: Then why is it happening to you?
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: *Cough* Ha ha. Do not weep for me young ones. My end is a release…from a life that as been nothing but bad choices. And a release for humanity…from selfish decisions that were never your’s to bear. It’s only fair that I go.
-Caravaneer: Eternal punishment–that was awful, yes. But the deceit, the theft, the pain I inflicted on you all…that is burden far more painful to carry.
-Caravaneer: My regret each day isn’t for the punishment I’ve brought upon myself, but for pulling you all into this nightmare with me. And for that, I am deeply sorry. I don’t wish my suffering upon any being.
+Caravaneer: *Cough* Ha ha. Do not weep for me young ones. My end is a release…from a life that as been nothing but bad choices. And a release for humanity…from selfish decisions that were never your's to bear. It's only fair that I go.
+Caravaneer: Eternal punishment-that was awful, yes. But the deceit, the theft, the pain I inflicted on you all…that is burden far more painful to carry.
+Caravaneer: My regret each day isn't for the punishment I've brought upon myself, but for pulling you all into this nightmare with me. And for that, I am deeply sorry. I don't wish my suffering upon any being.
 
 <<set-primary Stage scarab>>
 
@@ -717,7 +717,7 @@ Scarab: Is there redemption in the afterlife?
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: I hope so! I’m not dying for nothin! Ha ha!
+Caravaneer: I hope so! I'm not dying for nothin! Ha ha!
 Caravaneer: Khepri would be so proud of you two. I'll tell him all about it once I join him in the stars. Well…that's if he forgives me.
 
 <<set-primary Stage scarab>>
