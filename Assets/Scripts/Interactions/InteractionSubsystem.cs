@@ -16,7 +16,7 @@ public class InteractionSubsystem : ScriptableObject
 
     public Interactable? GetInteractable()
     {
-        return availableInteractables.OrderByDescending(e => e.GetInteractionPriority()).ThenBy(GetDistanceScore).FirstOrDefault();
+        return availableInteractables.Where(e => e.gameObject.activeInHierarchy).OrderByDescending(e => e.GetInteractionPriority()).ThenBy(GetDistanceScore).FirstOrDefault();
     }
 
     public void AddInteractable(Interactable interactable)
