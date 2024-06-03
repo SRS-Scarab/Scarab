@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 255343974}
   - component: {fileID: 255343973}
   - component: {fileID: 255343972}
+  - component: {fileID: 255343975}
   m_Layer: 0
   m_Name: Bookkeeper
   m_TagString: Untagged
@@ -293,6 +294,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &255343975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255343970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f33074b5a2f6f24b98206e50ce0287d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subsystem: {fileID: 11400000, guid: a4cf64b32a3c6634fbce809668a841e4, type: 2}
+  interactionRange: 1
+  interactionPriority: 0
+  promptText: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &286117721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2913574222480669755, guid: 0fa7c433cbcac44109fd6cbf639da13e, type: 3}
