@@ -15,6 +15,7 @@ public class VoiceManager : MonoBehaviour
     {
         var dialogueRunner = FindObjectOfType<DialogueRunner>();
         dialogueRunner.AddCommandHandler<string, float>("play-audio", PlayAudio);
+        dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
     }
 
     public void PlayAudio(string address, float volume = 1f)
@@ -41,6 +42,13 @@ public class VoiceManager : MonoBehaviour
         audioSource.volume = volume;
         audioSource.Play();
         Destroy(audioSource.gameObject, audioSource.clip.length);
+    }
+    
+    public void OnCompleteDialogue(){
+        if(audioSource != null) {
+            audioSource.Stop();
+            Destroy(audioSource.gameObject, audioSource.clip.length);
+        }
     }
 
     private void OnAudioClipLoaded(AsyncOperationHandle<AudioClip> handle, string address, float volume)
