@@ -42,5 +42,6 @@ public class DialogueManager : MonoBehaviour
         if (Sidebar != null) Sidebar.SetActive(true);
         if (Healthbar != null) Healthbar.SetActive(true);
         if (Manabar != null) Manabar.SetActive(true);
+        
     }
 }
