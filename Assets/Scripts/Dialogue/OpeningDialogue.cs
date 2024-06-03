@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class OpeningDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
-    public float textSpeed;
-    [SerializeField] private string openingScene;
+    [SerializeField] private string[] lines;
+    [SerializeField] private float textSpeed;
+    [SerializeField] private string firstScene;
+    private VideoPlayer videoPlayer;
 
     private int index;
 
     // Start is called before the first frame update
     void Start()
     {
+        videoPlayer = GetComponent<VideoPlayer>();
         textComponent.text = string.Empty;
+        videoPlayer.url = $"Assets/Videos/Dream_{index}.mov";
         StartDialogue();
     }
 
@@ -57,6 +61,7 @@ public class Dialogue : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
+            if (index != lines.Length -1) videoPlayer.url = $"Assets/Videos/Dream_{index}.mov";
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }
@@ -70,6 +75,6 @@ public class Dialogue : MonoBehaviour
     void LoadNextScene()
     {
         // Assuming the next scene is named "NextScene"
-        SceneManager.LoadScene(openingScene);
+        SceneManager.LoadScene(firstScene);
     }
 }
