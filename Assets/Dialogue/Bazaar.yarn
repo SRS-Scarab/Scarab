@@ -122,7 +122,7 @@ tags:
 ---
 <<add-actor Stage caravaneer>>
 <<right-actor Stage caravaneer>>
-<<play-audio Cara10>>
+<<play-audio CaraPushSun>>
 
 Caravaneer: Can't even get a coffee in peace, can I? Look, it's good that you got a bid from Qamaar. But she's not omniscient. She makes mistakes when she chooses magicians. Humans can't push the sun. Leave it there.
 
@@ -153,7 +153,7 @@ tags:
 <<add-actor Stage caravaneer>>
 <<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraHated>>
 Caravaneer: I've always hated this place. Read one book, and everything's clearer. Read ten books, and you're back in the dark. Read a hundred books? Try going outside for a change.
 
 <<add-actor Stage scarab>>
@@ -164,6 +164,7 @@ Scarab: Very wise words, Caravaneer.
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio CaraFlatter>>
 Caravaneer: Don't flatter me. I've been called many things, most of them true, and wise is not one of them. But let's get down to business.
 Caravaneer: If you want to learn to push the sun, you're going to need to read this book.
 
@@ -174,6 +175,7 @@ Hyperactive Ghost: GREAT choice for a book. Not many people who come through her
 Hyperactive Ghost: Fortunate because it's excellent, unfortunate because IT COSTS A TON!! So, let's talk-
 
 <<set-primary Stage caravaneer>>
+<<play-audio CaraDeal>>
 Caravaneer: How about this. I'll cut you a deal! You give me that book, and I don't tell my bosses what you're doing here. Sounds good?
 
 <<set-primary Stage ghost>>
@@ -181,7 +183,7 @@ Caravaneer: How about this. I'll cut you a deal! You give me that book, and I do
 Hyperactive Ghost: . . . . . . . . . . . . . take it
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraWetPants>>
 Caravaneer: Gotta say, a big perk of eternal imprisonment is that everyone wets their pants at the thought of being put in a similar situation to me. Gives me a lot of leverage.
 
 <<set-primary Stage scarab>>
@@ -189,12 +191,13 @@ Caravaneer: Gotta say, a big perk of eternal imprisonment is that everyone wets 
 Scarab: You are imprisoned?
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraImprison>>
 Caravaneer: No, I eternally run this caravan because I love the work. Of course I'm imprisoned. I really only still exist because of Qamaar's influence. Some days, I curse her for it. This job… it grinds a person down.
 Caravaneer: On the worst days, I can't even remember why I exist. I just know I have to keep existing… keep working…
-
+<<play-audio CaraDays>>
 Caravaneer: Most days, though, I get through it. I used to believe that if I put in the work for penance, there was a chance I could be forgiven. But now, I know I'll never be free of this punishment.
 Caravaneer: Maybe one day, people will look at me working and decide the world has been made right... but I'm not sure if I'll make it to that day.
+<<play-audio CaraEnough>>
 Caravaneer: But enough about me. Read that book, and find me again.
 
 He runs out the door, leaving you and Scarab in the lotus shop.
@@ -206,10 +209,15 @@ tags:
 <<add-actor Stage caravaneer>>
 <<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraLotus>>
 Caravaneer: even the lotuses… the reality i created is punishment enough. oh, Khepri, I hope you've found solace-
 
+<<play-audio CaraReadBook>>
+
+Caravaneer: Oh! I didn't see you there. So, you read the book? Big deal, lots of people have read this book. This will be the real test.
+
 <<set-primary Stage caravaneer>>
+<<play-audio CaraScarab>>
 
 Caravaneer: Okay, Scarab. Take a deep breath. Now, I want you to imagine the warmth of the sun within your small body. When you breathe out, share that light with this lotus.
 
@@ -217,8 +225,10 @@ Caravaneer: Okay, Scarab. Take a deep breath. Now, I want you to imagine the war
 
 Caravaneer: . . .
 Caravaneer: . . . . . . . . . . . .
-Caravaneer: shit.
-Caravaneer: I wasn't expecting that to actually work.
+
+<<play-audio CaraWork>>
+
+Caravaneer: shit. I wasn't expecting that to actually work.
 
 <<add-actor Stage scarab>>
 <<left-actor Stage scarab>>
@@ -227,11 +237,12 @@ Caravaneer: I wasn't expecting that to actually work.
 Scarab: What does it mean?
 
 <<set-primary Stage caravaneer>>
+<<play-audio CaraNoBloom>>
 
 Caravaneer: they shouldn't be able to bloom right now-
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraWait>>
 Caravaneer: Again? Wait here, kid. I have to handle something.
 <<remove-all-actors Stage>>
 ===
@@ -245,6 +256,7 @@ Protestor Ghost: We cannot be any more clear! Harsher punishment for Caravaneer!
 <<add-actor Stage caravaneer>>
 <<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
+<<play-audio CaraProtest>>
 
 Caravaneer: Another protest, you guys? But the last one was so successful.
 <<set-primary Stage protestor-ghost>>
@@ -252,14 +264,14 @@ Caravaneer: Another protest, you guys? But the last one was so successful.
 Protestor Ghost:Don't be facetious. Sure, our last protest wasn't successful. But that doesn't change the fact that what was done was an affront to nature herself! I cannot stand for that.
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraUpsetSun>>
 Caravaneer: I feel like… you're upset about the sun.
 <<set-primary Stage protestor-ghost>>
 
 Protestor Ghost: Are you serious?? YES I'm upset about the sun! We're ALL upset about the sun.
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraConfused>>
 Caravaneer: I'm confused, though.
 
 <<set-primary Stage protestor-ghost>>
@@ -267,7 +279,7 @@ Caravaneer: I'm confused, though.
 Protestor Ghost: We believe your punishment was far too light to befit your crime. We're about justice, and we're making the world right!
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraOh>>
 Caravaneer: Ohhhh, I get it. You want to make the world right.
 
 <<set-primary Stage protestor-ghost>>
@@ -276,6 +288,8 @@ Protestor Ghost: Obviously!
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio CaraSunBack>>
+
 Caravaneer: So this protest will bring the sun back?
 
 <<set-primary Stage protestor-ghost>>
@@ -283,7 +297,7 @@ Caravaneer: So this protest will bring the sun back?
 Protestor Ghost: Well, of course not. But we can give the sun the justice she deserves.
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraUnknown>>
 Caravaneer: Ohhhhhhh. So you don't know how to bring the sun back?
 
 <<set-primary Stage protestor-ghost>>
@@ -291,7 +305,7 @@ Caravaneer: Ohhhhhhh. So you don't know how to bring the sun back?
 Protestor Ghost: Obviously-
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraSunBack>>
 Caravaneer: Well I do know how to bring the sun back.
 
 <<set-primary Stage protestor-ghost>>
@@ -299,6 +313,7 @@ Caravaneer: Well I do know how to bring the sun back.
 Protestor Ghost: Right! And tha's what-
 
 <<set-primary Stage caravaneer>>
+<<play-audio CaraOnlyOne>>
 
 Caravaneer: I'm the only one left who knows how. And do you know what would happen if I died?
 
@@ -308,6 +323,7 @@ Protestor Ghost: Justice would be served.
 
 <<set-primary Stage caravaneer>>
 
+<<play-audio CaraJustice>>
 Caravaneer: Maybe! But I know one thing for certain. No one. Not a soul. Would ever be able to move the sun again. So while you're bitching, I'm making sure my knowledge lives on. So that one day, the world can be made right. So don't tell me about justice.
 
 <<set-primary Stage protestor-ghost>>
@@ -315,7 +331,7 @@ Caravaneer: Maybe! But I know one thing for certain. No one. Not a soul. Would e
 Protestor Ghost: How DARE you talk to me like that!! You! A criminal! I didn't want to resort to this, but you give me no choice!
 
 <<set-primary Stage caravaneer>>
-
+<<play-audio CaraImmortal>>
 Caravaneer: What are you going to do? Hit me? I'm immortal. As long as I have to serve, death can't release me.
 
 <<set-primary Stage protestor-ghost>>
