@@ -58,7 +58,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 68b484801a1298640904e56404421d65, type: 2}
   - {fileID: 11400000, guid: 5f9ddfd10af76489f896e60ef8c4d286, type: 2}
   - {fileID: 11400000, guid: c503fd7c0721c490d80352b08e258528, type: 2}
+  - {fileID: 11400000, guid: f89bc7633227dd14f8f2f90329284d5a, type: 2}
   directions:
   - {fileID: 11400000, guid: 0116c0321e2ee0f4ea173712dd02c009, type: 2}
   - {fileID: 11400000, guid: 069f86e4224470e4ea04ceb8179960c3, type: 2}
+  stateVariables:
+  - {fileID: 11400000, guid: 072a21f6298372c4f9e9a21d3c42d016, type: 2}
   activeActors: []

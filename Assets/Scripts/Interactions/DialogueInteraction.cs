@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Yarn.Unity;
+using UnityEngine.Events;
 
 public class DialogueInteraction : MonoBehaviour
 {
@@ -10,10 +10,15 @@ public class DialogueInteraction : MonoBehaviour
     private Interactable? interactable;
 
     [SerializeField]
-    private List<String> nodes;
+    private List<string> nodes = new();
 
+    [SerializeField]
     private int index;
-    public bool changePosition = false;
+    
+    public bool changePosition;
+
+    [SerializeField]
+    private UnityEvent onFinished = new();
 
     private void OnEnable()
     {
@@ -31,17 +36,24 @@ public class DialogueInteraction : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (index == nodes.Count && !DialogueManager.instance.isDialogueRunning && !changePosition)
+        {
+            changePosition = true;
+            onFinished.Invoke();
+        }
+    }
+
     private void TriggerDialogue(object sender, EventArgs args)
     {
         DialogueManager.instance.StartDialogue(nodes[index]);
-        if (index < nodes.Count - 1) index++;
-        else changePosition = true;
+        index++;
     }
 
-    private void TriggerDialogue()
+    public void TriggerDialogue()
     {
         DialogueManager.instance.StartDialogue(nodes[index]);
-        if (index < nodes.Count - 1) index++;
-        else changePosition = true;
+        index++;
     }
 }

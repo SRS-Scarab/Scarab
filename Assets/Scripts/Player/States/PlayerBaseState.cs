@@ -59,7 +59,7 @@ public class PlayerBaseState : StateNode
         
         // Hotbar scrolling
         var num = dependencies.hotbarVar!.Provide().GetMaxSlots();
-        var scroll = dependencies.Actions!.Gameplay.HotbarScroll.ReadValue<float>() / 10;
+        var scroll = -MathUtils.Sign(dependencies.Actions!.Gameplay.HotbarScroll.ReadValue<float>());
         selectedIndex = MathUtils.Mod(selectedIndex + scroll, num);
         dependencies.hotbarSubsystem!.OnSlotSelected(dependencies.hotbarVar!.Provide(), (int)selectedIndex);
 

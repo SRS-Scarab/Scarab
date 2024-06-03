@@ -20,12 +20,4 @@ MonoBehaviour:
   weight: 1
   stackSize: 1
   camVar: {fileID: 11400000, guid: 41f2b15d41c7a3f4cbb67e070d3f47cd, type: 2}
-  weaponAttack:
-    manaCost: 0
-    damage: 20
-    knockback: 3
-    persist: 0.2
-    isFree: 0
-    hitboxes: {fileID: 1725533694722989724, guid: 180b79d4d95ed974da3ff27da8504dc2, type: 3}
-    indicate: 0
-    indicator: {fileID: 0}
+  attack: {fileID: 11400000, guid: b0074397997d4bc459511356eb9b5625, type: 2}

@@ -12,7 +12,7 @@ public class StoryStateEnabler : MonoBehaviour
     [SerializeField]
     private EnableCondition condition;
 
-    private void Update()
+    public void Tick()
     {
         if (stateVar == null)
         {

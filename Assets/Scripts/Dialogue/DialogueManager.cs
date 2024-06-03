@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject? Healthbar;
     [SerializeField] private GameObject? Manabar;
     [SerializeField] private DialogueRunner? dialogueRunner;
+
+    public bool isDialogueRunning;
     
     public static DialogueManager instance;
 
@@ -22,26 +24,32 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string node)
     {
-        dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
-        // set input system to UI so that player cannot perform other actions
-        if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
-        // remove sidebar
-        if (Sidebar != null) Sidebar.SetActive(false);
-        // remove healthbar
-        if (Healthbar != null) Healthbar.SetActive(false);
-        // remove manabar
-        if (Manabar != null) Manabar.SetActive(false);
         // start dialogue at start node
-        if (dialogueRunner != null) dialogueRunner.StartDialogue(node);
+        if (dialogueRunner != null)
+        {
+            // set input system to UI so that player cannot perform other actions
+            if (inputSubsystem != null) inputSubsystem.PushMap(nameof(Actions.UI));
+            // remove sidebar
+            if (Sidebar != null) Sidebar.SetActive(false);
+            // remove healthbar
+            if (Healthbar != null) Healthbar.SetActive(false);
+            // remove manabar
+            if (Manabar != null) Manabar.SetActive(false);
+            dialogueRunner.onDialogueComplete.AddListener(OnCompleteDialogue);
+            dialogueRunner.StartDialogue(node);
+
+            isDialogueRunning = true;
+        }
     }
 
     public void OnCompleteDialogue()
     {
+        isDialogueRunning = false;
+        
         dialogueRunner.onDialogueComplete.RemoveListener(OnCompleteDialogue);
         if (inputSubsystem != null) inputSubsystem.PopMap();
         if (Sidebar != null) Sidebar.SetActive(true);
         if (Healthbar != null) Healthbar.SetActive(true);
         if (Manabar != null) Manabar.SetActive(true);
-        
     }
 }

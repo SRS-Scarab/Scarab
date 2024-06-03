@@ -6,17 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Showcase/City.unity
-    guid: 6f7e66f9265adeb489cc5c51426333e5
+    path: Assets/Scenes/Showcase/StartMenu.unity
+    guid: fa01529a7f93fcc4dabc0d5b4261dd64
   - enabled: 1
     path: Assets/Scenes/Showcase/Opening.unity
     guid: 373c3d14fcf143c4a82675dba08c7145
   - enabled: 1
-    path: Assets/Scenes/Showcase/StartMenu.unity
-    guid: fa01529a7f93fcc4dabc0d5b4261dd64
-  - enabled: 1
-    path: Assets/Scenes/Showcase/Library.unity
-    guid: ced854fb74c6f6a488aea1327b396d73
+    path: Assets/Scenes/Showcase/City V2.unity
+    guid: b24320c8299014e4d8168cb60951742a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 65a52f503d8f14f549d760cf29ac588c, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 163b1ac1e92908a4cbfaedd25c4adf1a, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 
 public class CombatEntity : MonoBehaviour, IFragmentSaveable
 {
@@ -31,6 +32,9 @@ public class CombatEntity : MonoBehaviour, IFragmentSaveable
     [SerializeField] private CombatStats stats;
     [SerializeField] private float iframeLeft;
     [SerializeField] private List<AttackInstanceDeprecated> processed = new();
+
+    [SerializeField]
+    private UnityEvent onDeath = new();
 
     private void Start()
     {
@@ -83,6 +87,7 @@ public class CombatEntity : MonoBehaviour, IFragmentSaveable
                     GameObject newObj = Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
                     if (mainCamera != null && mainCamera.Provide() != null) mainCamera.Provide()!.transform.GetChild(0).GetComponent<CinemachineVirtualCamera>().Follow = newObj.transform;
                 }
+                onDeath.Invoke();
                 Destroy(gameObject);
                 if (playerEntityVar != null && moralitySubsystem != null)
                 {

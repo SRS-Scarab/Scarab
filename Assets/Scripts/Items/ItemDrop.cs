@@ -7,7 +7,6 @@ public class ItemDrop : MonoBehaviour
     [Header("Dependencies")]
 
     [SerializeField] public Interactable? interactable;
-    [SerializeField] public SpriteRenderer? sprite;
     [SerializeField] public InventoryVariable? hotbarVar;
     [SerializeField] public InventoryVariable? inventoryVar;
 
@@ -29,7 +28,6 @@ public class ItemDrop : MonoBehaviour
     {
         itemType = item;
         quantity = amount;
-        if (sprite != null) sprite.sprite = itemType.icon;
         if (interactable != null)
         {
             interactable.SetPromptText($"{itemType.itemName} ({quantity})");

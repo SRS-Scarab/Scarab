@@ -22,7 +22,7 @@ public class AttackInstance : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (source != null && first != null)
+        if (source != null && first != null && other.attachedRigidbody != null)
         {
             var entity = other.attachedRigidbody.gameObject.GetComponent<CombatEntity>();
             if (entity != null)

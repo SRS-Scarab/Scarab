@@ -26,44 +26,38 @@ public class Interactable : MonoBehaviour
 
     private void Awake()
     {
-        var trigger = GetComponent<CapsuleCollider>();
+        var trigger = GetComponent<SphereCollider>();
         if (trigger == null)
         {
-            if (!GetComponent<Collider>())
-            {
-                trigger = gameObject.AddComponent<CapsuleCollider>();
-            }
+            trigger = gameObject.AddComponent<SphereCollider>();
         }
 
-        if (trigger != null)
-        {
-            trigger.radius = interactionRange;
-            trigger.isTrigger = true;
-        }
+        trigger.radius = interactionRange;
+        trigger.isTrigger = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
+        if (other.attachedRigidbody != null && other.attachedRigidbody.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
+        if (other.attachedRigidbody != null && other.attachedRigidbody.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
+        if (other.attachedRigidbody != null && other.attachedRigidbody.gameObject == subsystem.GetPlayerObject()) subsystem.AddInteractable(this);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (subsystem == null) return;
-        if (other.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
+        if (other.attachedRigidbody != null && other.attachedRigidbody.gameObject == subsystem.GetPlayerObject()) subsystem.RemoveInteractable(this);
     }
 
     public int GetInteractionPriority() => interactionPriority;

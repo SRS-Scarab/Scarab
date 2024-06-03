@@ -4,6 +4,11 @@ using System.Linq;
 
 public static class MathUtils
 {
+    public static int Sign(float v)
+    {
+        return v == 0 ? 0 : v > 0 ? 1 : -1;
+    }
+    
     public static float Mod(float a, float b)
     {
         var c = a % b;

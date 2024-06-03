@@ -17,10 +17,23 @@ public class StageDirector : MonoBehaviour
 
     [SerializeField] private StageActor[] actors = Array.Empty<StageActor>();
     [SerializeField] private StageDirection[] directions = Array.Empty<StageDirection>();
+    [SerializeField] private StoryStateVariable[] stateVariables = Array.Empty<StoryStateVariable>();
 
     [Header("State")]
     
     [SerializeField] private List<StageActorInstance> activeActors = new();
+
+    [YarnCommand("set-story-state")]
+    public void SetStoryState(string stateName, int state)
+    {
+        foreach (var stateVar in stateVariables)
+        {
+            if (stateVar.stateName == stateName)
+            {
+                stateVar.Consume(state);
+            }
+        }
+    }
 
     [YarnCommand("add-actor")]
     public void AddActor(string actorName)
@@ -40,6 +53,16 @@ public class StageDirector : MonoBehaviour
                 }
             }
         }
+    }
+    
+    [YarnCommand("remove-all-actors")]
+    public void RemoveAllActor()
+    {
+        foreach (var activeActor in activeActors)
+        {
+            Destroy(activeActor.gameObject);
+        }
+        activeActors.Clear();
     }
 
     [YarnCommand("remove-actor")]

@@ -4,14 +4,11 @@ using UnityEngine;
 public class SaveableStoryState : MonoBehaviour, IFragmentSaveable
 {
     [SerializeField]
-    private string stateId = string.Empty;
-    
-    [SerializeField]
     private StoryStateVariable? stateVariable;
 
     public string GetId()
     {
-        return stateId;
+        return stateVariable == null ? string.Empty : stateVariable.stateName;
     }
 
     public SaveFragmentBase Save()

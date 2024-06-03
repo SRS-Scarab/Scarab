@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: InteractionSubsystem
   m_EditorClassIdentifier: 
   playerVariable: {fileID: 11400000, guid: 60ecc7979036d9c46ad5d2317f9e2152, type: 2}
-  availableInteractables:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  availableInteractables: []

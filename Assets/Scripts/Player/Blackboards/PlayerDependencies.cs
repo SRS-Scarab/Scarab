@@ -13,6 +13,8 @@ public class PlayerDependencies : Blackboard
 
     public GameObject? feetPosition;
 
+    public GameObject? attackPosition;
+
     public CombatEntity? entity;
 
     public TextureAnimator? animator;
@@ -23,16 +25,20 @@ public class PlayerDependencies : Blackboard
 
     public CameraVariable? camVar;
 
+    public AttackProxy? proxy;
+
     public bool IsValid()
     {
         return actionsVar != null &&
                rigidbody != null &&
                groundChecker != null &&
                feetPosition != null &&
+               attackPosition != null &&
                entity != null &&
                animator != null &&
                hotbarSubsystem != null &&
                hotbarVar != null &&
-               camVar != null && camVar.Provide() != null;
+               camVar != null && camVar.Provide() != null &&
+               proxy != null;
     }
 }

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next: {fileID: 8708202889102725680}
-  damage: 20
+  damage: 30
 --- !u!114 &8708202889102725680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,4 +310,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  lifetime: {fileID: 0}
+  lifetime: {fileID: 9053704768680991354}

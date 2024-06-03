@@ -1,16 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
+using SlimUI.ModernMenu;
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class OpeningDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+
+    [SerializeField]
+    private VideoClip[] clips;
+    
     [SerializeField] private string[] lines;
     [SerializeField] private float textSpeed;
     [SerializeField] private string firstScene;
+
+    [SerializeField]
+    private UIMenuManager manager;
+
+    [SerializeField]
+    private bool loaded;
+    
     private VideoPlayer videoPlayer;
 
     private int index;
@@ -20,7 +30,7 @@ public class OpeningDialogue : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
         textComponent.text = string.Empty;
-        videoPlayer.url = $"Assets/Videos/Dream_{index}.mov";
+        videoPlayer.clip = clips[index];
         StartDialogue();
     }
 
@@ -61,9 +71,13 @@ public class OpeningDialogue : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-            if (index != lines.Length -1) videoPlayer.url = $"Assets/Videos/Dream_{index}.mov";
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
+            videoPlayer.clip = clips[index];
+            if (lines[index] != lines[index - 1])
+            {
+                textComponent.text = string.Empty;
+                StopAllCoroutines();
+                StartCoroutine(TypeLine());
+            }
         }
         else
         {
@@ -74,7 +88,9 @@ public class OpeningDialogue : MonoBehaviour
 
     void LoadNextScene()
     {
+        if (loaded) return;
         // Assuming the next scene is named "NextScene"
-        SceneManager.LoadScene(firstScene);
+        manager.LoadScene(firstScene);
+        loaded = true;
     }
 }

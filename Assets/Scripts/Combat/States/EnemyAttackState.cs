@@ -39,7 +39,7 @@ public class EnemyAttackState : StateNode
         var targetPos = dependencies.playerEntityVar!.Provide()!.transform.position;
         var offset = targetPos - transform.position;
         var angle = Vector2.SignedAngle(Vector2.right, new Vector2(offset.x, offset.z));
-        if (attack != null && attack.TryInstantiate(dependencies.entity!, transform.position, angle))
+        if (attack != null && attack.TryInstantiate(dependencies.entity!, dependencies.attackPosition!.transform.position, angle))
         {
             cooldownFinished = Time.time + cooldown;
             delayFinished = Time.time + delay;

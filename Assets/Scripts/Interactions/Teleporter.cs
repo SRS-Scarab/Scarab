@@ -9,11 +9,21 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private Transform? target;
     
-    private void Teleport()
+    public void Teleport()
     {
-        if (playerVar != null && playerVar.Provide() != null && target != null)
+        if (target != null)
         {
-            playerVar.Provide()!.transform.position = target.position;
+            if (playerVar == null)
+            {
+                transform.position = target.position;
+            }
+            else
+            {
+                if (playerVar.Provide() != null)
+                {
+                    playerVar.Provide()!.transform.position = target.position;
+                }
+            }
         }
     }
 }

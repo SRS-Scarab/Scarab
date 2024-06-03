@@ -1,48 +1,62 @@
 title: Caravaneer1
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: . . .
+<<remove-all-actors Stage>>
 
 ===
 title: Caravaneer2
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: . . . . . .
+<<remove-all-actors Stage>>
 ===
 title: Caravaneer3
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 <<play-audio Cara1>>
 
 Caravaneer: Hey kid! Can't a guy pray in peace? Don't you know temples are silent?
-
+<<remove-all-actors Stage>>
 ===
 title: Caravaneer4
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 <<play-audio Cara2>>
 
 Caravaneer: Okay. How about this? You leave me alone, and then you get the pleasure of not having to interact with me.
-
+<<remove-all-actors Stage>>
 ===
 title: Caravaneer5
 tags:
 ---
 
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 <<play-audio Cara3>>
 
 Caravaneer: Fine!! What do you want??
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: Qamaar sent us to find you.
@@ -88,24 +102,32 @@ Scarab: We need help learning how to push the sun.
 <<play-audio Cara8>>
 
 Caravaneer: Nope.
+<<remove-all-actors Stage>>
 ===
 title: Caravaneer6
 tags:
 ---
 
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 <<play-audio Cara9>>
 
 Caravaneer: Look. I'm not a man with many regrets. But take it from me. Take this idea you have, and crush it. I'm done with this conversation.
+<<remove-all-actors Stage>>
 ===
 title: CaravaneerCoffee
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<play-audio Cara10>>
 
 Caravaneer: Can't even get a coffee in peace, can I? Look, it's good that you got a bid from Qamaar. But she's not omniscient. She makes mistakes when she chooses magicians. Humans can't push the sun. Leave it there.
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: But, it will not be them pushing the sun. It will be me.
@@ -122,15 +144,20 @@ Barista: One ghost style coffee for… Caravaneer.
 
 <<play-audio Cara11>>
 
-Caravaneer: Come find me again
+Caravaneer: Come find me again.
+<<remove-all-actors Stage>>
 ===
 title: CaravaneerBook
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: I've always hated this place. Read one book, and everything's clearer. Read ten books, and you're back in the dark. Read a hundred books? Try going outside for a change.
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: Very wise words, Caravaneer.
@@ -171,11 +198,13 @@ Caravaneer: Maybe one day, people will look at me working and decide the world h
 Caravaneer: But enough about me. Read that book, and find me again.
 
 He runs out the door, leaving you and Scarab in the lotus shop.
-
+<<remove-all-actors Stage>>
 ===
 title: Lotus
 tags:
 ---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: even the lotuses… the reality i created is punishment enough. oh, Khepri, I hope you've found solace-
@@ -191,6 +220,8 @@ Caravaneer: . . . . . . . . . . . .
 Caravaneer: shit.
 Caravaneer: I wasn't expecting that to actually work.
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: What does it mean?
@@ -202,6 +233,7 @@ Caravaneer: they shouldn't be able to bloom right now-
 <<set-primary Stage caravaneer>>
 
 Caravaneer: Again? Wait here, kid. I have to handle something.
+<<remove-all-actors Stage>>
 ===
 title: Protest
 tags:
@@ -210,6 +242,8 @@ tags:
 
 Protestor Ghost: We cannot be any more clear! Harsher punishment for Caravaneer! We're upset and we can't lie! This Caravaneer has got to die!
 
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: Another protest, you guys? But the last one was so successful.
@@ -296,33 +330,40 @@ Caravaneer: You'll halt the entire underground!
 
 Protestor Ghost: Maybe. But you'll finally be dead. If you can't work, then you're as mortal as the rest of us.
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: This is looking bad, Nomad. Should we fight them off before they can light the Caravan on fire?
-    -> Yes
+-> Yes
     Scarab: Okay. How does one start a fight? HEY! Uh, NERD!
     <<set-primary Stage protestor-ghost>>
-
     Protestor Ghost: Do you mean me??! You're DEAD MEAT!!
     The ghosts attacking the Caravan begin attacking you. After you defeat them, the Caravaneer walks up to you.
-
     <<set-primary Stage caravaneer>>
-
     Caravaneer: . . .
     Caravaneer: Thanks, kid.
-    -> No
+    <<set-story-state Stage act2 4>>
+    <<remove-all-actors Stage>>
+-> No
     <<set-primary Stage scarab>>
-
     Scarab: I guess Caravaneer told us to wait. I'm sure he has got it handled.
-
     <<set-primary Stage caravaneer>>
-
     Caravaneer: Idiot protestors. You'd think they'd learn, don't mess with me.
-
+    <<set-story-state Stage act2 5>>
+    <<remove-all-actors Stage>>
+===
+title: PostProtest
+tags:
+---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: So how much did you hear?
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: . . . all of it?
@@ -349,8 +390,9 @@ Scarab: Is it far from here?
 
 Caravaneer: I forget you're new here. Distance is for those above. I can take you there.
 Caravaneer: That's all you need to know. When you're ready, I'll be here.
+<<remove-all-actors Stage>>
 ===
-title: Books
+title: Books1
 ---
 <<set-primary Stage bookkeeper>>
 
@@ -390,12 +432,15 @@ Hyperactive Bookkeeper:
     -> Yes
     Hyperactive Bookkeeper: Here you go!
     Hyperactive Bookkeeper: You're so lucky to have met me.
+    <<remove-all-actors Stage>>
     -> No
     Hyperactive Bookkeeper: Aw. Okay. Well. Then I'm REVOKING MY OFFER!! That's right. You get NOTHING now. Enjoy your NOTHING.
+    <<remove-all-actors Stage>>
 ===
 title: Books2
 ---
 Hyperactive Bookkeeper: What are you reading? Oh, I bet it's NOTHING!
+<<remove-all-actors Stage>>
 ===
 title: Priest
 ---
@@ -454,11 +499,20 @@ Scarab: Oh, we do not have any deben.
 <<set-primary Stage montage>>
 
 Montage: 
-
+<<remove-all-actors Stage>>
+===
+title: SleepWell
+---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
-Caravaneer: Alright everyone! Make yourselves at home. We leave
+Caravaneer: Alright everyone! Make yourselves at home. We leave at dawn, so get a full night’s rest. Oversleep and you’re getting left behind with the desert gerbils.
+Caravaneer: Bathroom’s over there next to that palm tree. And don’t hound me about toilet paper. Should’ve thought about that before you came…
+Caravaneer: Anyhow, sleep well my friends.
 
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: Hrmm? What is that…sound?
@@ -505,7 +559,7 @@ Caravaneer: LISTEN! YOU HAVEN'T THE SLIGHTEST IDEA OF WHAT I'VE ENDURED THESE PA
 
 <<set-primary Stage nomad>>
 
-Nomad: “?”
+Nomad: ?
 
 <<set-primary Stage scarab>>
 
@@ -541,7 +595,7 @@ Caravaneer: Choosing to help others…what a privilege that must be.
 
 <<set-primary Stage nomad>>
 
-Nomad: *emote of refusal* “!!!”
+Nomad: !
 
 <<set-primary Stage scarab>>
 
@@ -562,18 +616,36 @@ Scarab: WE WILL NOT ALLOW IT. KHEPRI WOULD NOT WANT THIS!
 <<set-primary Stage caravaneer>>
 
 Caravaneer: I see, you leave me with no choice!
-
+<<remove-all-actors Stage>>
+===
+title: CaravaneerChoice
+---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
+<<set-primary Stage none>>
+-> SPARE
+    <<set-story-state Stage act2 9>>
+    <<remove-all-actors Stage>>
+-> KILL
+    <<set-story-state Stage act2 10>>
+    <<remove-all-actors Stage>>
+===
+title: CaravaneerDefeat
+---
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: ENOUGH! SURRENDER NOW CARAVANEER!
-
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: Why do you spare me…
 
 <<set-primary Stage scarab>>
 
-Scarab: Because, it is not the answer! You are misunderstood, Caravaneer. A good spirit lives deep within you. Qamaar speaks highly of you. This isn't your place, and I agree,  how ironic it is to deny you freedom in the proclaimed land of redemption.
+Scarab: Because death is not the answer! You are misunderstood, Caravaneer. A good spirit lives deep within you. Qamaar speaks highly of you. This isn't your place, and I agree,  how ironic it is to deny you freedom in the proclaimed land of redemption.
 
 <<set-primary Stage caravaneer>>
 
@@ -598,49 +670,54 @@ Scarab: We cannot change what's already been done, but we can choose how we move
 <<set-primary Stage caravaneer>>
 
 Caravaneer: You're right. I'll return what I've taken, and I'll face whatever consequences come my way. It's the least I can do to make amends.
+Caravaneer: (With a heavy heart, the Caravaneer begins to place the stolen hearts back into the lifeless bodies of the travelers. Each heartbeat is restored.)
 
 <<set-primary Stage caravaneer>>
 
 Caravaneer: Everyone- I'm…sorry. I am so sorry for what I've done.
-
-<<set-primary Stage caravaneer>>
-
+Caravaneer: I did an awful thing. I have betrayed your trust, and for that, I’m deeply sorry. I’ve taken the most vulnerable thing from you, and I understand if you never forgive me.
+Caravaneer: But please, let me make things right. That’s all I ask.
 Caravaneer: Please, allow me to continue our journey to the gates and bring you closer to your new lives. Let's aid our heroes in their revival of the sun!
 
 <<set-primary Stage scarab>>
 
 Scarab: Qamaar and Khepri would be proud, Caravaneer. You are not alone.
-
+<<remove-all-actors Stage>>
+===
+title: CaravaneerDeath
+---
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
-Caravaneer: (IN PAIN)
-
+Caravaneer: I’m not as young as I used to be. You put up a good fight, Nomad.
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: PLEASE! Let us help you! There is still time!-
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: ‘Fraid not little bug. This is my fate. This is what happens to bad people.
+Caravaneer: 'Fraid not little bug. This is my fate. This is what happens to bad people.
 
 <<set-primary Stage scarab>>
 
-Scarab: (tearfully)
+Scarab: Then why is it happening to you?
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: (IN PAIN)
+Caravaneer: *Cough* Ha ha. Do not weep for me young ones. My end is a release…from a life that as been nothing but bad choices. And a release for humanity…from selfish decisions that were never your’s to bear. It’s only fair that I go.
+Caravaneer: Eternal punishment–that was awful, yes. But the deceit, the theft, the pain I inflicted on you all…that is burden far more painful to carry.
+Caravaneer: My regret each day isn’t for the punishment I’ve brought upon myself, but for pulling you all into this nightmare with me. And for that, I am deeply sorry. I don’t wish my suffering upon any being.
 
 <<set-primary Stage scarab>>
 
-Scarab: (TEARY)
+Scarab: Is there redemption in the afterlife?
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: I hope so! I'm not dying for nothin! Ha ha!
-
-<<set-primary Stage caravaneer>>
-
+Caravaneer: I hope so! I’m not dying for nothin! Ha ha!
 Caravaneer: Khepri would be so proud of you two. I'll tell him all about it once I join him in the stars. Well…that's if he forgives me.
 
 <<set-primary Stage scarab>>
@@ -649,26 +726,28 @@ Scarab: May your spirit find the peace it longed for, Caravaneer.
 
 <<set-primary Stage caravaneer>>
 
-Caravaneer: (LAST BREATH)
+Caravaneer: May you be the ones to lift the sun back into the sky, Nomad and Scar-
+Caravaneer: ...
 
 <<set-primary Stage scarab>>
 
-Scarab: *Sigh* He's gone. If only- *pause*
+Scarab: He's gone. If only-
 
-<<set-primary Stage scarab>>
-
-Scarab: *Inhales* We will honor him in our journey. But first, let's restore everyone's hearts.
-
+Scarab: We will honor him in our journey. But first, let's restore everyone's hearts.
+<<remove-all-actors Stage>>
+===
+title: CaravaneerVictory
+---
+<<add-actor Stage scarab>>
+<<left-actor Stage scarab>>
 <<set-primary Stage scarab>>
 
 Scarab: ...
-
+<<add-actor Stage caravaneer>>
+<<right-actor Stage caravaneer>>
 <<set-primary Stage caravaneer>>
 
 Caravaneer: I think an explanation is needed.
-
-<<set-primary Stage caravaneer>>
-
 Caravaneer: After I met you, Nomad, I found my interest piqued. I wanted to know more about you. 
 Caravaneer: My caravan allows me occasional forays into your old world, so I visited your village and listened to the townspeople speak of the last child of magic. A loving child, who wanted happiness for everyone around them.
 
@@ -678,6 +757,6 @@ Scarab: Nomad, I am sorry I did not tell you earlier. I thought maybe the attack
 Scarab: You have been since we first met. I should have told you.
 
 <<set-primary Stage caravaneer>>
-
+<<remove-all-actors Stage>>
 
 ===

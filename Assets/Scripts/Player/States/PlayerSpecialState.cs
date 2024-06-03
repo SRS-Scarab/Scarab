@@ -26,6 +26,19 @@ public class PlayerSpecialState : StateNode
     {
         return Time.time >= cooldownFinished;
     }
+    
+    public float GetRechargeProgress()
+    {
+        return 1 - Mathf.Clamp01((cooldownFinished - Time.time) / cooldown);
+    }
+    
+    private void Start()
+    {
+        var dependencies = GetBlackboard<PlayerDependencies>();
+        if (dependencies == null || !dependencies.IsValid()) return;
+
+        dependencies.proxy!.specialState = this;
+    }
 
     protected override void OnEnter()
     {
@@ -37,7 +50,7 @@ public class PlayerSpecialState : StateNode
         var mousePos = Mouse.current.position.ReadValue();
         var center = new Vector2(Screen.width / 2f, Screen.height / 2f);
         var angle = -Vector2.SignedAngle(Vector2.right, mousePos - center);
-        if (specialAttack != null && dependencies.entity!.DeductMana(manaCost) && specialAttack.TryInstantiate(dependencies.entity!, dependencies.entity!.transform.position, angle))
+        if (specialAttack != null && dependencies.entity!.DeductMana(manaCost) && specialAttack.TryInstantiate(dependencies.entity!, dependencies.attackPosition!.transform.position, angle))
         {
             cooldownFinished = Time.time + cooldown;
             delayFinished = Time.time + delay;

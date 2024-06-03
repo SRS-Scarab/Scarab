@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Variables/Story State")]
 public class StoryStateVariable : ScriptableVariable<int>
 {
+    public string stateName = string.Empty;
+    
     [SerializeField]
     private int state;
 
@@ -19,5 +21,10 @@ public class StoryStateVariable : ScriptableVariable<int>
     public override void Consume(int value)
     {
         _runtimeState = value;
+    }
+
+    public void NextStage()
+    {
+        _runtimeState++;
     }
 }
