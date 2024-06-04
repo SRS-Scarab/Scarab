@@ -693,6 +693,15 @@ PrefabInstance:
     - {fileID: -3176859406545124270, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
     - {fileID: -7962035125846263951, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
     - {fileID: -300420335210327840, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 2866621852552652557, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: -5758263932751862782, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 5650136495314450539, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 8519830034909801540, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 301286090208386101, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 5060060339130462014, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 519036089024911353, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: 8860126337695242478, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
+    - {fileID: -4091110552941831237, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8daf2d613d50b344800e446cc7720e4, type: 3}
@@ -5412,7 +5421,6 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   sprintSpeed: 12
-  sprintClip: {fileID: 8300000, guid: 0d518fbdfab614385829f4541083425e, type: 3}
 --- !u!114 &1657906097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5431,7 +5439,6 @@ MonoBehaviour:
   blackboards: []
   isBlocking: 0
   walkSpeed: 6
-  walkClip: {fileID: 8300000, guid: 610cae2ccaa5e4094bde7494e53921d1, type: 3}
 --- !u!54 &1657906099
 Rigidbody:
   m_ObjectHideFlags: 0
