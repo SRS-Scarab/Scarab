@@ -13,7 +13,7 @@ https://unity.com/releases/editor/archive
 - Visual Studio Code
 
 You can use any IDE that you want, but I prefer the VSCode integration with Unity personally.
-Make sure that you If you want Unity to open VSCode by default, go to Edit > Preference > External Tools > External Script Editor > select Visual Studio Code
+Make sure that you if you want Unity to open VSCode by default, go to Edit > Preference > External Tools > External Script Editor > select Visual Studio Code
 For VSCode itself, it also helps to have the "Unity", "Unity Tools", and "Unity Code Snippets" extensions to help with autocompletion
 
 ## Getting Started
@@ -36,3 +36,16 @@ With this being said, we must make sure that we don't modify the same scene in U
 5. You change the scene in the Demo folder based on your changes in you copied scene and make sure it works.
 6. You save your work in Unity and then add and commit your changes with `git add .` and `git commit -m {your commit message}`
 7. Push your changes to the repository with `git push` and you are done! You can check the github site to see your latest commit.
+
+### Large Files
+We have some fbx files in the project that are very large and require [LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) to store on github. These files cannot be stored without limits unless we pay for it, which is not really worth, so we have decided for now to simply exclude them from the project. You will instead have to download them from the [shared folder](https://drive.google.com/drive/folders/1Q7_In3082NgcwwA1P7zGd9sCWOmkWYkN) and add them to the project manually afterwards. Hopefully we can fix this issue in the future by reducing the size of our fbx files and remove it from the `.gitignore`.
+
+## Libraries
+These are some of the major libraries that we use for your reference. You can see them in the unity project by going to Window -> Package Manager. They are already in the repository so you do not need to add them yourself. Feel free to add any new ones as needed though!
+### Yarnspinner
+We use this for dialogue. Please see the [documentation](https://docs.yarnspinner.dev/) for more details.
+### Tilemap (no longer used)
+### Unity Toon Shader
+We use this for making toon shading. Please see the [documentation](https://docs.unity3d.com/Packages/com.unity.toonshader@0.10/manual/index.html) for more details.
+### Input Subsystem
+We use this for handling input. Please see the [documentation](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/index.html) for more details.
