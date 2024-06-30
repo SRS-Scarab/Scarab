@@ -44,7 +44,6 @@ We have some fbx files in the project that are very large and require [LFS](http
 These are some of the major libraries that we use for your reference. You can see them in the unity project by going to Window -> Package Manager. They are already in the repository so you do not need to add them yourself. Feel free to add any new ones as needed though!
 ### Yarnspinner
 We use this for dialogue. Please see the [documentation](https://docs.yarnspinner.dev/) for more details.
-### Tilemap (no longer used)
 ### Unity Toon Shader
 We use this for making toon shading. Please see the [documentation](https://docs.unity3d.com/Packages/com.unity.toonshader@0.10/manual/index.html) for more details.
 ### Input Subsystem
